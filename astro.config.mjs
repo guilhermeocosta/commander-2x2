@@ -1,15 +1,17 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import mdx from "@astrojs/mdx";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
+  adapter: vercel(),
   integrations: [
     tailwind({
       applyBaseStyles: true,
     }),
-    mdx()
+    mdx(),
   ],
   build: {
-    format: 'file'
-  }
+    format: "file",
+  },
 });

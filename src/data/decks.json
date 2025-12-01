@@ -8,8 +8,8 @@
       "player": "Guilherme Costa",
       "commanders": ["Kroxa, Titan of Death's Hunger"],
       "colors": ["B", "R"],
-      "platform": "moxfield",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862038/guilherme_fear_hunger",
       "record": "3-0-0",
       "notes": ""
     },
@@ -20,21 +20,9 @@
       "player": "Ezequiel Tizio",
       "commanders": ["Arbaaz Mir"],
       "colors": ["W", "R"],
-      "platform": "moxfield",
-      "url": "https://example.com/deck/arbaaz",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862097/ezequiel_arbaaz_mir",
       "record": "3-0-0",
-      "notes": ""
-    },
-    {
-      "id": "evt-2025-09-27-raphael-edgar",
-      "event": "2025-09-27 — Medieval",
-      "date": "2025-09-27",
-      "player": "Raphael Souza",
-      "commanders": ["Edgar Markov"],
-      "colors": ["W", "B", "R"],
-      "platform": "moxfield",
-      "url": "https://example.com/deck/edgar",
-      "record": "2-1-0",
       "notes": ""
     },
     {
@@ -44,8 +32,8 @@
       "player": "Felipe Amalfi",
       "commanders": ["Tivit, Seller of Secrets"],
       "colors": ["W", "U", "B"],
-      "platform": "aetherhub",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862136/felipe_tivit",
       "record": "2-1-0",
       "notes": ""
     },
@@ -56,8 +44,8 @@
       "player": "Ian",
       "commanders": ["Veyran, Voice of Duality"],
       "colors": ["U", "R"],
-      "platform": "aetherhub",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862316/ian_veyran",
       "record": "2-1-0",
       "notes": ""
     },
@@ -68,8 +56,8 @@
       "player": "Jun",
       "commanders": ["Vaan, Street Thief"],
       "colors": ["R"],
-      "platform": "aetherhub",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862437/jun_mono_red_steal",
       "record": "2-1-0",
       "notes": ""
     },
@@ -83,8 +71,8 @@
         "Sophina, Spearsage Deserter"
       ],
       "colors": ["W", "R", "G"],
-      "platform": "aetherhub",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862220/cludio_gilmar_e_sofia",
       "record": "2-1-0",
       "notes": ""
     },
@@ -95,8 +83,8 @@
       "player": "José",
       "commanders": ["Terra, Herald of Hope"],
       "colors": ["W", "R", "B"],
-      "platform": "aetherhub",
-      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/17862589/jos_revival_trance_2x2",
       "record": "2-1-0",
       "notes": ""
     }

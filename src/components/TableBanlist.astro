@@ -1,0 +1,104 @@
+---
+export interface Props {
+  entries: any[];
+  watchlist: any[];
+  sources: any[];
+  updatedAt: string;
+}
+
+const { entries, watchlist, sources, updatedAt }: Props = Astro.props;
+---
+
+<div class="alert alert-neutral mb-4">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
+  <span>Última atualização em {new Date(updatedAt + 'T00:00:00').toLocaleString('pt-BR', { dateStyle: 'short' })}</span>
+</div>
+
+<section class="mb-12 prose">
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sources.map((source) => (
+          <tr>
+            <td>
+              <a href={source.url} target={source?.url?.startsWith('#') ? '_self' : '_blank'} rel="noopener noreferrer" class="link">
+                {source.name}
+              </a>
+            </td>
+            <td>{source.note || '-'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mb-12 prose" id="2x2-banlist">
+  <h2>Lista própria de banimentos</h2>
+  <p>Como o formato é bem diferente de variantes tradicionais (mesmo de multiplayer), algumas cartas acabam por deturpar o metagame ao redor delas, portanto alguns banimentos específicos se fazem necessários.</p>
+  <p>As seguintes cartas são banidas:</p>
+
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {entries.map((entry) => (
+          <tr>
+            <td class="font-semibold">
+              <a href={entry.url} target="_blank" rel="noopener noreferrer" class="link">{entry.card}</a>
+            </td>
+            <td>
+              {entry.status === 'banned-as-commander' ? (
+                <span class="badge badge-warning">Banida como Comandante</span>
+              ) : (
+                <span class="badge badge-error">Banida</span>
+              )}
+            </td>
+
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mb-12 prose" id="watchlist">
+  <h2>Watchlist</h2>
+  <p>A <em>watchlist</em> serve para indicar cartas que estão no nosso radar para um possível banimento futuro, mas que ainda não demonstraram impacto suficiente para prejudicar a saúde do formato. Sempre que possível cartas que forem cotadas para serem banidas serão inicialmente inseridas aqui, evitando grandes mudanças repentinas no formato.</p>
+
+  <p>As seguintes cartas integram a <em>watchlist</em> atualmente:</p>
+
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Racional</th>
+        </tr>
+      </thead>
+      <tbody>
+        {watchlist.map((card) => (
+          <tr>
+            <td class="font-semibold">
+              <a href={card.url} target="_blank" rel="noopener noreferrer" class="link">{card.card}</a>
+            </td>
+            <td class="text-sm">{card.reason}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

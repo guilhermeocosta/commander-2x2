@@ -1,0 +1,63 @@
+---
+import Button from './Button.astro';
+import { Calendar, User } from '@lucide/astro';
+import type { Colors } from '../schemas/deck';
+
+export interface Props {
+  player: string;
+  commanders: string[];
+  colors: Colors[];
+  url: string;
+  record?: string;
+  date?: string;
+}
+
+const colorsMap = {
+  W: '🟡',
+  U: '🔵',
+  B: '⚫',
+  R: '🔴',
+  G: '🟢',
+  C: '⚪',
+};
+
+const {
+  player,
+  commanders,
+  url,
+  record = '',
+  date = '',
+  colors = [],
+}: Props = Astro.props;
+---
+
+
+
+<div class="card bg-base-100 shadow-xl h-full">
+  <div class="card-body flex flex-col">
+    <div class="flex gap-1 justify-between">
+      {colors && <div class="flex gap-1">{colors.map((color) => <span class="text-sm">{colorsMap[color]}</span>)}</div>}
+      {record && <div class="badge badge-primary"><span class="text-sm whitespace-nowrap">{record}</span></div>}
+    </div>
+
+    <h4 class="sm:my-0">{commanders.join(' / ')}</h4>
+
+    <div>
+      <span class="flex items-center gap-2"><User size={16} /> {player}</span>
+      <span class="flex items-center gap-2"><Calendar size={16} /> {new Date(date + 'T00:00:00').toLocaleDateString('pt-BR')}</span>
+    </div>
+
+    <div class="card-actions mt-auto pt-4">
+      <Button
+        href={url}
+        variant="primary"
+        size="sm"
+        className="w-full text-white no-underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver Decklist
+      </Button>
+    </div>
+  </div>
+</div>

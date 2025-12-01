@@ -1,0 +1,26 @@
+---
+import Navigation from './Navigation.astro';
+---
+<footer class="footer p-8 md:p-10 bg-base-200 text-base-content">
+  <div class="container mx-auto place-items-center">
+    <div class="flex flex-col items-center space-y-4 md:hidden mx-auto">
+      <!-- Mobile layout: vertical centered -->
+      <Navigation
+        listClass="flex flex-col items-center space-y-3 text-center"
+        itemClass="link link-hover text-base"
+      />
+    </div>
+
+    <div class="hidden md:grid md:grid-flow-col md:gap-8 justify-center text-left">
+      <!-- Desktop layout: horizontal grid -->
+      <Navigation
+        listClass="grid grid-flow-col gap-8"
+        itemClass="link link-hover"
+      />
+    </div>
+
+    <div class="text-center mt-8 border-t border-base-300 pt-6">
+      <p class="text-sm md:text-base">Copyright © {new Date().getFullYear()} Commander 2x2 - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>

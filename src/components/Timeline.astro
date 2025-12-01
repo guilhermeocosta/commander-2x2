@@ -1,0 +1,37 @@
+---
+export interface Props {
+  entries: any[];
+}
+
+const { entries }: Props = Astro.props;
+---
+
+<div class="timeline timeline-vertical">
+  {entries.map((entry, index) => (
+    <div class={`timeline-item ${index < entries.length - 1 ? 'timeline-end' : ''}`}>
+      <div class="timeline-middle">
+        <div class="timeline-marker bg-primary border-primary"></div>
+      </div>
+      <div class="timeline-content timeline-box bg-base-100 shadow-xl mb-8">
+        <div class="card-body">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h2 class="card-title text-primary">{entry.title}</h2>
+            <div class="badge badge-outline">{entry.date}</div>
+          </div>
+          <div class="prose prose-sm max-w-none">
+            <entry.content />
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+{entries.length === 0 && (
+  <div class="alert alert-info">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <span>Nenhuma atualização registrada ainda.</span>
+  </div>
+)}

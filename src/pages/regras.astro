@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Content } from '../content/regras/index.md';
+---
+
+<BaseLayout title="Regras do Commander 2x2" description="Regras completas do formato Commander 2x2">
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <Content />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

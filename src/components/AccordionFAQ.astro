@@ -1,0 +1,30 @@
+---
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  items: FAQItem[];
+}
+
+const { items }: Props = Astro.props;
+---
+
+<div class="space-y-4">
+  {items.map((item, index) => (
+    <div class="collapse collapse-arrow bg-base-200">
+      <input 
+        type="radio" 
+        name="faq-accordion" 
+        {...(index === 0 ? { checked: true } : {})} 
+      />
+      <div class="collapse-title text-xl font-medium">
+        {item.question}
+      </div>
+      <div class="collapse-content">
+        <p>{item.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>

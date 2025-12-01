@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AccordionFAQ from '../components/AccordionFAQ.astro';
+
+const faqItems = [
+  {
+    question: "Então o Commander 2x2 é bracket 2?",
+    answer: "Não. O Commander 2x2 tem uma lista de banimentos que visa torná-lo acessível a mais jogadores, mas não tem como objetivo ser um formato de power level limitado. Pelo contrário. Espere muita interação, combos e finalizadores de jogos eficientes. Você precisa se adaptar e ter um plano de jogo sólido para ter bons resultados."
+  },
+  {
+    question: "Posso utilizar proxy?",
+    answer: "Não. Não é permitido o uso de cartas não oficiais e que não são válidas em torneios regulares de Magic: the Gathering."
+  },
+  {
+    question: `"Partner with", "Friends forever", "Doctor's companion" e "Choose a background"`,
+    answer: "Todas essas variantes são permitidas na zona de comando. Atualmente só 'Partner' de forma genérica é banido da zona de comando."
+  },
+  {
+    question: "Quem decide sobre os banimentos?",
+    answer: "O formato ainda é muito novo e está em fase experimental. Apesar disso, as decisões serão tomadas em conjunto com a comunidade até o momento em que haja maturidade suficiente no formato para que um comitê seja instaurado e ajude a manter a atualização de modo que exista a manutenção necessária para a saúde do formato à longo prazo."
+  },
+  {
+    question: "Haverá algum desbanimento?",
+    answer: "Talvez. Mas como um dos maiores objetivos é manter a regra simples, o principal motivo dos banimentos não é simplesmente power-level. O jogo contém diversas outras cartas possíveis para montar estratégias, experimente outras opções!"
+  },
+  {
+    question: "Como funciona o mulligan?",
+    answer: "Usamos o London Mulligan padrão sem mulligan gratuito. A cada mulligan, compre 7 cartas e coloque uma carta no fundo do deck para cada mulligan feito."
+  },
+  {
+    question: "Onde posso encontrar os decks vencedores?",
+    answer: "Na seção Decks do site, listamos os decks que se destacaram em campeonatos com pelo menos duas vitórias, com links para as listagens externas."
+  },
+  {
+    question: "Como faço para participar dos eventos?",
+    answer: "Consulte a página Eventos para datas, locais e informações de inscrição. Geralmente realizamos eventos mensalmente."
+  }
+];
+---
+
+<BaseLayout title="FAQ - Commander 2x2" description="Perguntas frequentes sobre o formato Commander 2x2">
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <h1>Perguntas Frequentes</h1>
+
+      <p>
+        Respostas para as dúvidas mais comuns sobre o formato Commander 2x2.
+      </p>
+
+      <AccordionFAQ items={faqItems} />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import EventCard from '../components/EventCard.astro';
+import Button from '../components/Button.astro';
+import eventsData from '../data/events.json';
+
+// Sort events by date (upcoming first)
+const sortedEvents = eventsData.events.sort((a, b) => {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+});
+
+// Separate upcoming and past events
+const today = new Date();
+const upcomingEvents = sortedEvents.filter(event => new Date(event.date) >= today);
+const pastEvents = sortedEvents.filter(event => new Date(event.date) < today).reverse();
+---
+
+<BaseLayout
+  title="Eventos - Commander 2x2"
+  description="Calendário de torneios e eventos de Commander 2x2. Participe dos torneios competitivos em duplas e conheça a comunidade."
+  url="https://commander2x2.com/eventos"
+  type="website"
+  keywords="Commander 2x2, eventos, torneios, competitivo, duplas, Magic: the Gathering, EDH"
+>
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <h1>Eventos</h1>
+
+    <p>
+        Participe dos torneios de Commander 2x2! Realizamos eventos mensais para testar o formato e conhecer novos jogadores.
+      </p>
+
+    <section class="mb-12">
+      <h2>Próximos Eventos</h2>
+
+      {upcomingEvents.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {upcomingEvents.map((event) => (
+            <EventCard
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              format={event.format}
+              entryFee={event.entryFee}
+              description={event.description}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>Nenhum evento agendado no momento. Fique de olho para novidades!</span>
+        </div>
+      )}
+    </section>
+
+    {pastEvents.length > 0 && (
+      <section>
+        <h2>Eventos Anteriores</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {pastEvents.map((event) => (
+            <EventCard
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              format={event.format}
+              entryFee={event.entryFee}
+              description={event.description}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="mt-16">
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body text-center">
+          <h2 class="card-title text-primary justify-center">Quer organizar um evento?</h2>
+          <p>Entre em contato conosco para trazer um torneio de Commander 2x2 para sua cidade!</p>
+
+          <div class="card-actions justify-center mt-4">
+            <Button href="https://forms.gle/example" variant="accent" target="_blank" className="text-white no-underline">
+              Propor Evento
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

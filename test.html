@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script>
+    tailwind.config = {
+      themes: {
+        light: {
+          primary: '#2563eb',
+          secondary: '#64748b',
+          accent: '#10b981',
+          neutral: '#1f2937',
+          'base-100': '#ffffff',
+          'base-200': '#f3f4f6',
+          'base-300': '#e5e7eb',
+          info: '#3b82f6',
+          success: '#10b981',
+          warning: '#f59e0b',
+          error: '#ef4444',
+        },
+      },
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-base-100 text-base-content">
+  <header class="navbar bg-base-200 shadow-lg">
+    <div class="navbar-start">
+      <a href="/" class="btn btn-ghost text-xl font-bold">
+        Commander 2x2
+      </a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/regras" class="hover:text-primary">Regras</a></li>
+        <li><a href="/banlist" class="hover:text-primary">Banlista</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <main class="container mx-auto px-4 py-8">
+    <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold text-primary">Commander 2x2</h1>
+          <p class="py-6 text-lg">
+            Formato competitivo de Commander em duplas.
+          </p>
+          <button class="btn btn-primary btn-lg">Como Jogar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TableBanlist from '../components/TableBanlist.astro';
+import banlistData from '../data/banlist.json';
+---
+
+<BaseLayout title="Lista de banimentos - Commander 2x2" description="Lista de cartas banidas e em observação no formato Commander 2x2">
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <h1>Lista de banimentos</h1>
+
+      <TableBanlist
+        entries={banlistData.entries}
+        watchlist={banlistData.watchlist}
+        sources={banlistData.sources}
+        updatedAt={banlistData.updatedAt}
+      />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

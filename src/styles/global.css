@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom typography overrides using Tailwind's typography plugin */
+@layer components {
+  /* Override prose colors to match DaisyUI theme */
+  .prose {
+    @apply prose-base lg:prose-lg;
+  }
+
+  .prose h1 {
+    @apply prose-headings:text-primary;
+  }
+
+  .prose h2 {
+    @apply prose-headings:text-primary;
+  }
+
+  .prose h3 {
+    @apply prose-headings:text-primary;
+  }
+
+  .prose strong {
+    @apply prose-strong:text-primary;
+  }
+
+  .prose a {
+    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+  }
+
+  .prose blockquote {
+    @apply prose-blockquote:border-l-primary prose-blockquote:not-italic prose-blockquote:bg-primary/5 prose-blockquote:p-4 prose-blockquote:rounded-lg;
+  }
+
+  .prose ul {
+    @apply prose-ul:text-base-content/90;
+  }
+
+  .prose li::marker {
+    @apply text-primary;
+  }
+
+  .prose code {
+    @apply prose-code:bg-base-300 prose-code:px-2 prose-code:py-1 prose-code:rounded;
+  }
+
+  /* Custom aside styling for alerts */
+  .prose aside {
+    @apply bg-warning/10 border border-warning/20 p-4 rounded-lg my-6;
+  }
+}

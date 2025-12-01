@@ -1,0 +1,41 @@
+{
+  "updatedAt": "2025-11-03",
+  "events": [
+    {
+      "title": "Regular Commander 2x2",
+      "date": "2026-01-10",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 25,00",
+      "description": "Torneio regular"
+    },
+    {
+      "title": "Regular Commander 2x2",
+      "date": "2025-12-13",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 25,00",
+      "description": "Torneio regular"
+    },
+    {
+      "title": "Regular Commander 2x2",
+      "date": "2025-11-08",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 25,00",
+      "description": "Torneio regular"
+    },
+    {
+      "title": "Torneio de Lançamento",
+      "date": "2025-09-27",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 25,00",
+      "description": "Evento de testes do Commander 2x2"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "commander-2x2",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:md": "markdownlint \"**/*.md\" --ignore node_modules",
+    "deploy": "pnpm run build && vercel --prod"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.9",
+    "@astrojs/tailwind": "^6.0.2",
+    "@lucide/astro": "^0.553.0",
+    "astro": "^5.15.3",
+    "daisyui": "^4.12.10",
+    "posthog-js": "^1.158.2",
+    "tailwindcss": "^3.4.18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "@vercel/node": "^5.5.4",
+    "eslint": "^9.39.1",
+    "eslint-plugin-astro": "^1.4.0",
+    "markdownlint-cli": "^0.45.0",
+    "typescript": "^5.6.3"
+  }
+}

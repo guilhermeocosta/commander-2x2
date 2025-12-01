@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2025-10-31",
+  "sources": [
+    {
+      "name": "Commander Banlist",
+      "url": "https://scryfall.com/search?q=%28game%3Apaper%29+banned%3Acommander&order=color&as=grid&unique=cards"
+    },
+    {
+      "name": "Reserved List",
+      "url": "https://scryfall.com/search?as=grid&order=color&q=is%3Areserved_list&unique=cards"
+    },
+    {
+      "name": "Game Changers",
+      "url": "https://scryfall.com/search?as=grid&order=color&q=is%3Agame_changer&unique=cards"
+    },
+    {
+      "name": "Partner na zona de comando",
+      "url": "https://scryfall.com/search?q=o%3Apartner+-o%3D%22partner+with%22+-o%3D%22Partner%E2%80%94%22+legal%3Aedh&unique=cards&as=grid&order=name",
+      "note": "'Partner' genérico é banido, mas permite 'Partner with', 'Friends forever', 'Doctor's companion', 'Choose a background' e variações"
+    },
+    {
+      "name": "Lista própria de banimentos",
+      "url": "#2x2-banlist"
+    }
+  ],
+  "entries": [
+    {
+      "card": "Yuriko, the Tiger's Shadow",
+      "url": "https://scryfall.com/card/c18/52/yuriko-the-tigers-shadow",
+      "status": "banned-as-commander",
+      "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Scheming Symmetry",
+      "url": "https://scryfall.com/card/m20/113/scheming-symmetry",
+      "status": "banned",
+      "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Sol Ring",
+      "url": "https://scryfall.com/card/lea/269/sol-ring",
+      "status": "banned",
+      "effectiveDate": "2025-10-31"
+    }
+  ],
+  "watchlist": [
+    {
+      "card": "Kinnan, Bonder Prodigy",
+      "url": "https://scryfall.com/card/iko/192/kinnan-bonder-prodigy",
+      "reason": "Saída recente da lista de Game Changers",
+      "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Urza, Lord High Artificer",
+      "url": "https://scryfall.com/card/mh1/75/urza-lord-high-artificer",
+      "reason": "Saída recente da lista de Game Changers",
+      "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Winota, Joiner of Forces",
+      "url": "https://scryfall.com/card/iko/216/winota-joiner-of-forces",
+      "reason": "Saída recente da lista de Game Changers",
+      "effectiveDate": "2025-10-31"
+    }
+  ]
+}

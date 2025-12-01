@@ -1,0 +1,104 @@
+{
+  "updatedAt": "2025-10-31",
+  "decks": [
+    {
+      "id": "evt-2025-09-27-guilherme-kroxa",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Guilherme Costa",
+      "commanders": ["Kroxa, Titan of Death's Hunger"],
+      "colors": ["B", "R"],
+      "platform": "moxfield",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "3-0-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-ezequiel-arbaaz",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Ezequiel Tizio",
+      "commanders": ["Arbaaz Mir"],
+      "colors": ["W", "R"],
+      "platform": "moxfield",
+      "url": "https://example.com/deck/arbaaz",
+      "record": "3-0-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-raphael-edgar",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Raphael Souza",
+      "commanders": ["Edgar Markov"],
+      "colors": ["W", "B", "R"],
+      "platform": "moxfield",
+      "url": "https://example.com/deck/edgar",
+      "record": "2-1-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-felipe-tivit",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Felipe Amalfi",
+      "commanders": ["Tivit, Seller of Secrets"],
+      "colors": ["W", "U", "B"],
+      "platform": "aetherhub",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "2-1-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-ian-veyran",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Ian",
+      "commanders": ["Veyran, Voice of Duality"],
+      "colors": ["U", "R"],
+      "platform": "aetherhub",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "2-1-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-jun-vaan",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Jun",
+      "commanders": ["Vaan, Street Thief"],
+      "colors": ["R"],
+      "platform": "aetherhub",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "2-1-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-claudio-elmar-sophina",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "Claudio",
+      "commanders": [
+        "Elmar, Ulvenwald Informant",
+        "Sophina, Spearsage Deserter"
+      ],
+      "colors": ["W", "R", "G"],
+      "platform": "aetherhub",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "2-1-0",
+      "notes": ""
+    },
+    {
+      "id": "evt-2025-09-27-jose-terra",
+      "event": "2025-09-27 — Medieval",
+      "date": "2025-09-27",
+      "player": "José",
+      "commanders": ["Terra, Herald of Hope"],
+      "colors": ["W", "R", "B"],
+      "platform": "aetherhub",
+      "url": "https://aetherhub.com/Deck/Embedded/tivit-2x2?mode=dark",
+      "record": "2-1-0",
+      "notes": ""
+    }
+  ]
+}

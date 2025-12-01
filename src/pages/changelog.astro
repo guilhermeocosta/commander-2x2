@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Timeline from '../components/Timeline.astro';
+
+// Auto-discover changelog entries
+const changelogModules = import.meta.glob('../content/changelog/*.mdx', { eager: true });
+
+// Extract and sort entries by date
+const changelogEntries = Object.entries(changelogModules)
+  .map(([path, module]: [string, any]) => {
+    const slug = path.split('/').pop()?.replace('.mdx', '') || '';
+    const date = module.frontmatter.date;
+    return {
+      slug,
+      title: module.frontmatter.title,
+      date,
+      content: module.Content,
+      path
+    };
+  })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Get the latest update date for SEO
+const lastUpdated = changelogEntries.length > 0 ? changelogEntries[0].date : new Date().toISOString().split('T')[0];
+---
+
+<BaseLayout 
+  title="Changelog - Commander 2x2" 
+  description="Histórico de atualizações e mudanças no formato Commander 2x2. Acompanhe todas as novidades e balanceamentos."
+  url="https://commander2x2.com/changelog"
+  type="website"
+  keywords="Commander 2x2, changelog, atualizações, mudanças, balanceamento, formato competitivo"
+  modifiedTime={lastUpdated}
+>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-primary">Changelog</h1>
+    
+    <div class="mb-8">
+      <p class="text-lg text-base-content/80">
+        Histórico de todas as atualizações e mudanças no formato Commander 2x2.
+      </p>
+    </div>
+    
+    <Timeline entries={changelogEntries} />
+  </main>
+  
+  <Footer />
+</BaseLayout>

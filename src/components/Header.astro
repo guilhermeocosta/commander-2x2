@@ -1,0 +1,75 @@
+---
+import Navigation from './Navigation.astro';
+---
+<!-- Mobile drawer structure -->
+<div class="drawer drawer-end lg:hidden">
+  <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <header class="navbar bg-base-200 shadow-lg relative z-50">
+      <div class="navbar-start">
+        <!-- Mobile logo -->
+        <a href="/" class="btn btn-ghost text-lg font-bold">
+          Commander 2x2
+        </a>
+      </div>
+
+      <!-- Desktop navigation -->
+      <div class="navbar-center hidden lg:flex">
+        <Navigation 
+          listClass="menu menu-horizontal px-1" 
+          itemClass="hover:text-primary"
+        />
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="navbar-end">
+        <!-- Desktop logo -->
+        <a href="/" class="btn btn-ghost text-xl font-bold hidden lg:flex">
+          Commander 2x2
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </label>
+      </div>
+    </header>
+  </div>
+  <div class="drawer-side z-50">
+    <label for="mobile-menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+    <aside class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-primary">Commander 2x2</h2>
+      </div>
+      <Navigation 
+        listClass="menu-vertical gap-2" 
+        itemClass="btn btn-ghost justify-start"
+        showIcons={true}
+      />
+    </aside>
+  </div>
+</div>
+
+<!-- Desktop-only header (hidden on mobile) -->
+<header class="navbar bg-base-200 shadow-lg relative z-50 hidden lg:flex">
+  <div class="navbar-start">
+    <!-- Desktop logo -->
+    <a href="/" class="btn btn-ghost text-xl font-bold">
+      Commander 2x2
+    </a>
+  </div>
+
+  <!-- Desktop navigation -->
+  <div class="navbar-center">
+    <Navigation 
+      listClass="menu menu-horizontal px-1" 
+      itemClass="hover:text-primary"
+    />
+  </div>
+
+  <!-- Desktop right side (empty for now)-->
+  <div class="navbar-end">
+  </div>
+</header>

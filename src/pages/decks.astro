@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import CardDeck from '../components/CardDeck.astro';
+import rawDecksData from '../data/decks.json';
+import { DecksDataSchema } from '../schemas/deck';
+
+const decksData = DecksDataSchema.parse(rawDecksData);
+---
+
+<BaseLayout title="Decks - Commander 2x2" description="Decks de referência e listagens vencedoras dos torneios de Commander 2x2">
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+      <div class="prose prose-base lg:prose-lg mx-auto">
+        <h1>Decks de Referência</h1>
+      <p>
+        Decks que se destacaram em campeonatos com pelo menos duas vitórias. Compartilhamos estratégias que já provaram sua eficácia no formato.
+      </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {decksData.decks.map((deck) => (
+        <CardDeck
+          player={deck.player}
+          commanders={deck.commanders}
+          url={deck.url}
+          record={deck.record}
+          date={deck.date}
+          colors={deck.colors}
+        />
+      ))}
+    </div>
+
+    <section class="mt-16">
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body text-center">
+          <h2 class="card-title text-primary justify-center">Quer ver seu deck aqui?</h2>
+          <p>Participe dos nossos eventos e conquiste pelo menos duas vitórias para ter seu deck listado na seção de referência!</p>
+          <div class="card-actions justify-center mt-4">
+            <Button href="/eventos" variant="accent" className='text-white no-underline'>
+              Ver Próximos Eventos
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

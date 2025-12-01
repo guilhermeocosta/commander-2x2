@@ -1,0 +1,14 @@
+<!-- This would be a 1200x630 PNG image with Commander 2x2 branding -->
+<!-- For now, I'll create a placeholder SVG that can be converted to PNG -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#2563eb"/>
+  <text x="600" y="250" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="72" font-weight="bold">
+    Commander 2x2
+  </text>
+  <text x="600" y="320" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32">
+    Formato competitivo em duplas
+  </text>
+  <text x="600" y="380" text-anchor="middle" fill="#e5e7eb" font-family="Arial, sans-serif" font-size="24">
+    Interações esperadas, jogo político irrelevante
+  </text>
+</svg>

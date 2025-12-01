@@ -1,0 +1,58 @@
+---
+import { Calendar, MapPin, Trophy, CircleDollarSign } from '@lucide/astro';
+
+export interface Props {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  format: string;
+  entryFee: string;
+  description?: string;
+}
+
+const {
+  title,
+  date,
+  time,
+  location,
+  format,
+  entryFee,
+  description = '',
+}: Props = Astro.props;
+---
+
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+
+
+    <h4 class="card-title sm:my-0">{title}</h2>
+
+    <div class="space-y-2">
+      <div class="flex items-center gap-2">
+        <Calendar size={16} />
+        <span class="text-sm">{new Date(date + 'T00:00:00').toLocaleDateString('pt-BR')} às {time}</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <MapPin size={16} />
+        <span class="text-sm">{location}</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <Trophy size={16} />
+        <span class="text-sm">{format}</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <CircleDollarSign size={16} />
+        <span class="text-sm font-semibold">{entryFee}</span>
+      </div>
+    </div>
+
+    {description && (
+        <p class="text-sm text-base-content/70 sm:mb-0">{description}</p>
+    )}
+
+  </div>
+</div>

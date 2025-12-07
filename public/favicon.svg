@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#2563eb"/>
-  <text x="16" y="22" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">2x2</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="275" height="275" fill="none" viewBox="0 0 275 275"><path fill="url(#a)" d="M271.32 138C271.32 65.474 212.526 6.68 140 6.68S8.68 65.474 8.68 138 67.474 269.32 140 269.32V272C65.995 272 6 212.006 6 138 6 63.995 65.995 4 140 4c74.006 0 134 59.995 134 134 0 74.006-59.993 134-134 134v-2.68c72.526 0 131.32-58.794 131.32-131.32"/><path fill="#f3a916" d="m8 6 132.5 103.999L273 6 168.607 138 273 270 140.5 166.001 8 270l104.393-132z"/><defs><linearGradient id="a" x1="140" x2="140" y1="4" y2="272" gradientUnits="userSpaceOnUse"><stop stop-color="#c8aa6e"/><stop offset=".6" stop-color="#c8aa6e" stop-opacity=".4"/></linearGradient></defs></svg>

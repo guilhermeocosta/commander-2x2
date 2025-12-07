@@ -11,18 +11,20 @@ export interface SEOProps {
 }
 
 export function generateSEO({
-  title = 'Commander 2x2',
-  description = 'Formato competitivo de Commander em duplas. Interações esperadas, jogo político irrelevante.',
-  image = '/og-image.png',
-  url = 'https://commander2x2.com',
-  type = 'website',
-  keywords = 'Magic: the Gathering, Commander, 2x2, formato competitivo, duplas, EDH',
-  author = 'Commander 2x2 Community',
+  title = "Conheça o Commander 2x2",
+  description = "Um novo formato competitivo de Commander em duplas acessível e diverso.",
+  image = "/og-image.png",
+  url = "https://commander2x2.org",
+  type = "website",
+  keywords = "Magic: the Gathering, Commander, 2x2, formato competitivo, duplas, EDH",
+  author = "Guilherme de Oliveira Costa",
   publishedTime,
-  modifiedTime
+  modifiedTime,
 }: SEOProps = {}) {
-  const siteTitle = title.includes('Commander 2x2') ? title : `${title} | Commander 2x2`;
-  
+  const siteTitle = title.includes("Commander 2x2")
+    ? title
+    : `${title} | Commander 2x2`;
+
   return {
     title: siteTitle,
     description,
@@ -38,25 +40,25 @@ export function generateSEO({
       title: siteTitle,
       description,
       url,
-      siteName: 'Commander 2x2',
+      siteName: "Commander 2x2",
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: title
-        }
+          alt: title,
+        },
       ],
-      locale: 'pt_BR',
-      type
+      locale: "pt_BR",
+      type,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: siteTitle,
       description,
       image,
       imageAlt: title,
-      site: '@commander2x2'
-    }
+      site: "@commander2x2",
+    },
   };
 }

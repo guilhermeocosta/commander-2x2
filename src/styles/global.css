@@ -50,11 +50,9 @@
     @apply bg-warning/10 border border-warning/20 p-4 rounded-lg my-6;
   }
 
-  @layer components {
-    /* Override DaisyUI menu hover background */
-    .menu li > a:hover,
-    .menu li > a:focus {
-      @apply bg-transparent;
-    }
+  /* Override DaisyUI menu hover background */
+  .menu li > a:hover,
+  .menu li > a:focus {
+    @apply bg-transparent;
   }
 }

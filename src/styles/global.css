@@ -6,7 +6,7 @@
 @layer components {
   /* Override prose colors to match DaisyUI theme */
   .prose {
-    @apply prose-base lg:prose-lg;
+    @apply prose-base lg:prose-lg prose-headings:text-base-content prose-strong:text-base-content;
   }
 
   .prose h1 {
@@ -48,5 +48,11 @@
   /* Custom aside styling for alerts */
   .prose aside {
     @apply bg-warning/10 border border-warning/20 p-4 rounded-lg my-6;
+  }
+
+  /* Override DaisyUI menu hover background */
+  .menu li > a:hover,
+  .menu li > a:focus {
+    @apply bg-transparent;
   }
 }

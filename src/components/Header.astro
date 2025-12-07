@@ -8,15 +8,15 @@ import Navigation from './Navigation.astro';
     <header class="navbar bg-base-200 shadow-lg relative z-50">
       <div class="navbar-start">
         <!-- Mobile logo -->
-        <a href="/" class="btn btn-ghost text-lg font-bold">
-          Commander 2x2
+        <a href="/">
+          <img src="/logo.svg" alt="Commander 2x2" class="h-6" />
         </a>
       </div>
 
       <!-- Desktop navigation -->
       <div class="navbar-center hidden lg:flex">
-        <Navigation 
-          listClass="menu menu-horizontal px-1" 
+        <Navigation
+          listClass="menu menu-horizontal px-1"
           itemClass="hover:text-primary"
         />
       </div>
@@ -24,8 +24,8 @@ import Navigation from './Navigation.astro';
       <!-- Mobile menu button -->
       <div class="navbar-end">
         <!-- Desktop logo -->
-        <a href="/" class="btn btn-ghost text-xl font-bold hidden lg:flex">
-          Commander 2x2
+        <a href="/">
+          <img src="/logo.svg" alt="Commander 2x2" class="hidden lg:flex h-8" />
         </a>
 
         <!-- Mobile menu toggle -->
@@ -41,10 +41,10 @@ import Navigation from './Navigation.astro';
     <label for="mobile-menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
     <aside class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
       <div class="mb-8">
-        <h2 class="text-xl font-bold text-primary">Commander 2x2</h2>
+        <img src="/logo.svg" alt="Commander 2x2" class="h-8" />
       </div>
-      <Navigation 
-        listClass="menu-vertical gap-2" 
+      <Navigation
+        listClass="menu-vertical gap-2"
         itemClass="btn btn-ghost justify-start"
         showIcons={true}
       />
@@ -56,15 +56,15 @@ import Navigation from './Navigation.astro';
 <header class="navbar bg-base-200 shadow-lg relative z-50 hidden lg:flex">
   <div class="navbar-start">
     <!-- Desktop logo -->
-    <a href="/" class="btn btn-ghost text-xl font-bold">
-      Commander 2x2
+    <a href="/" class="mx-4">
+      <img src="/logo.svg" alt="Commander 2x2" class="h-8" />
     </a>
   </div>
 
   <!-- Desktop navigation -->
   <div class="navbar-center">
-    <Navigation 
-      listClass="menu menu-horizontal px-1" 
+    <Navigation
+      listClass="menu menu-horizontal px-1"
       itemClass="hover:text-primary"
     />
   </div>

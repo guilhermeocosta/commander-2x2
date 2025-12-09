@@ -55,4 +55,23 @@
   .menu li > a:focus {
     @apply bg-transparent;
   }
+
+  @keyframes infinite-carousel {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animated-carousel {
+    animation: infinite-carousel 30s linear infinite;
+    width: max-content;
+  }
+
+  /* PAUSAR a animação quando QUALQUER img estiver em hover */
+  .animated-carousel:hover {
+    animation-play-state: paused;
+  }
 }

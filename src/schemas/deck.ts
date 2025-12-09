@@ -13,6 +13,7 @@ export const DeckSchema = z.object({
   url: z.string().url(),
   record: z.string(),
   notes: z.string(),
+  image_url: z.string().optional(),
 });
 
 export const DecksDataSchema = z.object({

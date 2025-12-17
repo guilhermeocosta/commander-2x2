@@ -21,9 +21,7 @@ export function generateSEO({
   publishedTime,
   modifiedTime,
 }: SEOProps = {}) {
-  const siteTitle = title.includes("Commander 2x2")
-    ? title
-    : `${title} | Commander 2x2`;
+  const siteTitle = title.includes("Commander 2x2") ? title : `${title} | Commander 2x2`;
 
   return {
     title: siteTitle,

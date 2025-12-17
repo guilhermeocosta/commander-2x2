@@ -1,28 +1,28 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const regras = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
   }),
 });
 
 const faq = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
   }),
 });
 
 const evento = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
   }),
 });
 
 const changelog = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     date: z.string(),

@@ -1,6 +1,7 @@
 ---
-import Navigation from './Navigation.astro';
+import Navigation from "./Navigation.astro";
 ---
+
 <!-- Mobile drawer structure -->
 <div class="drawer drawer-end lg:hidden">
   <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
@@ -15,10 +16,7 @@ import Navigation from './Navigation.astro';
 
       <!-- Desktop navigation -->
       <div class="navbar-center hidden lg:flex">
-        <Navigation
-          listClass="menu menu-horizontal px-1"
-          itemClass="hover:text-primary"
-        />
+        <Navigation listClass="menu menu-horizontal px-1" itemClass="hover:text-primary" />
       </div>
 
       <!-- Mobile menu button -->
@@ -30,8 +28,18 @@ import Navigation from './Navigation.astro';
 
         <!-- Mobile menu toggle -->
         <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16"></path>
           </svg>
         </label>
       </div>
@@ -63,13 +71,9 @@ import Navigation from './Navigation.astro';
 
   <!-- Desktop navigation -->
   <div class="navbar-center">
-    <Navigation
-      listClass="menu menu-horizontal px-1"
-      itemClass="hover:text-primary"
-    />
+    <Navigation listClass="menu menu-horizontal px-1" itemClass="hover:text-primary" />
   </div>
 
   <!-- Desktop right side (empty for now)-->
-  <div class="navbar-end">
-  </div>
+  <div class="navbar-end"></div>
 </header>

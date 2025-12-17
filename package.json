@@ -8,8 +8,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint:md": "markdownlint \"**/*.md\" --ignore node_modules",
     "deploy": "pnpm run build && vercel --prod"
   },
@@ -32,8 +34,12 @@
     "@typescript-eslint/parser": "^8.50.0",
     "daisyui": "^5.5.14",
     "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-prettier": "^5.5.4",
     "markdownlint-cli": "^0.47.0",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
   }
 }

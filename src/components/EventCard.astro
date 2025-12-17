@@ -1,5 +1,5 @@
 ---
-import { Calendar, MapPin, Trophy, CircleDollarSign } from '@lucide/astro';
+import { Calendar, MapPin, Trophy, CircleDollarSign } from "@lucide/astro";
 
 export interface Props {
   title: string;
@@ -11,27 +11,19 @@ export interface Props {
   description?: string;
 }
 
-const {
-  title,
-  date,
-  time,
-  location,
-  format,
-  entryFee,
-  description = '',
-}: Props = Astro.props;
+const { title, date, time, location, format, entryFee, description = "" }: Props = Astro.props;
 ---
 
 <div class="card bg-base-100 shadow-xl">
   <div class="card-body">
-
-
-    <h4 class="card-title sm:my-0">{title}</h2>
+    <h4 class="card-title sm:my-0">{title}</h4>
 
     <div class="space-y-2">
       <div class="flex items-center gap-2">
         <Calendar size={16} />
-        <span class="text-sm">{new Date(date + 'T00:00:00').toLocaleDateString('pt-BR')} às {time}</span>
+        <span class="text-sm"
+          >{new Date(date + "T00:00:00").toLocaleDateString("pt-BR")} às {time}</span
+        >
       </div>
 
       <div class="flex items-center gap-2">
@@ -50,9 +42,6 @@ const {
       </div>
     </div>
 
-    {description && (
-        <p class="text-sm text-base-content/70 sm:mb-0">{description}</p>
-    )}
-
+    {description && <p class="text-sm text-base-content/70 sm:mb-0">{description}</p>}
   </div>
 </div>

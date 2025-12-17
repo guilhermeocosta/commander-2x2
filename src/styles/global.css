@@ -1,59 +1,121 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+/* Custom DaisyUI theme - migrated from tailwind.config.cjs */
+@plugin "daisyui/theme" {
+  name: "custom";
+  default: true;
+  color-scheme: light;
+
+  /* Colors */
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f4f6;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #0c151d;
+  --color-primary: #f3a916;
+  --color-primary-content: #0c151d;
+  --color-secondary: #64748b;
+  --color-secondary-content: #ffffff;
+  --color-accent: #10b981;
+  --color-accent-content: #ffffff;
+  --color-neutral: #0c151d;
+  --color-neutral-content: #ffffff;
+  --color-info: #3b82f6;
+  --color-info-content: #ffffff;
+  --color-success: #10b981;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #0c151d;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+}
+
+@theme {
+  --font-sans: system-ui, sans-serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* Custom typography overrides using Tailwind's typography plugin */
 @layer components {
   /* Override prose colors to match DaisyUI theme */
   .prose {
-    @apply prose-base lg:prose-lg prose-headings:text-base-content prose-strong:text-base-content;
+    --tw-prose-headings: var(--color-base-content);
+    --tw-prose-body: var(--color-base-content);
+    --tw-prose-bold: var(--color-base-content);
   }
 
-  .prose h1 {
-    @apply prose-headings:text-primary;
-  }
-
-  .prose h2 {
-    @apply prose-headings:text-primary;
-  }
-
+  .prose h1,
+  .prose h2,
   .prose h3 {
-    @apply prose-headings:text-primary;
+    color: var(--color-primary);
   }
 
   .prose strong {
-    @apply prose-strong:text-primary;
+    color: var(--color-primary);
   }
 
   .prose a {
-    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
   }
 
   .prose blockquote {
-    @apply prose-blockquote:border-l-primary prose-blockquote:not-italic prose-blockquote:bg-primary/5 prose-blockquote:p-4 prose-blockquote:rounded-lg;
+    border-left-color: var(--color-primary);
+    font-style: normal;
+    background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
+    padding: 1rem;
+    border-radius: 0.5rem;
   }
 
   .prose ul {
-    @apply prose-ul:text-base-content/90;
+    color: color-mix(in srgb, var(--color-base-content) 90%, transparent);
   }
 
   .prose li::marker {
-    @apply text-primary;
+    color: var(--color-primary);
   }
 
   .prose code {
-    @apply prose-code:bg-base-300 prose-code:px-2 prose-code:py-1 prose-code:rounded;
+    background-color: var(--color-base-300);
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
   }
 
   /* Custom aside styling for alerts */
   .prose aside {
-    @apply bg-warning/10 border border-warning/20 p-4 rounded-lg my-6;
+    background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-warning) 20%, transparent);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
   }
 
   /* Override DaisyUI menu hover background */
   .menu li > a:hover,
   .menu li > a:focus {
-    @apply bg-transparent;
+    background-color: transparent;
   }
 
   @keyframes infinite-carousel {

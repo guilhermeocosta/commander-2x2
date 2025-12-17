@@ -1,16 +1,14 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import vercel from "@astrojs/vercel";
 
 export default defineConfig({
   adapter: vercel(),
-  integrations: [
-    tailwind({
-      applyBaseStyles: true,
-    }),
-    mdx(),
-  ],
+  integrations: [mdx()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   build: {
     format: "file",
   },

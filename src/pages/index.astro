@@ -61,7 +61,7 @@ const items = decksData.decks
               {items.map(({ url, images, commander, date, player }) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
-                  tabindex="1"
+                  tabindex="0"
                 >
                   <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
                     <div class="relative h-72">
@@ -84,11 +84,11 @@ const items = decksData.decks
                       <div class="relative pointer-events-auto">
                         <ul class="space-y-1 mb-2">
                           <li class="text-white text-xs flex items-center gap-2">
-                            <Calendar size={16} />
-                            {new Date(date).toLocaleDateString("pt-BR")}
+                            <Calendar size={16} aria-hidden="true" />
+                            {new Date(date + "T00:00:00").toLocaleDateString("pt-BR")}
                           </li>
                           <li class="text-white text-sm flex items-center gap-2">
-                            <User size={16} />
+                            <User size={16} aria-hidden="true" />
                             {player}
                           </li>
                         </ul>
@@ -111,7 +111,7 @@ const items = decksData.decks
               {items.map(({ url, images, commander, date, player }) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
-                  tabindex="1"
+                  tabindex="0"
                 >
                   <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
                     <div class="relative h-72">
@@ -134,11 +134,11 @@ const items = decksData.decks
                       <div class="relative pointer-events-auto">
                         <ul class="space-y-1 mb-2">
                           <li class="text-white text-xs flex items-center gap-2">
-                            <Calendar size={16} />
-                            {new Date(date).toLocaleDateString("pt-BR")}
+                            <Calendar size={16} aria-hidden="true" />
+                            {new Date(date + "T00:00:00").toLocaleDateString("pt-BR")}
                           </li>
                           <li class="text-white text-sm flex items-center gap-2">
-                            <User size={16} />
+                            <User size={16} aria-hidden="true" />
                             {player}
                           </li>
                         </ul>

@@ -171,27 +171,13 @@ const items = decksData.decks
     </div>
   </main>
 
-  <!-- <script>
-    document.addEventListener("click", (e) => {
-      const target = e.target;
-      const clickedInside =
-        target instanceof Element ? target.closest("[data-featured-decks]") : null;
-      if (clickedInside) return;
-
-      const selected = document.querySelector('input[type="radio"][name="featured-decks"]:checked');
-      if (selected instanceof HTMLInputElement) selected.checked = false;
+  <script>
+    document.addEventListener("touchstart", (e) => {
+      if (!(e.target as Element | null)?.closest(".animated-carousel")) {
+        (document.activeElement as HTMLElement | null)?.blur();
+      }
     });
-
-    const featuredDecks = document.querySelector("[data-featured-decks]");
-    if (featuredDecks) {
-      featuredDecks.addEventListener("mouseleave", () => {
-        const selected = document.querySelector(
-          'input[type="radio"][name="featured-decks"]:checked'
-        );
-        if (selected instanceof HTMLInputElement) selected.checked = false;
-      });
-    }
-  </script> -->
+  </script>
 
   <Footer />
 </BaseLayout>

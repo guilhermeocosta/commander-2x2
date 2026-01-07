@@ -199,8 +199,12 @@ const items = decksData.decks
 
   <script>
     document.addEventListener("click", (e) => {
-      if (!(e.target as Element | null)?.closest(".animated-carousel")) {
-        (document.activeElement as HTMLElement | null)?.blur();
+      const activeElement = document.activeElement as HTMLElement | null;
+      const clickedInsideCarousel = (e.target as Element | null)?.closest(".animated-carousel");
+      const activeElementInCarousel = activeElement?.closest(".animated-carousel");
+
+      if (!clickedInsideCarousel && activeElementInCarousel) {
+        activeElement?.blur();
       }
     });
   </script>

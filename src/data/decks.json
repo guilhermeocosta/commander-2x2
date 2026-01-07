@@ -1,6 +1,168 @@
 {
-  "updatedAt": "2025-12-12",
+  "updatedAt": "2026-07-01",
   "decks": [
+    {
+      "id": "evt-2025-12-13-ezequiel-arbaaz",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Ezequiel Tizio",
+      "commanders": [
+        "Arbaaz Mir"
+      ],
+      "colors": [
+        "W",
+        "R"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758213/ezequiel_arbazz_mir",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/c/7/c7187506-4af3-47e9-bad0-4ce8c78ccc10.jpg?1721423915"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-felipe-arabella",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Felipe Amalfi",
+      "commanders": [
+        "Arabella, Abandoned Doll"
+      ],
+      "colors": [
+        "W",
+        "R"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758345/felipe_arabella",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/f/6/f683d5a1-b8bf-446f-9fe3-88a4398bf3cf.jpg?1726286645"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-guilherme-raffine",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Guilherme Costa",
+      "commanders": [
+        "Raffine, Scheming Seer"
+      ],
+      "colors": [
+        "W",
+        "U",
+        "B"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758395/guilherme_raffine",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/7/1/716a44b4-f6b0-4f14-a270-6442aed3251f.jpg?1711471750"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-yan-rakdos",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Yan Ottoboni",
+      "commanders": [
+        "Rakdos, Lord of Riots"
+      ],
+      "colors": [
+        "R",
+        "B"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758443/yan_rakdos",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/3/d/3d0d5a41-8251-437c-a4a0-3b712281ebb0.jpg?1726285245"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-marcelo-sidisi",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Marcelo Matheus",
+      "commanders": [
+        "Sidisi, Brood Tyrant"
+      ],
+      "colors": [
+        "G",
+        "U",
+        "B"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758469/marcelo_sidisi",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/6/b/6b8e44d4-db67-4bf4-97c0-ffe6a0eb2954.jpg?1689999255"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-raphael-emry",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Raphael Souza",
+      "commanders": [
+        "Emry, Lurker of the Loch"
+      ],
+      "colors": [
+        "U"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758511/raphael_emry",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/c/9/c977d89a-bfd1-4e98-9d95-3e41c53dd188.jpg?1752944590"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-jefferson-mogis",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Jefferson Luiz",
+      "commanders": [
+        "Mogis, God of Slaughter"
+      ],
+      "colors": [
+        "B",
+        "R"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758618/jefferson_mogis",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/5/2/521911e5-9ce5-4d55-bfc4-fbfeba4047fe.jpg?1726284501"
+      ]
+    },
+    {
+      "id": "evt-2025-12-13-claudio-omo",
+      "event": "2025-12-13 — Medieval",
+      "date": "2025-12-13",
+      "player": "Cláudio Bomfim",
+      "commanders": [
+        "Omo, Queen of Vesuva"
+      ],
+      "colors": [
+        "B",
+        "U"
+      ],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/18758651/cludio_omo",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/large/front/e/5/e5d1c814-4c22-4917-95ae-dffaf491db32.jpg?1727175657"
+      ]
+    },
+
     {
       "id": "evt-2025-11-08-guilherme-raffine",
       "event": "2025-11-08 — Medieval",

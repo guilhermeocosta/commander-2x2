@@ -5,18 +5,26 @@ import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
 import rawDecksData from "../data/decks.json";
 import { DecksDataSchema } from "../schemas/deck";
+import { Calendar, User } from "@lucide/astro";
 
 BaseLayout;
 
 const decksData = DecksDataSchema.parse(rawDecksData);
 const items = decksData.decks
-  .filter((deck) => deck.image_url?.trim())
-  .map((deck) => ({ img: deck.image_url, url: deck.url, commander: deck.commanders.join(" / ") }));
+  .filter((deck) => deck.image_url && deck.image_url.length > 0)
+  .map((deck) => ({
+    images: deck.image_url!,
+    url: deck.url,
+    commander: deck.commanders.join(" / "),
+    date: deck.date,
+    player: deck.player,
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <BaseLayout
   title="Commander 2x2 - Formato competitivo em duplas"
-  description="Formato competitivo de Commander em duplas. Interações esperadas, jogo político irrelevante."
+  description="Um novo formato de Commander competitivo em duplas acessível e com uma comunidade crescente de jogadores."
 >
   <Header />
 
@@ -48,29 +56,43 @@ const items = decksData.decks
 
       {
         items.length > 0 ? (
-          <div class="overflow-hidden pt-2 w-full" data-featured-decks>
-            <div class="flex gap-2 animated-carousel">
-              {items.map(({ url, img, commander }, idx) => (
-                <div class="group relative rounded-lg overflow-hidden">
-                  <input
-                    id={`deck-${idx}`}
-                    type="radio"
-                    name="featured-decks"
-                    class="peer sr-only"
-                  />
+          <div class="overflow-hidden pt-2 w-full">
+            <div class="flex gap-2 px-4 animated-carousel">
+              {items.map(({ url, images, commander, date, player }) => (
+                <div
+                  class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
+                  tabindex="0"
+                >
+                  <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
+                    <div class="relative h-72">
+                      <img
+                        class="h-72 rounded-lg transition-transform duration-300 ease-out -z-10"
+                        src={images[0]}
+                        alt={`Deck de ${commander}`}
+                      />
+                      {images[1] && (
+                        <img
+                          class="h-72 rounded-lg transition-transform duration-300 ease-out absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20"
+                          src={images[1]}
+                          alt={`Deck de ${commander}`}
+                        />
+                      )}
+                    </div>
 
-                  <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 peer-checked:translate-y-0">
-                    <label
-                      class="block cursor-pointer"
-                      for={`deck-${idx}`}
-                      aria-label={`Abrir ações do deck de ${commander}`}
-                    >
-                      <img class="h-72 rounded-lg" src={img} alt={`Deck de ${commander}`} />
-                    </label>
-
-                    <div class="absolute inset-x-0 bottom-0 p-3 pt-6 opacity-0 translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 peer-checked:opacity-100 peer-checked:translate-y-0 pointer-events-none">
+                    <div class="absolute inset-x-0 bottom-0 p-3 pt-6 opacity-0 translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-focus:opacity-100 group-focus:translate-y-0 pointer-events-none">
                       <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/90 to-transparent" />
                       <div class="relative pointer-events-auto">
+                        <ul class="space-y-1 mb-2">
+                          <li class="text-white text-xs flex items-center gap-2">
+                            <Calendar size={16} aria-hidden="true" />
+                            {new Date(date + "T00:00:00").toLocaleDateString("pt-BR")}
+                          </li>
+                          <li class="text-white text-sm flex items-center gap-2">
+                            <User size={16} aria-hidden="true" />
+                            {player}
+                          </li>
+                        </ul>
+
                         <Button
                           href={url}
                           target="_blank"
@@ -86,27 +108,41 @@ const items = decksData.decks
                 </div>
               ))}
 
-              {items.map(({ url, img, commander }, idx) => (
-                <div class="group relative rounded-lg overflow-hidden">
-                  <input
-                    id={`deck-${idx + items.length}`}
-                    type="radio"
-                    name="featured-decks"
-                    class="peer sr-only"
-                  />
+              {items.map(({ url, images, commander, date, player }) => (
+                <div
+                  class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
+                  tabindex="0"
+                >
+                  <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
+                    <div class="relative h-72">
+                      <img
+                        class="h-72 rounded-lg transition-transform duration-300 ease-out -z-10"
+                        src={images[0]}
+                        alt={`Deck de ${commander}`}
+                      />
+                      {images[1] && (
+                        <img
+                          class="h-72 rounded-lg transition-transform duration-300 ease-out absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20"
+                          src={images[1]}
+                          alt={`Deck de ${commander}`}
+                        />
+                      )}
+                    </div>
 
-                  <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 peer-checked:translate-y-0">
-                    <label
-                      class="block cursor-pointer"
-                      for={`deck-${idx + items.length}`}
-                      aria-label={`Abrir ações do deck de ${commander}`}
-                    >
-                      <img class="h-72 rounded-lg" src={img} alt={`Deck de ${commander}`} />
-                    </label>
-
-                    <div class="absolute inset-x-0 bottom-0 p-3 pt-6 opacity-0 translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 peer-checked:opacity-100 peer-checked:translate-y-0 pointer-events-none">
+                    <div class="absolute inset-x-0 bottom-0 p-3 pt-6 opacity-0 translate-y-2 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-focus:opacity-100 group-focus:translate-y-0 pointer-events-none">
                       <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/90 to-transparent" />
                       <div class="relative pointer-events-auto">
+                        <ul class="space-y-1 mb-2">
+                          <li class="text-white text-xs flex items-center gap-2">
+                            <Calendar size={16} aria-hidden="true" />
+                            {new Date(date + "T00:00:00").toLocaleDateString("pt-BR")}
+                          </li>
+                          <li class="text-white text-sm flex items-center gap-2">
+                            <User size={16} aria-hidden="true" />
+                            {player}
+                          </li>
+                        </ul>
+
                         <Button
                           href={url}
                           target="_blank"
@@ -163,24 +199,14 @@ const items = decksData.decks
 
   <script>
     document.addEventListener("click", (e) => {
-      const target = e.target;
-      const clickedInside =
-        target instanceof Element ? target.closest("[data-featured-decks]") : null;
-      if (clickedInside) return;
+      const activeElement = document.activeElement as HTMLElement | null;
+      const clickedInsideCarousel = (e.target as Element | null)?.closest(".animated-carousel");
+      const activeElementInCarousel = activeElement?.closest(".animated-carousel");
 
-      const selected = document.querySelector('input[type="radio"][name="featured-decks"]:checked');
-      if (selected instanceof HTMLInputElement) selected.checked = false;
+      if (!clickedInsideCarousel && activeElementInCarousel) {
+        activeElement?.blur();
+      }
     });
-
-    const featuredDecks = document.querySelector("[data-featured-decks]");
-    if (featuredDecks) {
-      featuredDecks.addEventListener("mouseleave", () => {
-        const selected = document.querySelector(
-          'input[type="radio"][name="featured-decks"]:checked'
-        );
-        if (selected instanceof HTMLInputElement) selected.checked = false;
-      });
-    }
   </script>
 
   <Footer />

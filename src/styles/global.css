@@ -132,8 +132,8 @@
     width: max-content;
   }
 
-  /* PAUSAR a animação quando QUALQUER img estiver em hover */
-  .animated-carousel:hover {
+  .animated-carousel:hover,
+  .animated-carousel:focus-within {
     animation-play-state: paused;
   }
 }

@@ -1,0 +1,13 @@
+---
+const { href, title } = Astro.props;
+---
+
+<a
+  href={href}
+  class="link link-hover flex flex-col items-center justify-center bg-transparent rounded-sm p-2 hover:bg-neutral transition-colors tooltip"
+  data-tip={title}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+</a>

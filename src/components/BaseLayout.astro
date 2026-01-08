@@ -103,7 +103,7 @@ const structuredData = {
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="min-h-screen bg-base-100 text-base-content">
     <PostHog />

@@ -3,6 +3,7 @@ import BaseLayout from "../components/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AccordionFAQ from "../components/AccordionFAQ.astro";
+import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
 
 const faqItems = [
   {
@@ -62,6 +63,12 @@ const faqItems = [
 
       <AccordionFAQ items={faqItems} />
     </div>
+
+    <BannerDiscord
+      className="mt-8 mx-auto"
+      title="Ainda com dúvidas?"
+      description="Faça parte da nossa comunidade no Discord e entre na conversa!"
+    />
   </main>
 
   <Footer />

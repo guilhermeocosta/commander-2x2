@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import bannerDiscordImage from "./banner-discord.png";
+import Button from "../../components/Button.astro";
+
+interface Props {
+  className?: string;
+  title?: string;
+  description?: string;
+  cta?: string;
+}
+
+const {
+  className,
+  title = "Participe do nosso Discord!",
+  description = "Jogue online, participe de eventos e discuta estratégias com outros jogadores.",
+  cta = "Entrar no Discord",
+} = Astro.props as Props;
+---
+
+<a
+  class:list={[
+    "shadow-lg block relative p-12 rounded-lg overflow-hidden md:h-96 h-64 flex items-center",
+    className,
+  ]}
+  href="https://discord.gg/Yagy5QfU2s"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <figure class="absolute inset-0">
+    <Image
+      src={bannerDiscordImage}
+      alt=""
+      aria-hidden="true"
+      class="w-full h-full object-cover object-right-bottom brightness-50 md:brightness-100"
+    />
+  </figure>
+
+  <div class="relative z-10 md:max-w-[40%]">
+    <h3 class="md:text-3xl text-2xl font-bold text-shadow text-white">
+      {title}
+    </h3>
+    <p class="md:text-lg text-white/90">
+      {description}
+    </p>
+
+    <Button className="mt-6" variant="primary" size="lg">{cta}</Button>
+  </div>
+</a>

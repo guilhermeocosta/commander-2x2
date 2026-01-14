@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import { Trophy, Calendar, Equal } from "@lucide/astro";
+import type { RankedPlayer } from "../schemas/leaderboard";
+import mythicImg from "../assets/mythic.png";
+import rareImg from "../assets/rare.png";
+import uncommonImg from "../assets/uncommon.png";
+import commonImg from "../assets/common.png";
+
+export interface Props {
+  players: RankedPlayer[];
+}
+
+const { players }: Props = Astro.props;
+
+const top4 = players.slice(0, 4);
+
+const rankStyles: Record<
+  number,
+  { bg: string; border: string; badge: string; label: string; image: ImageMetadata }
+> = {
+  1: {
+    bg: "bg-gradient-to-br from-orange-200 to-orange-100",
+    border: "border-orange-500",
+    badge: "bg-orange-500 text-white",
+    label: "Mythic",
+    image: mythicImg,
+  },
+  2: {
+    bg: "bg-gradient-to-br from-yellow-200 to-yellow-100",
+    border: "border-yellow-500",
+    badge: "bg-yellow-500 text-black",
+    label: "Rare",
+    image: rareImg,
+  },
+  3: {
+    bg: "bg-gradient-to-br from-slate-300 to-slate-200",
+    border: "border-slate-400",
+    badge: "bg-slate-400 text-white",
+    label: "Uncommon",
+    image: uncommonImg,
+  },
+  4: {
+    bg: "bg-gradient-to-br from-neutral-200 to-neutral-100",
+    border: "border-neutral-300",
+    badge: "bg-neutral-800 text-white",
+    label: "Common",
+    image: commonImg,
+  },
+};
+---
+
+<div class="not-prose">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    {
+      top4.map((player) => {
+        const style = rankStyles[player.rank];
+        return (
+          <div
+            class:list={[
+              `card border-2 shadow-xl transition-transform hover:scale-105`,
+              style.bg,
+              style.border,
+            ]}
+          >
+            <div class="card-body p-4">
+              <div class="flex items-center justify-between mb-2">
+                <Image src={style.image} alt={style.label} class="size-6 object-contain" />
+                <div class:list={[`badge badge-lg font-bold`, style.badge]}>{player.rank}º</div>
+              </div>
+
+              <h3 class="card-title text-base text-base-content line-clamp-1">{player.name}</h3>
+
+              <div class="divider my-1" />
+
+              <div class="text-sm flex md:flex-col gap-2 justify-around">
+                <div class="flex items-center gap-2">
+                  <Calendar size={14} />
+                  <span>
+                    {player.stats.eventsAttended}{" "}
+                    {player.stats.eventsAttended === 1 ? "evento" : "eventos"}
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Trophy size={14} />
+                  <span>
+                    {player.stats.wins} {player.stats.wins === 1 ? "vitória" : "vitórias"}
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Equal size={14} />
+                  <span>
+                    {player.stats.draws} {player.stats.draws === 1 ? "empate" : "empates"}
+                  </span>
+                </div>
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-base-300">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-medium text-base-content/70 leading-none">Total</span>
+                  <span class="text-xl sm:text-2xl font-bold text-primary leading-none">
+                    {player.score} pts
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div class="text-center mt-8 hidden md:block">
+    <div class="badge badge-outline badge-primary">
+      <Trophy size={16} />
+
+      Classificados para o evento especial de fim de ano
+    </div>
+  </div>
+</div>

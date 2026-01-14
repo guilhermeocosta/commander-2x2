@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import EventCard from "../components/EventCard.astro";
+import LeaderboardPodium from "../components/LeaderboardPodium.astro";
+import LeaderboardTable from "../components/LeaderboardTable.astro";
+import ScoringExplanation from "../components/ScoringExplanation.astro";
+import Button from "../components/Button.astro";
+import rawLeaderboardData from "../data/leaderboard.json";
+import eventsData from "../data/events.json";
+import { LeaderboardDataSchema, rankPlayers } from "../schemas/leaderboard";
+
+const leaderboardData = LeaderboardDataSchema.parse(rawLeaderboardData);
+const rankedPlayers = rankPlayers(leaderboardData.players);
+
+const sortedEvents = eventsData.events.sort((a, b) => {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+});
+
+const today = new Date();
+const nextEvent = sortedEvents.find((event) => new Date(event.date) >= today);
+---
+
+<BaseLayout
+  title="Hall da Fama - Commander 2x2"
+  description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para o evento especial de fim de ano."
+  url="https://commander2x2.com/hall-da-fama"
+  type="website"
+  keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
+>
+  <Header />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <div class="text-center mb-8">
+        <h1 class="mb-0" style="margin-bottom: 0;">Hall da Fama {leaderboardData.year}</h1>
+        <p class="text-sm text-base-content/60">
+          Última atualização em {
+            new Date(leaderboardData.updatedAt + "T00:00:00").toLocaleDateString("pt-BR")
+          }
+        </p>
+
+        <p class="text-lg text-base-content/80">
+          Os melhores jogadores da temporada competem por uma vaga no evento especial de fim de ano.
+          Os <strong>Top 4</strong> se classificam para formar duplas no torneio final!
+        </p>
+      </div>
+
+      <section class="mb-12">
+        <h2>Classificados</h2>
+        <LeaderboardPodium players={rankedPlayers} />
+      </section>
+
+      {
+        rankedPlayers.length > 4 && (
+          <section class="mb-12">
+            <h2>Ranking Completo</h2>
+            <LeaderboardTable players={rankedPlayers} />
+          </section>
+        )
+      }
+
+      {
+        nextEvent && (
+          <section class="mb-12">
+            <h2>Próximo Evento</h2>
+            <p>Participe do próximo evento para acumular pontos e subir no ranking!</p>
+
+            <div class="max-w-md">
+              <EventCard
+                title={nextEvent.title}
+                date={nextEvent.date}
+                time={nextEvent.time}
+                location={nextEvent.location}
+                format={nextEvent.format}
+                entryFee={nextEvent.entryFee}
+                description={nextEvent.description}
+              />
+            </div>
+
+            <div class="mt-4 text-center">
+              <Button href="/eventos" className="no-underline">
+                Ver Todos os Eventos
+              </Button>
+            </div>
+          </section>
+        )
+      }
+
+      <section>
+        <h2>Sistema de Pontuação</h2>
+        <ScoringExplanation />
+      </section>
+
+      <section class="mt-12">
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body text-center">
+            <h3 class="card-title text-primary justify-center">Quer entrar no ranking?</h3>
+            <p>
+              Participe dos nossos eventos mensais e comece a acumular pontos! Cada participação
+              conta, e cada vitória te aproxima do Top 4.
+            </p>
+            <div class="card-actions justify-center mt-4">
+              <Button href="/eventos" className="no-underline">Participar de um Evento</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

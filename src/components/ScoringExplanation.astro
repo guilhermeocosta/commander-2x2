@@ -1,0 +1,52 @@
+---
+import { Calendar, Trophy, Equal, Info } from "@lucide/astro";
+---
+
+<div class="not-prose">
+  <div class="card bg-base-200 shadow-xl">
+    <div class="card-body">
+      <h3 class="card-title text-primary gap-2">
+        <Info size={24} />
+        Como funciona a pontuação?
+      </h3>
+
+      <p class="text-base-content/80 mb-4">
+        A cada evento que você participa, você acumula pontos para o ranking anual. Os 4 melhores
+        jogadores se classificam para um evento especial no fim do ano, formando duplas para o
+        torneio final!
+      </p>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
+          <div class="bg-primary/10 p-3 rounded-full">
+            <Calendar size={24} class="text-primary" />
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-2xl font-bold text-primary">+1</div>
+            <div class="text-sm text-base-content/70">Participação</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
+          <div class="bg-success/10 p-3 rounded-full">
+            <Trophy size={24} class="text-success" />
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-2xl font-bold text-success">+3</div>
+            <div class="text-sm text-base-content/70">Vitória</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
+          <div class="bg-info/10 p-3 rounded-full">
+            <Equal size={24} class="text-info" />
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-2xl font-bold text-info">+1</div>
+            <div class="text-sm text-base-content/70">Empate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

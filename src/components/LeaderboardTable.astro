@@ -1,0 +1,43 @@
+---
+import type { RankedPlayer } from "../schemas/leaderboard";
+
+export interface Props {
+  players: RankedPlayer[];
+  startFromRank?: number;
+}
+
+const { players, startFromRank = 5 }: Props = Astro.props;
+
+const remainingPlayers = players.filter((p) => p.rank >= startFromRank);
+---
+
+{
+  remainingPlayers.length > 0 && (
+    <div class="not-prose overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <thead>
+          <tr class="bg-base-200">
+            <th class="text-center w-16">#</th>
+            <th>Jogador</th>
+            <th class="text-center">Eventos</th>
+            <th class="text-center">Vitórias</th>
+            <th class="text-center">Empates</th>
+            <th class="text-center">Pontos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {remainingPlayers.map((player) => (
+            <tr class="hover">
+              <td class="text-center font-medium">{player.rank}º</td>
+              <td class="font-medium">{player.name}</td>
+              <td class="text-center">{player.stats.eventsAttended}</td>
+              <td class="text-center text-success">{player.stats.wins}</td>
+              <td class="text-center text-info">{player.stats.draws}</td>
+              <td class="text-center font-bold text-primary">{player.score}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}

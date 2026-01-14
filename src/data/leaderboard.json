@@ -1,0 +1,138 @@
+{
+  "updatedAt": "2026-01-14",
+  "year": 2026,
+  "players": [
+    {
+      "id": "arthur",
+      "name": "Arthur",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 3,
+        "draws": 0,
+        "losses": 0
+      }
+    },
+    {
+      "id": "guilherme-costa",
+      "name": "Guilherme Costa",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 3,
+        "draws": 0,
+        "losses": 0
+      }
+    },
+    {
+      "id": "felipe-piske",
+      "name": "Felipe Piske",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "claudio",
+      "name": "Claudio",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "eduardo",
+      "name": "Eduardo",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "raphael",
+      "name": "Raphael",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "ezequiel",
+      "name": "Ezequiel",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "marcelo",
+      "name": "Marcelo",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "leandro",
+      "name": "Leandro",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "vito",
+      "name": "Vito",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "felipe-amalfi",
+      "name": "Felipe Amalfi",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 3
+      }
+    },
+    {
+      "id": "paulo",
+      "name": "Paulo",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 3
+      }
+    }
+  ]
+}

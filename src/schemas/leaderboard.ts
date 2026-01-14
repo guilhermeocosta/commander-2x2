@@ -40,7 +40,15 @@ export function rankPlayers(players: Player[]): RankedPlayer[] {
       score: calculateScore(player.stats),
       rank: 0,
     }))
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => {
+      // Primary: score (descending)
+      if (b.score !== a.score) return b.score - a.score;
+      // Tie-breaker 1: events attended (descending)
+      if (b.stats.eventsAttended !== a.stats.eventsAttended)
+        return b.stats.eventsAttended - a.stats.eventsAttended;
+      // Tie-breaker 2: wins (descending)
+      return b.stats.wins - a.stats.wins;
+    })
     .map((player, index) => ({
       ...player,
       rank: index + 1,

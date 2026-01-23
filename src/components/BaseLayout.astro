@@ -3,6 +3,7 @@ import { generateSEO } from "../utils/seo";
 import "../styles/global.css";
 import PostHog from "./PostHog.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import TopBanner from "./TopBanner.astro";
 
 export interface Props {
   title?: string;
@@ -106,6 +107,13 @@ const structuredData = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="min-h-screen bg-base-100 text-base-content">
+    <TopBanner
+      title="Apoie o Commander 2x2!"
+      description="Contribua e receba recompensas"
+      link="https://apoia.se/commander2x2"
+      linkText="Apoie"
+    />
+
     <PostHog />
     <SpeedInsights />
 

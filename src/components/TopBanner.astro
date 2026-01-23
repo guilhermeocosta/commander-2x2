@@ -1,0 +1,64 @@
+---
+import { X, Circle } from "@lucide/astro";
+
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+  linkText: string;
+}
+
+const { title, description, link, linkText } = Astro.props;
+---
+
+<div
+  id="top-banner"
+  class="flex items-center justify-between gap-x-4 bg-indigo-600 px-4 transition-all duration-300 ease-out sm:px-3.5 overflow-hidden max-h-0 opacity-0 py-0"
+>
+  <div class="flex flex-1 items-center justify-between md:justify-center gap-x-4">
+    <p class="text-sm/6 text-white">
+      <strong class="font-semibold">{title}</strong>
+      <Circle class="mx-2 size-1 fill-current hidden md:inline" aria-hidden="true" />
+      <span class="text-xs text-white block md:inline">{description}</span>
+    </p>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-none rounded-full bg-white/20 px-3.5 py-1 text-sm font-semibold text-white hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      {linkText}
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+  <button
+    type="button"
+    id="dismiss-banner"
+    class="-m-1.5 p-1.5 text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+  >
+    <span class="sr-only">Fechar</span>
+    <X class="size-5" aria-hidden="true" />
+  </button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("top-banner");
+    const dismissBtn = document.getElementById("dismiss-banner");
+
+    if (sessionStorage.getItem("bannerDismissed") !== "true" && banner) {
+      setTimeout(() => {
+        banner.classList.remove("max-h-0", "opacity-0", "py-0");
+        banner.classList.add("max-h-12", "opacity-100", "py-2");
+      }, 100);
+    }
+
+    dismissBtn?.addEventListener("click", () => {
+      if (banner) {
+        banner.classList.add("max-h-0", "opacity-0", "py-0");
+        banner.classList.remove("max-h-12", "opacity-100", "py-2");
+        sessionStorage.setItem("bannerDismissed", "true");
+      }
+    });
+  });
+</script>

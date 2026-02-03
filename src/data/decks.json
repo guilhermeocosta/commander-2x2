@@ -1,7 +1,6 @@
 {
   "updatedAt": "2026-02-03",
   "decks": [
-    [
   {
     "id": "evt-2026-01-10-guilherme-raffine",
     "event": "2026-01-10 — Behbibenn Taverna Pub",
@@ -61,8 +60,7 @@
     "image_url": [
       "https://cards.scryfall.io/large/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1743207181"
     ]
-  }
-],
+  },
   {
       "id": "evt-2025-12-13-ezequiel-arbaaz",
       "event": "2025-12-13 — Medieval",

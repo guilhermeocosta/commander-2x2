@@ -1,7 +1,69 @@
 {
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-02-03",
   "decks": [
-    {
+    [
+  {
+    "id": "evt-2026-01-10-guilherme-raffine",
+    "event": "2026-01-10 — Behbibenn Taverna Pub",
+    "date": "2026-01-10",
+    "player": "Guilherme",
+    "commanders": ["Raffine, Scheming Seer"],
+    "colors": ["U", "W", "B"],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/19609926/guilherme_raffine",
+    "record": "3-0-0",
+    "notes": "",
+    "image_url": [
+      "https://cards.scryfall.io/large/front/7/1/716a44b4-f6b0-4f14-a270-6442aed3251f.jpg?1711471750"
+    ]
+  },
+  {
+    "id": "evt-2026-01-10-eduardo-teshar",
+    "event": "2026-01-10 — Behbibenn Taverna Pub",
+    "date": "2026-01-10",
+    "player": "Eduardo",
+    "commanders": ["Teshar, Ancestor's Apostle"],
+    "colors": ["W"],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/19609655/eduardo_teshar",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://cards.scryfall.io/large/front/e/8/e8a9b45b-d466-4c06-9a25-6edb6e8f6f2f.jpg?1690017040"
+    ]
+  },
+  {
+    "id": "evt-2026-01-10-felipe-piske-lurrus",
+    "event": "2026-01-10 — Behbibenn Taverna Pub",
+    "date": "2026-01-10",
+    "player": "Felipe Piske",
+    "commanders": ["Lurrus of the Dream-Den"],
+    "colors": ["W", "B"],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/19609491/felipe_piske_lurrus",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://cards.scryfall.io/large/front/5/a/5ad36fb2-c44e-4085-ba0d-54277841ad3a.jpg?1764801075"
+    ]
+  },
+  {
+    "id": "evt-2026-01-10-claudio-meren",
+    "event": "2026-01-10 — Behbibenn Taverna Pub",
+    "date": "2026-01-10",
+    "player": "Cláudio",
+    "commanders": ["Meren of Clan Nel Toth"],
+    "colors": ["B", "G"],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/19609779/cludio_meren",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://cards.scryfall.io/large/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1743207181"
+    ]
+  }
+],
+  {
       "id": "evt-2025-12-13-ezequiel-arbaaz",
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",

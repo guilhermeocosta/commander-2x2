@@ -67,17 +67,15 @@ const nextEvent = sortedEvents.find((event) => new Date(event.date) >= today);
             <h2>Próximo Evento</h2>
             <p>Participe do próximo evento para acumular pontos e subir no ranking!</p>
 
-            <div class="max-w-md">
-              <EventCard
-                title={nextEvent.title}
-                date={nextEvent.date}
-                time={nextEvent.time}
-                location={nextEvent.location}
-                format={nextEvent.format}
-                entryFee={nextEvent.entryFee}
-                description={nextEvent.description}
-              />
-            </div>
+            <EventCard
+              title={nextEvent.title}
+              date={nextEvent.date}
+              time={nextEvent.time}
+              location={nextEvent.location}
+              format={nextEvent.format}
+              entryFee={nextEvent.entryFee}
+              description={nextEvent.description}
+            />
 
             <div class="mt-4 text-center">
               <Button href="/eventos" className="no-underline">

@@ -9,12 +9,22 @@ export interface Props {
   format: string;
   entryFee: string;
   description?: string;
+  className?: string;
 }
 
-const { title, date, time, location, format, entryFee, description = "" }: Props = Astro.props;
+const {
+  title,
+  date,
+  time,
+  location,
+  format,
+  entryFee,
+  description = "",
+  className = "",
+}: Props = Astro.props;
 ---
 
-<div class="card bg-base-100 shadow-xl">
+<div class:list={["card bg-base-100 shadow-xl", className]}>
   <div class="card-body">
     <h4 class="card-title sm:my-0">{title}</h4>
 

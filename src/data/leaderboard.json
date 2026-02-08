@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-01-14",
+  "updatedAt": "2026-02-08",
   "year": 2026,
   "players": [
     {
@@ -7,8 +7,8 @@
       "name": "Arthur",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 3,
+        "eventsAttended": 2,
+        "wins": 6,
         "draws": 0,
         "losses": 0
       }
@@ -18,10 +18,10 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 3,
+        "eventsAttended": 2,
+        "wins": 5,
         "draws": 0,
-        "losses": 0
+        "losses": 1
       }
     },
     {
@@ -29,19 +29,19 @@
       "name": "Felipe Piske",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
+        "eventsAttended": 2,
+        "wins": 4,
         "draws": 0,
-        "losses": 1
+        "losses": 2
       }
     },
     {
-      "id": "claudio",
-      "name": "Claudio",
+      "id": "claudio-bonfim",
+      "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
+        "eventsAttended": 2,
+        "wins": 5,
         "draws": 0,
         "losses": 1
       }
@@ -58,8 +58,8 @@
       }
     },
     {
-      "id": "raphael",
-      "name": "Raphael",
+      "id": "raphael-souza",
+      "name": "Raphael Souza",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,
@@ -69,8 +69,8 @@
       }
     },
     {
-      "id": "ezequiel",
-      "name": "Ezequiel",
+      "id": "ezequiel-tizio",
+      "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,
@@ -80,41 +80,52 @@
       }
     },
     {
-      "id": "marcelo",
-      "name": "Marcelo",
+      "id": "marcelo-matheus",
+      "name": "Marcelo Matheus",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 3,
         "draws": 0,
-        "losses": 2
+        "losses": 3
       }
     },
     {
-      "id": "leandro",
-      "name": "Leandro",
+      "id": "leandro-castro",
+      "name": "Leandro Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 3,
         "draws": 0,
-        "losses": 2
+        "losses": 3
       }
     },
     {
-      "id": "vito",
-      "name": "Vito",
+      "id": "vito-muniz",
+      "name": "Vito Muniz",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 2,
         "draws": 0,
-        "losses": 2
+        "losses": 4
       }
     },
     {
       "id": "felipe-amalfi",
       "name": "Felipe Amalfi",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 4
+      }
+    },
+    {
+      "id": "paulo-barbarini",
+      "name": "Paulo Barbarini",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,
@@ -124,8 +135,63 @@
       }
     },
     {
-      "id": "paulo",
-      "name": "Paulo",
+      "id": "nicholas-m",
+      "name": "Nicholas M.",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "ylrin-henrique",
+      "name": "Ylrin Henrique",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "kaio-gurtovoi",
+      "name": "Kaio Gurtovoi",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "yan-ottoboni",
+      "name": "Yan Ottoboni",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "diego-ramos",
+      "name": "Diego Ramos",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 3
+      }
+    },
+    {
+      "id": "bruno-giachetti",
+      "name": "Bruno Giachetti",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,

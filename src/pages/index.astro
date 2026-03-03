@@ -132,7 +132,7 @@ const preloadImages = items
                 </div>
               ))}
 
-              {items.map(({ url, images, commander, date, player }, index) => (
+              {items.map(({ url, images, commander, date, player }) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
                   tabindex="0"
@@ -148,7 +148,7 @@ const preloadImages = items
                         alt={`Deck de ${commander}`}
                         width={206}
                         height={288}
-                        loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
+                        loading="lazy"
                       />
                       {images[1] && (
                         <Image
@@ -160,7 +160,7 @@ const preloadImages = items
                           alt={`Deck de ${commander}`}
                           width={206}
                           height={288}
-                          loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
+                          loading="lazy"
                         />
                       )}
                     </div>

@@ -36,7 +36,9 @@ const preloadImages = items
 >
   <Header />
 
-  {preloadImages.map((src) => <link rel="preload" as="image" href={src} />)}
+  <Fragment slot="head">
+    {preloadImages.map((src) => <link rel="preload" as="image" href={src} />)}
+  </Fragment>
 
   <main>
     <div class="hero bg-base-200">

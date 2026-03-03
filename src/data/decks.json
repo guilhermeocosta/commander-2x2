@@ -1,78 +1,73 @@
 {
   "updatedAt": "2026-02-03",
   "decks": [
-  {
-    "id": "evt-2026-01-10-guilherme-raffine",
-    "event": "2026-01-10 — Behbibenn Taverna Pub",
-    "date": "2026-01-10",
-    "player": "Guilherme",
-    "commanders": ["Raffine, Scheming Seer"],
-    "colors": ["U", "W", "B"],
-    "platform": "archidekt",
-    "url": "https://archidekt.com/decks/19609926/guilherme_raffine",
-    "record": "3-0-0",
-    "notes": "",
-    "image_url": [
-      "https://cards.scryfall.io/large/front/7/1/716a44b4-f6b0-4f14-a270-6442aed3251f.jpg?1711471750"
-    ]
-  },
-  {
-    "id": "evt-2026-01-10-eduardo-teshar",
-    "event": "2026-01-10 — Behbibenn Taverna Pub",
-    "date": "2026-01-10",
-    "player": "Eduardo",
-    "commanders": ["Teshar, Ancestor's Apostle"],
-    "colors": ["W"],
-    "platform": "archidekt",
-    "url": "https://archidekt.com/decks/19609655/eduardo_teshar",
-    "record": "2-1-0",
-    "notes": "",
-    "image_url": [
-      "https://cards.scryfall.io/large/front/e/8/e8a9b45b-d466-4c06-9a25-6edb6e8f6f2f.jpg?1690017040"
-    ]
-  },
-  {
-    "id": "evt-2026-01-10-felipe-piske-lurrus",
-    "event": "2026-01-10 — Behbibenn Taverna Pub",
-    "date": "2026-01-10",
-    "player": "Felipe Piske",
-    "commanders": ["Lurrus of the Dream-Den"],
-    "colors": ["W", "B"],
-    "platform": "archidekt",
-    "url": "https://archidekt.com/decks/19609491/felipe_piske_lurrus",
-    "record": "2-1-0",
-    "notes": "",
-    "image_url": [
-      "https://cards.scryfall.io/large/front/5/a/5ad36fb2-c44e-4085-ba0d-54277841ad3a.jpg?1764801075"
-    ]
-  },
-  {
-    "id": "evt-2026-01-10-claudio-meren",
-    "event": "2026-01-10 — Behbibenn Taverna Pub",
-    "date": "2026-01-10",
-    "player": "Cláudio",
-    "commanders": ["Meren of Clan Nel Toth"],
-    "colors": ["B", "G"],
-    "platform": "archidekt",
-    "url": "https://archidekt.com/decks/19609779/cludio_meren",
-    "record": "2-1-0",
-    "notes": "",
-    "image_url": [
-      "https://cards.scryfall.io/large/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1743207181"
-    ]
-  },
-  {
+    {
+      "id": "evt-2026-01-10-guilherme-raffine",
+      "event": "2026-01-10 — Behbibenn Taverna Pub",
+      "date": "2026-01-10",
+      "player": "Guilherme",
+      "commanders": ["Raffine, Scheming Seer"],
+      "colors": ["U", "W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/19609926/guilherme_raffine",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/7/1/716a44b4-f6b0-4f14-a270-6442aed3251f.jpg?1711471750"
+      ]
+    },
+    {
+      "id": "evt-2026-01-10-eduardo-teshar",
+      "event": "2026-01-10 — Behbibenn Taverna Pub",
+      "date": "2026-01-10",
+      "player": "Eduardo",
+      "commanders": ["Teshar, Ancestor's Apostle"],
+      "colors": ["W"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/19609655/eduardo_teshar",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/e/8/e8a9b45b-d466-4c06-9a25-6edb6e8f6f2f.jpg?1690017040"
+      ]
+    },
+    {
+      "id": "evt-2026-01-10-felipe-piske-lurrus",
+      "event": "2026-01-10 — Behbibenn Taverna Pub",
+      "date": "2026-01-10",
+      "player": "Felipe Piske",
+      "commanders": ["Lurrus of the Dream-Den"],
+      "colors": ["W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/19609491/felipe_piske_lurrus",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/5/a/5ad36fb2-c44e-4085-ba0d-54277841ad3a.jpg?1764801075"
+      ]
+    },
+    {
+      "id": "evt-2026-01-10-claudio-meren",
+      "event": "2026-01-10 — Behbibenn Taverna Pub",
+      "date": "2026-01-10",
+      "player": "Cláudio",
+      "commanders": ["Meren of Clan Nel Toth"],
+      "colors": ["B", "G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/19609779/cludio_meren",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1743207181"
+      ]
+    },
+    {
       "id": "evt-2025-12-13-ezequiel-arbaaz",
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Ezequiel Tizio",
-      "commanders": [
-        "Arbaaz Mir"
-      ],
-      "colors": [
-        "W",
-        "R"
-      ],
+      "commanders": ["Arbaaz Mir"],
+      "colors": ["W", "R"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758213/ezequiel_arbazz_mir",
       "record": "3-0-0",
@@ -86,19 +81,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Felipe Amalfi",
-      "commanders": [
-        "Arabella, Abandoned Doll"
-      ],
-      "colors": [
-        "W",
-        "R"
-      ],
+      "commanders": ["Arabella, Abandoned Doll"],
+      "colors": ["W", "R"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758345/felipe_arabella",
       "record": "3-0-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/f/6/f683d5a1-b8bf-446f-9fe3-88a4398bf3cf.jpg?1726286645"
+        "https://cards.scryfall.io/normal/front/f/6/f683d5a1-b8bf-446f-9fe3-88a4398bf3cf.jpg?1726286645"
       ]
     },
     {
@@ -106,14 +96,8 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Guilherme Costa",
-      "commanders": [
-        "Raffine, Scheming Seer"
-      ],
-      "colors": [
-        "W",
-        "U",
-        "B"
-      ],
+      "commanders": ["Raffine, Scheming Seer"],
+      "colors": ["W", "U", "B"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758395/guilherme_raffine",
       "record": "2-1-0",
@@ -127,19 +111,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Yan Ottoboni",
-      "commanders": [
-        "Rakdos, Lord of Riots"
-      ],
-      "colors": [
-        "R",
-        "B"
-      ],
+      "commanders": ["Rakdos, Lord of Riots"],
+      "colors": ["R", "B"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758443/yan_rakdos",
       "record": "2-1-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/3/d/3d0d5a41-8251-437c-a4a0-3b712281ebb0.jpg?1726285245"
+        "https://cards.scryfall.io/normal/front/3/d/3d0d5a41-8251-437c-a4a0-3b712281ebb0.jpg?1726285245"
       ]
     },
     {
@@ -147,20 +126,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Marcelo Matheus",
-      "commanders": [
-        "Sidisi, Brood Tyrant"
-      ],
-      "colors": [
-        "G",
-        "U",
-        "B"
-      ],
+      "commanders": ["Sidisi, Brood Tyrant"],
+      "colors": ["G", "U", "B"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758469/marcelo_sidisi",
       "record": "2-1-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/6/b/6b8e44d4-db67-4bf4-97c0-ffe6a0eb2954.jpg?1689999255"
+        "https://cards.scryfall.io/normal/front/6/b/6b8e44d4-db67-4bf4-97c0-ffe6a0eb2954.jpg?1689999255"
       ]
     },
     {
@@ -168,18 +141,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Raphael Souza",
-      "commanders": [
-        "Emry, Lurker of the Loch"
-      ],
-      "colors": [
-        "U"
-      ],
+      "commanders": ["Emry, Lurker of the Loch"],
+      "colors": ["U"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758511/raphael_emry",
       "record": "2-1-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/c/9/c977d89a-bfd1-4e98-9d95-3e41c53dd188.jpg?1752944590"
+        "https://cards.scryfall.io/normal/front/c/9/c977d89a-bfd1-4e98-9d95-3e41c53dd188.jpg?1752944590"
       ]
     },
     {
@@ -187,19 +156,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Jefferson Luiz",
-      "commanders": [
-        "Mogis, God of Slaughter"
-      ],
-      "colors": [
-        "B",
-        "R"
-      ],
+      "commanders": ["Mogis, God of Slaughter"],
+      "colors": ["B", "R"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758618/jefferson_mogis",
       "record": "2-1-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/5/2/521911e5-9ce5-4d55-bfc4-fbfeba4047fe.jpg?1726284501"
+        "https://cards.scryfall.io/normal/front/5/2/521911e5-9ce5-4d55-bfc4-fbfeba4047fe.jpg?1726284501"
       ]
     },
     {
@@ -207,19 +171,14 @@
       "event": "2025-12-13 — Medieval",
       "date": "2025-12-13",
       "player": "Cláudio Bomfim",
-      "commanders": [
-        "Omo, Queen of Vesuva"
-      ],
-      "colors": [
-        "B",
-        "U"
-      ],
+      "commanders": ["Omo, Queen of Vesuva"],
+      "colors": ["B", "U"],
       "platform": "archidekt",
       "url": "https://archidekt.com/decks/18758651/cludio_omo",
       "record": "2-1-0",
       "notes": "",
       "image_url": [
-        "https://cards.scryfall.io/large/front/e/5/e5d1c814-4c22-4917-95ae-dffaf491db32.jpg?1727175657"
+        "https://cards.scryfall.io/normal/front/e/5/e5d1c814-4c22-4917-95ae-dffaf491db32.jpg?1727175657"
       ]
     },
 

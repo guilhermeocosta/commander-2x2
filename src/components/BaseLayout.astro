@@ -105,6 +105,8 @@ const structuredData = {
 
     <!-- Structured Data -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+
+    <slot name="head" />
   </head>
   <body class="min-h-screen bg-base-100 text-base-content">
     <TopBanner

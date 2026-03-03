@@ -23,7 +23,11 @@ const items = decksData.decks
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-const preloadImages = items.slice(0, 6).flatMap((item) => item.images.slice(0, 1));
+const FEATURED_DECKS_COUNT = 6 as const;
+
+const preloadImages = items
+  .slice(0, FEATURED_DECKS_COUNT)
+  .flatMap((item) => item.images.slice(0, 1));
 ---
 
 <BaseLayout
@@ -64,7 +68,7 @@ const preloadImages = items.slice(0, 6).flatMap((item) => item.images.slice(0, 1
         items.length > 0 ? (
           <div class="overflow-hidden pt-2 w-full">
             <div class="flex gap-2 px-4 animated-carousel">
-              {items.map(({ url, images, commander, date, player }) => (
+              {items.map(({ url, images, commander, date, player }, index) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
                   tabindex="0"
@@ -80,7 +84,7 @@ const preloadImages = items.slice(0, 6).flatMap((item) => item.images.slice(0, 1
                         alt={`Deck de ${commander}`}
                         width={206}
                         height={288}
-                        loading="lazy"
+                        loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
                         sizes="(max-width: 768px) 150px, 206px"
                         srcset={images[0]}
                       />
@@ -94,7 +98,7 @@ const preloadImages = items.slice(0, 6).flatMap((item) => item.images.slice(0, 1
                           alt={`Deck de ${commander}`}
                           width={206}
                           height={288}
-                          loading="lazy"
+                          loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
                           sizes="(max-width: 768px) 150px, 206px"
                           srcset={images[1]}
                         />
@@ -130,23 +134,39 @@ const preloadImages = items.slice(0, 6).flatMap((item) => item.images.slice(0, 1
                 </div>
               ))}
 
-              {items.map(({ url, images, commander, date, player }) => (
+              {items.map(({ url, images, commander, date, player }, index) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
                   tabindex="0"
                 >
                   <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
                     <div class="relative h-72">
-                      <img
-                        class="h-72 rounded-lg transition-transform duration-300 ease-out -z-10"
+                      <Image
+                        class="h-72 rounded-lg transition-all duration-700 ease-out -z-10 object-cover"
+                        style="filter: blur(10px); transform: scale(1.025);"
+                        onload="this.style.filter='blur(0px)'; this.style.transform='scale(1)';"
+                        onerror="this.style.filter='blur(2px)'; this.style.transform='scale(1.05)';"
                         src={images[0]}
                         alt={`Deck de ${commander}`}
+                        width={206}
+                        height={288}
+                        loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
+                        sizes="(max-width: 768px) 150px, 206px"
+                        srcset={images[0]}
                       />
                       {images[1] && (
-                        <img
-                          class="h-72 rounded-lg transition-transform duration-300 ease-out absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20"
+                        <Image
+                          class="h-72 rounded-lg transition-all duration-700 ease-out absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20 object-cover"
+                          style="filter: blur(10px); transform: scale(1.025);"
+                          onload="this.style.filter='blur(0px)'; this.style.transform='scale(1)';"
+                          onerror="this.style.filter='blur(2px)'; this.style.transform='scale(1.05)';"
                           src={images[1]}
                           alt={`Deck de ${commander}`}
+                          width={206}
+                          height={288}
+                          loading={index < FEATURED_DECKS_COUNT ? "eager" : "lazy"}
+                          sizes="(max-width: 768px) 150px, 206px"
+                          srcset={images[1]}
                         />
                       )}
                     </div>

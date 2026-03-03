@@ -14,4 +14,7 @@ export default defineConfig({
   build: {
     format: "file",
   },
+  image: {
+    domains: ["cards.scryfall.io"],
+  },
 });

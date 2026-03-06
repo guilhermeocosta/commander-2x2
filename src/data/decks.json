@@ -1,6 +1,81 @@
 {
-  "updatedAt": "2026-02-03",
+  "updatedAt": "2026-03-05",
   "decks": [
+        {
+      "id": "evt-2026-02-07-claudio-the-reaper-king-no-more",
+      "event": "2026-02-07 — Medieval",
+      "date": "2026-02-07",
+      "player": "Cláudio",
+      "commanders": ["The Reaper, King No More"],
+      "colors": ["R", "B", "G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/20573180/cludio_the_reaper_king_no_more",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/d/2/d2119f3f-27d2-4d43-a5ef-35c1b73d182a.jpg?1768940608"
+      ]
+    },
+    {
+      "id": "evt-2026-02-07-piske-edgar-markov",
+      "event": "2026-02-07 — Medieval",
+      "date": "2026-02-07",
+      "player": "Felipe Piske",
+      "commanders": ["Edgar Markov"],
+      "colors": ["R", "B", "W"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/20573099/piske_edgar_markov",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/0/8/089b6e6f-c178-4612-866f-da9cbc01b442.jpg?1736468886"
+      ]
+    },
+    {
+      "id": "evt-2026-02-07-marcelo-blanka",
+      "event": "2026-02-07 — Medieval",
+      "date": "2026-02-07",
+      "player": "Marcelo",
+      "commanders": ["Blanka, Ferocious Friend"],
+      "colors": ["R", "G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/20573154/marcelo_blanka",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/2/6/26fecfd4-40c1-4ed3-bf58-22c7b98699a9.jpg?1757465346"
+      ]
+    },
+    {
+      "id": "evt-2026-02-07-guilherme-klothys",
+      "event": "2026-02-07 — Medieval",
+      "date": "2026-02-07",
+      "player": "Guilherme",
+      "commanders": ["Klothys, God of Destiny"],
+      "colors": ["R", "G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/20573078/guilherme_klothys",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/f/6/f62a5e40-8fad-4efc-81ae-fb3e3b5b6cab.jpg?1723443429"
+      ]
+    },
+    {
+      "id": "evt-2026-02-07-felipe-amalfi-alesha",
+      "event": "2026-02-07 — Medieval",
+      "date": "2026-02-07",
+      "player": "Felipe Amalfi",
+      "commanders": ["Alesha, Who Laughs at Fate"],
+      "colors": ["R", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/20573217/felipe_amalfi_alesha_who_laughs_at_fate",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/a/9/a93e3406-4e29-4bc0-ae52-cbd2ac1f99a4.jpg?1730489026"
+      ]
+    },
     {
       "id": "evt-2026-01-10-guilherme-raffine",
       "event": "2026-01-10 — Behbibenn Taverna Pub",

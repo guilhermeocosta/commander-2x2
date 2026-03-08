@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-08",
+  "updatedAt": "2026-03-08",
   "year": 2026,
   "players": [
     {
@@ -18,8 +18,8 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 5,
+        "eventsAttended": 3,
+        "wins": 8,
         "draws": 0,
         "losses": 1
       }
@@ -40,10 +40,10 @@
       "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 5,
+        "eventsAttended": 3,
+        "wins": 7,
         "draws": 0,
-        "losses": 1
+        "losses": 2
       }
     },
     {
@@ -84,10 +84,10 @@
       "name": "Marcelo Matheus",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 3,
+        "eventsAttended": 3,
+        "wins": 4,
         "draws": 0,
-        "losses": 3
+        "losses": 5
       }
     },
     {
@@ -106,10 +106,10 @@
       "name": "Vito Muniz",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 2,
+        "eventsAttended": 3,
+        "wins": 4,
         "draws": 0,
-        "losses": 4
+        "losses": 5
       }
     },
     {
@@ -117,10 +117,10 @@
       "name": "Felipe Amalfi",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 2,
+        "eventsAttended": 3,
+        "wins": 4,
         "draws": 0,
-        "losses": 4
+        "losses": 5
       }
     },
     {
@@ -128,10 +128,10 @@
       "name": "Paulo Barbarini",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
+        "eventsAttended": 2,
+        "wins": 1,
         "draws": 0,
-        "losses": 3
+        "losses": 5
       }
     },
     {
@@ -150,10 +150,10 @@
       "name": "Ylrin Henrique",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 3,
         "draws": 0,
-        "losses": 2
+        "losses": 3
       }
     },
     {
@@ -172,10 +172,10 @@
       "name": "Yan Ottoboni",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 2,
         "draws": 0,
-        "losses": 2
+        "losses": 4
       }
     },
     {
@@ -187,6 +187,17 @@
         "wins": 0,
         "draws": 0,
         "losses": 3
+      }
+    },
+    {
+      "id": "jose-coutinho",
+      "name": "José Coutinho",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
       }
     },
     {

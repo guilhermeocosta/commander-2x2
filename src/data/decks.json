@@ -1,6 +1,51 @@
 {
-  "updatedAt": "2026-03-05",
+  "updatedAt": "2026-04-09",
   "decks": [
+      {
+      "id": "evt-2026-03-07-vito-aminatou",
+      "event": "2026-03-07 — medieval",
+      "date": "2026-03-07",
+      "player": "Vito",
+      "commanders": ["Aminatou, the Fateshifter"],
+      "colors": ["W", "U", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/21552806/vito_aminatou",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/b/c/bc010302-e715-4946-89eb-a214e0b836ba.jpg?1673148265"
+      ]
+    },
+    {
+      "id": "evt-2026-03-07-guilherme-obyra",
+      "event": "2026-03-07 — medieval",
+      "date": "2026-03-07",
+      "player": "Guilherme",
+      "commanders": ["Obyra, Dreaming Duelist"],
+      "colors": ["U", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/21552775/guilherme_obyra",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/6/3/63ce03ee-279b-4955-98e3-9ce1990f8b7b.jpg?1692939395"
+      ]
+    },
+    {
+      "id": "evt-2026-03-07-felipe-hapatra",
+      "event": "2026-03-07 — medieval",
+      "date": "2026-03-07",
+      "player": "Felipe",
+      "commanders": ["Hapatra, Vizier of Poisons"],
+      "colors": ["B", "G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/21552762/felipe_hapatra",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/d/1/d19e17fc-ae3e-4533-ab94-70d5f2e1b8cd.jpg?1767731346"
+      ]
+    },
         {
       "id": "evt-2026-02-07-claudio-the-reaper-king-no-more",
       "event": "2026-02-07 — Medieval",

@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-03-08",
+  "updatedAt": "2026-05-03",
   "year": 2026,
   "players": [
     {
       "id": "arthur",
-      "name": "Arthur",
+      "name": "Arthur Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 6,
+        "eventsAttended": 3,
+        "wins": 8,
         "draws": 0,
-        "losses": 0
+        "losses": 1
       }
     },
     {
@@ -18,10 +18,10 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 8,
+        "eventsAttended": 4,
+        "wins": 10,
         "draws": 0,
-        "losses": 1
+        "losses": 2
       }
     },
     {
@@ -73,10 +73,10 @@
       "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
+        "eventsAttended": 2,
+        "wins": 2,
         "draws": 0,
-        "losses": 2
+        "losses": 4
       }
     },
     {
@@ -95,8 +95,8 @@
       "name": "Leandro Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 3,
+        "eventsAttended": 3,
+        "wins": 6,
         "draws": 0,
         "losses": 3
       }
@@ -183,6 +183,28 @@
       "name": "Diego Ramos",
       "avatar": null,
       "stats": {
+        "eventsAttended": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 4
+      }
+    },
+    {
+      "id": "jose-coutinho",
+      "name": "José Coutinho",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 2,
+        "wins": 3,
+        "draws": 0,
+        "losses": 3
+      }
+    },
+    {
+      "id": "bruno-giachetti",
+      "name": "Bruno Giachetti",
+      "avatar": null,
+      "stats": {
         "eventsAttended": 1,
         "wins": 0,
         "draws": 0,
@@ -190,8 +212,19 @@
       }
     },
     {
-      "id": "jose-coutinho",
-      "name": "José Coutinho",
+      "id": "pedro-rossetto",
+      "name": "Pedro Rossetto",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "heitor-castro",
+      "name": "Heitor Vilasboas de Castro",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,
@@ -201,8 +234,41 @@
       }
     },
     {
-      "id": "bruno-giachetti",
-      "name": "Bruno Giachetti",
+      "id": "pedro-nicola",
+      "name": "Pedro Nilo Zonderico Nicola",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "jules-assis",
+      "name": "Jules Assis",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "jojo",
+      "name": "Jojo",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 3
+      }
+    },
+    {
+      "id": "ramon-cuevas",
+      "name": "Ramon Cuevas",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,

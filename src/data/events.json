@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-03-08",
+  "updatedAt": "2026-05-09",
   "events": [
+    {
+      "title": "Commander 2x2 Especial",
+      "date": "2026-06-13",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 30,00",
+      "description": "Torneio especial - formato à ser definido"
+    },
+    {
+      "title": "Regular Commander 2x2",
+      "date": "2026-05-09",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 25,00",
+      "description": "Torneio regular"
+    },
     {
       "title": "Commander 2x2 - Pre-Cons",
       "date": "2026-04-11",

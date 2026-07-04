@@ -1,6 +1,106 @@
 {
-  "updatedAt": "2026-04-09",
+  "updatedAt": "2026-07-04",
   "decks": [
+  {
+    "id": "evt-2026-05-09-ylrin-azusa",
+    "event": "2026-05-09 — medieval",
+    "date": "2026-05-09",
+    "player": "Ylrin",
+    "commanders": [
+      "Azusa, Lost but Seeking"
+    ],
+    "colors": [
+      "G"
+    ],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/24066489/ylrin_azusa",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://card-images.archidekt.com/large/front/2/f/2fe97fbe-a6d6-4e96-8c26-f81bcdf579a1.jpg?1782733119"
+    ]
+  },
+  {
+    "id": "evt-2026-05-09-vito-aminatou",
+    "event": "2026-05-09 — medieval",
+    "date": "2026-05-09",
+    "player": "Vito",
+    "commanders": [
+      "Aminatou, the Fateshifter"
+    ],
+    "colors": [
+      "W",
+      "U",
+      "B"
+    ],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/24066432/vito_aminatou",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://card-images.archidekt.com/large/front/b/c/bc010302-e715-4946-89eb-a214e0b836ba.jpg?1782737855"
+    ]
+  },
+  {
+    "id": "evt-2026-05-09-claudio-lumra",
+    "event": "2026-05-09 — medieval",
+    "date": "2026-05-09",
+    "player": "Claudio",
+    "commanders": [
+      "Lumra, Bellow of the Woods"
+    ],
+    "colors": [
+      "G"
+    ],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/24066379/claudio_",
+    "record": "2-1-0",
+    "notes": "",
+    "image_url": [
+      "https://card-images.archidekt.com/large/front/a/e/ae4f3aaf-3960-48cd-b34b-32e4ae5ae088.jpg?1782690487"
+    ]
+  },
+  {
+    "id": "evt-2026-05-09-jose-graha",
+    "event": "2026-05-09 — medieval",
+    "date": "2026-05-09",
+    "player": "José Coutinho",
+    "commanders": [
+      "G'raha Tia, Scion Reborn"
+    ],
+    "colors": [
+      "W",
+      "B",
+      "U"
+    ],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/24066337/jose_graha",
+    "record": "3-0-0",
+    "notes": "",
+    "image_url": [
+      "https://card-images.archidekt.com/large/front/2/1/214453a2-9dcb-4bab-853f-5b56bbcbe4f8.jpg?1782685872"
+    ]
+  },
+  {
+    "id": "evt-2026-05-09-gui-ragost",
+    "event": "2026-05-09 — medieval",
+    "date": "2026-05-09",
+    "player": "Guilherme de Oliverira Costa",
+    "commanders": [
+      "Ragost, Deft Gastronaut"
+    ],
+    "colors": [
+      "R",
+      "W"
+    ],
+    "platform": "archidekt",
+    "url": "https://archidekt.com/decks/24066254/gui_ragost",
+    "record": "3-0-0",
+    "notes": "",
+    "image_url": [
+      "https://card-images.archidekt.com/large/front/0/1/011374c3-f69d-4573-8c32-5bd0fe083d6a.jpg?1782685429"
+    ]
+  },
       {
       "id": "evt-2026-03-07-vito-aminatou",
       "event": "2026-03-07 — medieval",

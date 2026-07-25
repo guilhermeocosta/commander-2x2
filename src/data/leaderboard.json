@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02",
+  "updatedAt": "2026-07-18",
   "year": 2026,
   "players": [
     {
@@ -18,8 +18,8 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 16,
+        "eventsAttended": 7,
+        "wins": 19,
         "draws": 0,
         "losses": 2
       }
@@ -29,10 +29,10 @@
       "name": "Felipe Piske",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 4,
+        "eventsAttended": 3,
+        "wins": 6,
         "draws": 0,
-        "losses": 2
+        "losses": 3
       }
     },
     {
@@ -40,8 +40,8 @@
       "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 9,
+        "eventsAttended": 5,
+        "wins": 12,
         "draws": 0,
         "losses": 3
       }
@@ -62,10 +62,10 @@
       "name": "Raphael Souza",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 3,
+        "eventsAttended": 3,
+        "wins": 5,
         "draws": 0,
-        "losses": 3
+        "losses": 4
       }
     },
     {
@@ -73,10 +73,10 @@
       "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
+        "eventsAttended": 5,
         "wins": 5,
         "draws": 0,
-        "losses": 7
+        "losses": 10
       }
     },
     {
@@ -106,10 +106,10 @@
       "name": "Vito Muniz",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 9,
+        "eventsAttended": 6,
+        "wins": 10,
         "draws": 0,
-        "losses": 6
+        "losses": 8
       }
     },
     {
@@ -117,10 +117,10 @@
       "name": "Felipe Amalfi",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
+        "eventsAttended": 6,
         "wins": 6,
         "draws": 0,
-        "losses": 9
+        "losses": 12
       }
     },
     {
@@ -194,10 +194,10 @@
       "name": "José Coutinho",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 7,
+        "eventsAttended": 5,
+        "wins": 8,
         "draws": 0,
-        "losses": 5
+        "losses": 7
       }
     },
     {
@@ -302,6 +302,17 @@
     {
       "id": "gustavo-tolentino",
       "name": "Gustavo Tolentino",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 2,
+        "wins": 3,
+        "draws": 0,
+        "losses": 3
+      }
+    },
+    {
+      "id": "gabriel-cruvinel",
+      "name": "Gabriel Cruvinel",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,

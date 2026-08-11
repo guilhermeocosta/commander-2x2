@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2025-10-31",
+  "updatedAt": "2026-08-10",
   "sources": [
     {
       "name": "Commander Banlist",
@@ -41,6 +41,12 @@
       "url": "https://scryfall.com/card/lea/269/sol-ring",
       "status": "banned",
       "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Serra Ascendant",
+      "url": "https://scryfall.com/card/m11/28/serra-ascendant",
+      "status": "banned",
+      "effectiveDate": "2026-08-10"
     }
   ],
   "watchlist": [
@@ -61,6 +67,42 @@
       "url": "https://scryfall.com/card/iko/216/winota-joiner-of-forces",
       "reason": "Saída recente da lista de Game Changers",
       "effectiveDate": "2025-10-31"
+    },
+    {
+      "card": "Edgar Markov",
+      "url": "https://scryfall.com/card/c17/36/edgar-markov",
+      "reason": "Construção de valor diretamente da zona de comando",
+      "effectiveDate": "2026-08-10"
+    },
+    {
+      "card": "Inalla, Archmage Ritualist",
+      "url": "https://scryfall.com/card/c17/38/inalla-archmage-ritualist",
+      "reason": "Construção de valor diretamente da zona de comando e alto potencial de combo",
+      "effectiveDate": "2026-08-10"
+    },
+    {
+      "card": "Kroxa, Titan of Death's Hunger",
+      "url": "https://scryfall.com/card/thb/221/kroxa-titan-of-deaths-hunger",
+      "reason": "Negação de recursos opressiva num jogo de duplas",
+      "effectiveDate": "2026-08-10"
+    },
+    {
+      "card": "Lumra, Bellow of the Woods",
+      "url": "https://scryfall.com/card/blb/183/lumra-bellow-of-the-woods",
+      "reason": "Potencial de combo com pouca margem de interação",
+      "effectiveDate": "2026-08-10"
+    },
+    {
+      "card": "Kefka, Court Mage // Kefka, Ruler of Ruin",
+      "url": "https://scryfall.com/card/fin/231/kefka-court-mage-kefka-ruler-of-ruin",
+      "reason": "Negação de recursos opressiva num jogo de duplas",
+      "effectiveDate": "2026-08-10"
+    },
+    {
+      "card": "Ragavan, Nimble Pilferer",
+      "url": "https://scryfall.com/card/mh2/138/ragavan-nimble-pilferer",
+      "reason": "Potencial de efeito bola-de-neve",
+      "effectiveDate": "2026-08-10"
     }
   ]
 }

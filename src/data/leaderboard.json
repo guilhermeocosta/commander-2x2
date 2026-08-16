@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-08-16",
   "year": 2026,
   "players": [
     {
@@ -18,10 +18,10 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 7,
-        "wins": 19,
+        "eventsAttended": 8,
+        "wins": 20,
         "draws": 0,
-        "losses": 2
+        "losses": 4
       }
     },
     {
@@ -40,10 +40,10 @@
       "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 12,
+        "eventsAttended": 6,
+        "wins": 14,
         "draws": 0,
-        "losses": 3
+        "losses": 4
       }
     },
     {
@@ -62,10 +62,10 @@
       "name": "Raphael Souza",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 5,
+        "eventsAttended": 4,
+        "wins": 7,
         "draws": 0,
-        "losses": 4
+        "losses": 5
       }
     },
     {
@@ -73,10 +73,10 @@
       "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 5,
+        "eventsAttended": 6,
+        "wins": 7,
         "draws": 0,
-        "losses": 10
+        "losses": 11
       }
     },
     {
@@ -95,10 +95,10 @@
       "name": "Leandro Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 8,
+        "eventsAttended": 6,
+        "wins": 9,
         "draws": 0,
-        "losses": 7
+        "losses": 9
       }
     },
     {
@@ -106,10 +106,10 @@
       "name": "Vito Muniz",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 10,
+        "eventsAttended": 7,
+        "wins": 11,
         "draws": 0,
-        "losses": 8
+        "losses": 10
       }
     },
     {
@@ -117,10 +117,10 @@
       "name": "Felipe Amalfi",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 6,
+        "eventsAttended": 7,
+        "wins": 8,
         "draws": 0,
-        "losses": 12
+        "losses": 13
       }
     },
     {
@@ -128,8 +128,8 @@
       "name": "Paulo Barbarini",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 2,
+        "eventsAttended": 5,
+        "wins": 5,
         "draws": 0,
         "losses": 10
       }
@@ -150,10 +150,10 @@
       "name": "Ylrin Henrique",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
+        "eventsAttended": 4,
         "wins": 5,
         "draws": 0,
-        "losses": 4
+        "losses": 7
       }
     },
     {
@@ -172,10 +172,10 @@
       "name": "Yan Ottoboni",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 3,
+        "eventsAttended": 4,
+        "wins": 4,
         "draws": 0,
-        "losses": 6
+        "losses": 8
       }
     },
     {
@@ -183,10 +183,10 @@
       "name": "Diego Ramos",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 2,
+        "eventsAttended": 4,
+        "wins": 3,
         "draws": 0,
-        "losses": 7
+        "losses": 9
       }
     },
     {
@@ -227,10 +227,10 @@
       "name": "Heitor Vilasboas de Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 5,
+        "eventsAttended": 4,
+        "wins": 7,
         "draws": 0,
-        "losses": 4
+        "losses": 5
       }
     },
     {

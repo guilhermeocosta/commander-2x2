@@ -2,6 +2,15 @@
   "updatedAt": "2026-07-02",
   "events": [
     {
+      "title": "Commander 2x2 - Pre-Cons",
+      "date": "2026-09-12",
+      "time": "14:00",
+      "location": "Medieval Cards - São Paulo",
+      "format": "3 rodadas fixas",
+      "entryFee": "R$ 30,00",
+      "description": "Torneio com decks pré-construídos"
+    },
+    {
       "title": "Regular Commander 2x2",
       "date": "2026-08-15",
       "time": "14:00",

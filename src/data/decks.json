@@ -1,6 +1,111 @@
 {
-  "updatedAt": "2026-07-14",
+  "updatedAt": "2026-09-03",
   "decks": [
+        {
+      "id": "evt-2026-08-15-claudio-claudio-ral",
+      "event": "2026-08-15 — medieval",
+      "date": "2026-08-15",
+      "player": "Claudio",
+      "commanders": ["Ral, Monsoon Mage"],
+      "colors": ["R", "U"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039256/claudio_ral",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/4/3/438d8a26-ddc9-4829-8aff-22d6af6575cf.jpg?1783911228"
+      ]
+    },
+    {
+      "id": "evt-2026-08-15-rapha-rapha-edgar-markov",
+      "event": "2026-08-15 — medieval",
+      "date": "2026-08-15",
+      "player": "Raphael",
+      "commanders": ["Edgar Markov"],
+      "colors": ["R", "W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039341/rapha_edgar_markov",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+      ]
+    },
+    {
+      "id": "evt-2026-08-15-felipe-amalfi-felipe-amalfi-satya",
+      "event": "2026-08-15 — medieval",
+      "date": "2026-08-15",
+      "player": "Felipe Amalfi",
+      "commanders": ["Satya, Aetherflux Genius"],
+      "colors": ["R", "W", "U"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039380/felipe_amalfi_satya",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/3/b/3b964bbe-54cc-425c-9cc6-c877f82af7ba.jpg?1783911437"
+      ]
+    },
+    {
+      "id": "evt-2026-07-18-raphael-rapha-edgar-markov",
+      "event": "2026-07-18 — medieval",
+      "date": "2026-07-18",
+      "player": "Raphael",
+      "commanders": ["Edgar Markov"],
+      "colors": ["R", "W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039803/rapha_edgar_markov",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1783908078"
+      ]
+    },
+    {
+      "id": "evt-2026-07-18-claudio-claudio-lumra",
+      "event": "2026-07-18 — medieval",
+      "date": "2026-07-18",
+      "player": "Cláudio",
+      "commanders": ["Lumra, Bellow of the Woods"],
+      "colors": ["G"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039707/claudio_lumra",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/a/e/ae4f3aaf-3960-48cd-b34b-32e4ae5ae088.jpg?1785161492"
+      ]
+    },
+    {
+      "id": "evt-2026-07-18-guilherme-gui-splinter",
+      "event": "2026-07-18 — medieval",
+      "date": "2026-07-18",
+      "player": "Guilherme",
+      "commanders": ["Splinter, Aging Champion"],
+      "colors": ["W"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039750/gui_splinter",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/9/a/9a9cd2d2-74ba-497a-828c-ba22fbb9f2b1.jpg?1783904140"
+      ]
+    },
+    {
+      "id": "evt-2026-07-18-felipe-piske-piske-dihada",
+      "event": "2026-07-18 — medieval",
+      "date": "2026-07-18",
+      "player": "Felipe Piske",
+      "commanders": ["Dihada, Binder of Wills"],
+      "colors": ["R", "W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/26039838/piske_dihada",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/d/d/ddeb54d6-a600-42b9-98df-20f8d58caed8.jpg?1783921477"
+      ]
+    },
     {
       "id": "evt-2026-05-09-jose-graha",
       "event": "2026-05-09 — medieval",

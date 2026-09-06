@@ -1,9 +1,16 @@
 ---
+import type { MDXInstance } from "astro";
+
+interface ChangelogEntry {
+  slug: string;
+  title: string;
+  date: string;
+  content: MDXInstance<Record<string, never>>["Content"];
+  path: string;
+}
+
 export interface Props {
-  // TODO(phase 5): type these once changelog.astro moves to
-  // getCollection("changelog") — `content` is an Astro component factory
-  // whose only stable type lives behind an astro-internal path.
-  entries: any[];
+  entries: ChangelogEntry[];
 }
 
 const { entries }: Props = Astro.props;

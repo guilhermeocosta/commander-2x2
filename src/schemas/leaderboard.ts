@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 export const PlayerStatsSchema = z.object({
   eventsAttended: z.number().int().min(0),
@@ -10,7 +10,7 @@ export const PlayerStatsSchema = z.object({
 export const PlayerSchema = z.object({
   id: z.string(),
   name: z.string(),
-  avatar: z.string().url().nullable(),
+  avatar: z.url().nullable(),
   stats: PlayerStatsSchema,
 });
 

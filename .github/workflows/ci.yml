@@ -5,12 +5,19 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      # No `version:` on purpose — action-setup@v4 reads it from the
+      # "packageManager" field in package.json (pnpm@10.13.1), keeping a
+      # single source of truth. Setting it here too would fail the run if
+      # the two ever drift.
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4

@@ -9,7 +9,7 @@ export default [
   ...eslintPluginAstro.configs.recommended,
   eslintConfigPrettier,
   {
-    // Applies to .ts/.tsx and to the frontmatter of .astro files.
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parserOptions: {
         ecmaVersion: "latest",
@@ -45,6 +45,8 @@ export default [
     rules: {
       "no-undef": "off",
       "@typescript-eslint/no-unused-expressions": "off",
+      // Same "warn" policy as .ts/.tsx above (tseslint recommended sets "error").
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
   {

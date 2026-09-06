@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^4.3.14",
-    "@astrojs/vercel": "^9.0.5",
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/vercel": "^10.0.8",
     "@lucide/astro": "^1.41.0",
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^5.18.2",
+    "astro": "^6.4.8",
     "posthog-js": "^1.427.2",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3"

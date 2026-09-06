@@ -3,16 +3,17 @@ import BaseLayout from "../components/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Timeline from "../components/Timeline.astro";
+import type { MDXInstance } from "astro";
 
 // Auto-discover changelog entries
-// TODO(phase 5): replace this glob with getCollection("changelog") (the
-// collection already exists in content.config.ts) to drop the `any` and get
-// first-class typing for frontmatter + rendered content.
-const changelogModules = import.meta.glob("../content/changelog/*.mdx", { eager: true });
+const changelogModules = import.meta.glob<MDXInstance<{ title: string; date: string }>>(
+  "../content/changelog/*.mdx",
+  { eager: true }
+);
 
 // Extract and sort entries by date
 const changelogEntries = Object.entries(changelogModules)
-  .map(([path, module]: [string, any]) => {
+  .map(([path, module]) => {
     const slug = path.split("/").pop()?.replace(".mdx", "") || "";
     const date = module.frontmatter.date;
     return {

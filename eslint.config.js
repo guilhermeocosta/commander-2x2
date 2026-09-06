@@ -1,17 +1,16 @@
 import js from "@eslint/js";
-import typescript from "@typescript-eslint/eslint-plugin";
-import typescriptParser from "@typescript-eslint/parser";
+import tseslint from "typescript-eslint";
 import eslintPluginAstro from "eslint-plugin-astro";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   js.configs.recommended,
+  ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   eslintConfigPrettier,
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    // Applies to .ts/.tsx and to the frontmatter of .astro files.
     languageOptions: {
-      parser: typescriptParser,
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
@@ -29,12 +28,10 @@ export default [
         Element: "readonly",
       },
     },
-    plugins: {
-      "@typescript-eslint": typescript,
-    },
     rules: {
-      ...typescript.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": "error",
+      // Kept as a warning to match the pre-flat-config-migration policy;
+      // tseslint's recommended set raises this to "error".
       "@typescript-eslint/no-explicit-any": "warn",
     },
   },

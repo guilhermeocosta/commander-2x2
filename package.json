@@ -2,6 +2,10 @@
   "name": "commander-2x2",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=22.22.3"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -16,30 +20,30 @@
     "deploy": "pnpm run build && vercel --prod"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/vercel": "^9.0.5",
     "@lucide/astro": "^0.577.0",
     "@vercel/speed-insights": "^1.3.1",
     "astro": "^5.18.2",
-    "posthog-js": "^1.396.5",
+    "posthog-js": "^1.427.2",
     "sharp": "^0.35.4",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/typography": "^0.5.20",
-    "@tailwindcss/vite": "^4.3.2",
-    "@types/node": "^25.9.4",
-    "@typescript-eslint/eslint-plugin": "^8.62.1",
-    "@typescript-eslint/parser": "^8.62.1",
-    "daisyui": "^5.6.10",
-    "eslint": "^10.6.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.20.1",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "daisyui": "^5.7.28",
+    "eslint": "^10.10.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-prettier": "^5.5.6",
-    "markdownlint-cli": "^0.48.0",
-    "prettier": "^3.9.4",
+    "markdownlint-cli": "^0.49.1",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
   }

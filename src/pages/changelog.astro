@@ -5,6 +5,9 @@ import Footer from "../components/Footer.astro";
 import Timeline from "../components/Timeline.astro";
 
 // Auto-discover changelog entries
+// TODO(phase 5): replace this glob with getCollection("changelog") (the
+// collection already exists in content.config.ts) to drop the `any` and get
+// first-class typing for frontmatter + rendered content.
 const changelogModules = import.meta.glob("../content/changelog/*.mdx", { eager: true });
 
 // Extract and sort entries by date

@@ -1,8 +1,30 @@
 ---
+interface BanlistEntry {
+  card: string;
+  url: string;
+  // "banned" | "banned-as-commander" in practice; kept as string so the
+  // untyped banlist.json import assigns cleanly.
+  status: string;
+  effectiveDate: string;
+}
+
+interface WatchlistEntry {
+  card: string;
+  url: string;
+  reason: string;
+  effectiveDate: string;
+}
+
+interface BanlistSource {
+  name: string;
+  url: string;
+  note?: string;
+}
+
 export interface Props {
-  entries: any[];
-  watchlist: any[];
-  sources: any[];
+  entries: BanlistEntry[];
+  watchlist: WatchlistEntry[];
+  sources: BanlistSource[];
   updatedAt: string;
 }
 

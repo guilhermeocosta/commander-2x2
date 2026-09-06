@@ -1,5 +1,8 @@
 ---
 export interface Props {
+  // TODO(phase 5): type these once changelog.astro moves to
+  // getCollection("changelog") — `content` is an Astro component factory
+  // whose only stable type lives behind an astro-internal path.
   entries: any[];
 }
 

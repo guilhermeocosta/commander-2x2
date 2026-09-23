@@ -25,8 +25,13 @@ export type Player = z.infer<typeof PlayerSchema>;
 export type PlayerStats = z.infer<typeof PlayerStatsSchema>;
 export type LeaderboardData = z.infer<typeof LeaderboardDataSchema>;
 
+/** Points per event attended, per round won and per round drawn. */
+export const POINTS = { attendance: 1, win: 3, draw: 1 } as const;
+
 export function calculateScore(stats: PlayerStats): number {
-  return stats.eventsAttended * 1 + stats.wins * 3 + stats.draws * 1;
+  return (
+    stats.eventsAttended * POINTS.attendance + stats.wins * POINTS.win + stats.draws * POINTS.draw
+  );
 }
 
 export interface RankedPlayer extends Player {

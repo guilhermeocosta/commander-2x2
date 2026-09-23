@@ -1,4 +1,5 @@
 ---
+import { formatDate } from "../utils/date";
 import type { BanlistEntry, BanlistSource, WatchlistEntry } from "../schemas/banlist";
 
 export interface Props {
@@ -14,11 +15,7 @@ import { Info } from "@lucide/astro";
 
 <div class="alert alert-neutral mb-4">
   <Info class="shrink-0 size-6" aria-hidden="true" />
-  <span
-    >Última atualização em {
-      new Date(updatedAt + "T00:00:00").toLocaleString("pt-BR", { dateStyle: "short" })
-    }</span
-  >
+  <span>Última atualização em {formatDate(updatedAt)}</span>
 </div>
 
 <section class="mb-12 prose">

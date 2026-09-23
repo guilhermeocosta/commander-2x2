@@ -91,11 +91,10 @@ Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas
 
 ## Site content
 
-| Term (pt-BR)         | English   | In code                             | Meaning                                                                                          |
-| -------------------- | --------- | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Regras               | Rules     | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.                                                    |
-| Changelog            | Changelog | `src/content/changelog/*.mdx`       | One entry per format change (banlist update, rules clarification). Frontmatter: `title`, `date`. |
-| Perguntas frequentes | FAQ       | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page.                                                |
+| Term (pt-BR)         | English | In code                             | Meaning                                           |
+| -------------------- | ------- | ----------------------------------- | ------------------------------------------------- |
+| Regras               | Rules   | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.     |
+| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page. |
 
 ### Routes
 
@@ -108,6 +107,5 @@ Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas
 | `/eventos`      | Eventos              | `src/pages/eventos.astro`      |
 | `/hall-da-fama` | Hall da Fama         | `src/pages/hall-da-fama.astro` |
 | `/decks`        | Decks                | `src/pages/decks.astro`        |
-| `/changelog`    | (not in the nav)     | `src/pages/changelog.astro`    |
 
 The navigation is defined in [`src/config/navigation.ts`](src/config/navigation.ts).

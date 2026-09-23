@@ -8,7 +8,7 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | Framework       | [Astro](https://astro.build) 7, static output                                         | `astro.config.mjs`                                      |
 | Hosting         | Vercel, through `@astrojs/vercel` (with `imageService: true`)                         | `astro.config.mjs`                                      |
-| Content         | Markdown + MDX (`@astrojs/mdx`)                                                       | `src/content/`                                          |
+| Content         | Markdown                                                                              | `src/content/`                                          |
 | Data            | JSON files validated with Zod (`astro/zod`)                                           | `src/data/`, `src/schemas/`                             |
 | Styling         | Tailwind CSS v4 (through `@tailwindcss/vite`) + daisyUI 5 + `@tailwindcss/typography` | `src/styles/global.css`                                 |
 | Icons           | `@lucide/astro`                                                                       | components                                              |
@@ -27,13 +27,12 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
  (Zod + domain logic)  once, at build time
 
  src/content/regras/index.md ──── direct import ─────────► /regras
- src/content/changelog/*.mdx ──── import.meta.glob ──────► /changelog
 ```
 
 - **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
 - **Domain logic** sits next to its schema: `calculateScore()` and `rankPlayers()` are in `src/schemas/leaderboard.ts`.
 - **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. After an event date passes, the site only reflects it on the next deploy.
-- **No content collections.** Rules are imported directly as a module, and changelog entries are loaded with `import.meta.glob<MDXInstance<{ title; date }>>`. The FAQ is a hardcoded array in `faq.astro`.
+- **No content collections.** Rules are imported directly as a module. The FAQ is a hardcoded array in `faq.astro`.
 
 ## Page anatomy
 

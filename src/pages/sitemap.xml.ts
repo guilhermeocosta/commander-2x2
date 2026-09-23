@@ -20,7 +20,6 @@ const routeMeta: Record<string, Partial<RouteMeta>> = {
   "/hall-da-fama": { changefreq: "weekly", priority: 0.8, lastmod: leaderboardData.updatedAt },
   "/faq": { changefreq: "monthly", priority: 0.7 },
   "/decks": { changefreq: "weekly", priority: 0.7, lastmod: decksData.updatedAt },
-  "/changelog": { changefreq: "monthly", priority: 0.5 },
 };
 
 const defaults: RouteMeta = { changefreq: "monthly", priority: 0.5 };

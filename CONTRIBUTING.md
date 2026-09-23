@@ -66,7 +66,6 @@ The convention is documented but not enforced by tooling, so reviewers check it.
    ```
 
 3. Fill in the [PR template](.github/pull_request_template.md). For UI changes, check the Vercel preview deployment linked on the PR and add screenshots.
-4. Changes that affect the format itself (rules, banlist) also need a changelog entry. See [docs/data-updates.md](docs/data-updates.md).
 
 ## Code style
 

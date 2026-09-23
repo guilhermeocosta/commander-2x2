@@ -1,13 +1,5 @@
 import type { AstroComponent } from "@lucide/astro";
-import {
-  Ban,
-  Calendar,
-  CircleQuestionMark,
-  FileText,
-  RotateCcwClock,
-  Layers,
-  Sparkles,
-} from "@lucide/astro";
+import { Ban, Calendar, CircleQuestionMark, FileText, Layers, Sparkles } from "@lucide/astro";
 
 export interface NavigationItem {
   href: string;
@@ -22,5 +14,4 @@ export const navigationItems: NavigationItem[] = [
   { href: "/eventos", label: "Eventos", icon: Calendar },
   { href: "/hall-da-fama", label: "Hall da Fama", icon: Sparkles },
   { href: "/decks", label: "Decks", icon: Layers },
-  { href: "/changelog", label: "Changelog", icon: RotateCcwClock },
 ];

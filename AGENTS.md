@@ -27,7 +27,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 | `src/components/` | Presentational Astro components (`BaseLayout.astro` wraps every page)     |
 | `src/data/`       | Site data as JSON, plus `index.ts`, which parses and exports it           |
 | `src/schemas/`    | Zod schemas and domain logic for the data (scoring and ranking live here) |
-| `src/content/`    | Markdown/MDX: `regras/` (rules) and `changelog/` (format change log)      |
+| `src/content/`    | Markdown: `regras/` (rules)                                               |
 | `src/config/`     | Navigation items                                                          |
 | `src/utils/`      | `seo.ts` (meta/OpenGraph generation)                                      |
 | `src/styles/`     | `global.css`: Tailwind v4 + daisyUI plugin and the custom `custom` theme  |
@@ -54,7 +54,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 - Remote images are only allowed from `cards.scryfall.io` (`image.domains` in `astro.config.mjs`). In `pnpm dev`, the `/_image` endpoint returns 500 for them. This is a known dev-only issue; production is fine.
 - PostHog analytics only loads in production builds (`import.meta.env.PROD`).
 - The FAQ items are hardcoded in `src/pages/faq.astro`, not loaded from Markdown.
-- There are no Astro content collections. Rules are imported directly, and the changelog is loaded with `import.meta.glob`.
+- There are no Astro content collections. Rules are imported directly.
 
 ## Read next
 

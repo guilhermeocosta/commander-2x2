@@ -18,3 +18,7 @@ Keep all structured data as JSON files in `src/data/`, imported directly by page
 - Nothing to host, back up or pay for.
 - Editing is manual and error-prone: hand-typed JSON, derived values like scores must not be stored, and `updatedAt` must be bumped by hand. [ADR 0003](0003-zod-validation-at-build-time.md) and [docs/data-updates.md](../data-updates.md) mitigate this.
 - If the data volume or the number of editors grows a lot, a headless CMS or a spreadsheet-backed import would be worth reconsidering.
+
+## Update (2026-09-23)
+
+The changelog (`src/content/changelog/*.mdx`) and the `/changelog` page were removed, along with `@astrojs/mdx`. Long-form content is now only the rules, in Markdown. A better way to publish format changes will be designed separately. The decision itself is unchanged.

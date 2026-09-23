@@ -1,8 +1,6 @@
 ---
 import { formatDate } from "../utils/date";
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import EventCard from "../components/EventCard.astro";
 import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
@@ -21,8 +19,6 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
   description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para o evento especial de fim de ano."
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <div class="text-center mb-8">
@@ -89,6 +85,4 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
       </section>
     </div>
   </main>
-
-  <Footer />
 </BaseLayout>

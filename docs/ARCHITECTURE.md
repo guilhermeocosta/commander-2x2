@@ -40,9 +40,7 @@ Every page follows the same shape:
 
 ```astro
 <BaseLayout title="…" description="…">
-  <Header />
   <main class="container mx-auto px-4 py-16">…</main>
-  <Footer />
 </BaseLayout>
 ```
 
@@ -52,6 +50,7 @@ Every page follows the same shape:
 - JSON-LD structured data
 - the global stylesheet
 - the dismissible `TopBanner` (hidden per session through `sessionStorage`)
+- the `Header` and `Footer` around the page content
 - PostHog and Speed Insights
 
 The navigation (`Header` / `Navigation`) is driven by `src/config/navigation.ts`.

@@ -1,4 +1,5 @@
 ---
+import { formatDate } from "../utils/date";
 import { Image } from "astro:assets";
 import { Calendar, User } from "@lucide/astro";
 
@@ -78,7 +79,7 @@ const loading = eager ? "eager" : "lazy";
         <ul class="space-y-1 mb-2">
           <li class="text-white text-xs flex items-center gap-2">
             <Calendar size={16} aria-hidden="true" />
-            {new Date(date + "T00:00:00").toLocaleDateString("pt-BR")}
+            {formatDate(date)}
           </li>
           <li class="text-white text-sm flex items-center gap-2">
             <User size={16} aria-hidden="true" />

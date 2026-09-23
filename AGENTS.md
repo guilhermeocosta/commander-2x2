@@ -23,17 +23,16 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 
 | Path              | What lives there                                                          |
 | ----------------- | ------------------------------------------------------------------------- |
-| `src/pages/`      | One `.astro` file per route, plus `robots.txt.ts` and `sitemap.xml.ts`    |
+| `src/pages/`      | One `.astro` file per route, plus the `sitemap.xml.ts` endpoint           |
 | `src/components/` | Presentational Astro components (`BaseLayout.astro` wraps every page)     |
 | `src/data/`       | Site data as JSON, plus `index.ts`, which parses and exports it           |
 | `src/schemas/`    | Zod schemas and domain logic for the data (scoring and ranking live here) |
 | `src/content/`    | Markdown: `regras/` (rules)                                               |
 | `src/config/`     | Navigation items                                                          |
-| `src/utils/`      | `seo.ts` (meta/OpenGraph generation)                                      |
+| `src/utils/`      | `date.ts` (`formatDate`)                                                  |
 | `src/styles/`     | `global.css`: Tailwind v4 + daisyUI plugin and the custom `custom` theme  |
-| `src/marketing/`  | Promotional components (Discord banner)                                   |
-| `src/assets/`     | Images processed by Astro (rarity icons for the podium)                   |
-| `public/`         | Static files served as-is (favicon, logo, OG image)                       |
+| `src/assets/`     | Images processed by Astro (podium rarity icons, Discord banner)           |
+| `public/`         | Static files served as-is (favicon, logo, OG image, `robots.txt`)         |
 
 ## Conventions
 
@@ -48,7 +47,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 ## Gotchas
 
 - Every data JSON file is parsed with Zod in `src/data/index.ts` at build time, so invalid data fails `pnpm build`. Pages import parsed data from `src/data` (`import { decksData } from "../data"`), never the raw JSON.
-- Dates are `YYYY-MM-DD` strings. Render them as `new Date(date + "T00:00:00")` so they don't shift a day because of the timezone.
+- Dates are `YYYY-MM-DD` strings. Render them with `formatDate()` (`src/utils/date.ts`), which keeps them from shifting a day because of the timezone.
 - Bump the top-level `updatedAt` whenever you edit a data JSON file. Only `/hall-da-fama` and `/banlist` display it; the sitemap also uses it as `lastmod`.
 - Array order matters: `/decks` and `/banlist` render their arrays in file order. `decks.json` is newest first, so add new decks at the top; `banlist.json` is oldest first, so add at the end. Events and the ranking are sorted by the pages.
 - Remote images are only allowed from `cards.scryfall.io` (`image.domains` in `astro.config.mjs`). In `pnpm dev`, the `/_image` endpoint returns 500 for them. This is a known dev-only issue; production is fine.

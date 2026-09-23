@@ -1,17 +1,18 @@
 ---
+import { formatDate } from "../utils/date";
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import EventCard from "../components/EventCard.astro";
 import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
-import Button from "../components/Button.astro";
 import { eventsData, leaderboardData } from "../data";
 import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
 
+// The top 4 qualify for the year-end event and get the podium.
 const rankedPlayers = rankPlayers(leaderboardData.players);
+const podium = rankedPlayers.slice(0, 4);
+const rest = rankedPlayers.slice(4);
 
 const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
@@ -19,19 +20,14 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 <BaseLayout
   title="Hall da Fama"
   description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para o evento especial de fim de ano."
-  type="website"
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <div class="text-center mb-8">
-        <h1 class="mb-0" style="margin-bottom: 0;">Hall da Fama {leaderboardData.year}</h1>
+        <h1 style="margin-bottom: 0;">Hall da Fama {leaderboardData.year}</h1>
         <p class="text-sm text-base-content/60">
-          Última atualização em {
-            new Date(leaderboardData.updatedAt + "T00:00:00").toLocaleDateString("pt-BR")
-          }
+          Última atualização em {formatDate(leaderboardData.updatedAt)}
         </p>
 
         <p class="text-lg text-base-content/80">
@@ -42,14 +38,14 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
       <section class="mb-12">
         <h2>Classificados</h2>
-        <LeaderboardPodium players={rankedPlayers} />
+        <LeaderboardPodium players={podium} />
       </section>
 
       {
-        rankedPlayers.length > 4 && (
+        rest.length > 0 && (
           <section class="mb-12">
             <h2>Ranking Completo</h2>
-            <LeaderboardTable players={rankedPlayers} />
+            <LeaderboardTable players={rest} />
           </section>
         )
       }
@@ -60,20 +56,12 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
             <h2>Próximo Evento</h2>
             <p>Participe do próximo evento para acumular pontos e subir no ranking!</p>
 
-            <EventCard
-              title={nextEvent.title}
-              date={nextEvent.date}
-              time={nextEvent.time}
-              location={nextEvent.location}
-              format={nextEvent.format}
-              entryFee={nextEvent.entryFee}
-              description={nextEvent.description}
-            />
+            <EventCard {...nextEvent} />
 
             <div class="mt-4 text-center">
-              <Button href="/eventos" className="no-underline">
+              <a href="/eventos" class="btn btn-primary no-underline">
                 Ver Todos os Eventos
-              </Button>
+              </a>
             </div>
           </section>
         )
@@ -93,13 +81,11 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
               conta, e cada vitória te aproxima do Top 4.
             </p>
             <div class="card-actions justify-center mt-4">
-              <Button href="/eventos" className="no-underline">Participar de um Evento</Button>
+              <a href="/eventos" class="btn btn-primary no-underline">Participar de um Evento</a>
             </div>
           </div>
         </div>
       </section>
     </div>
   </main>
-
-  <Footer />
 </BaseLayout>

@@ -5,18 +5,10 @@ import SocialLink from "./SocialLink.astro";
 
 <footer class="footer p-8 md:p-10 bg-base-200 text-base-content">
   <div class="container mx-auto place-items-center">
-    <div class="flex flex-col items-center space-y-4 md:hidden mx-auto">
-      <!-- Mobile layout: vertical centered -->
-      <Navigation
-        listClass="flex flex-col items-center space-y-3 text-center"
-        itemClass="link link-hover text-base"
-      />
-    </div>
-
-    <div class="hidden md:grid md:grid-flow-col md:gap-8 justify-center text-left">
-      <!-- Desktop layout: horizontal grid -->
-      <Navigation listClass="grid grid-flow-col gap-8" itemClass="link link-hover" />
-    </div>
+    <Navigation
+      listClass="flex flex-col items-center gap-3 text-center md:flex-row md:justify-center md:gap-8"
+      itemClass="link link-hover text-base md:text-sm"
+    />
 
     <div class="text-center mt-8 border-t border-base-300 pt-6 space-y-4">
       <p class="text-sm md:text-base">

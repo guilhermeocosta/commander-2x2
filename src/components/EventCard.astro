@@ -1,33 +1,21 @@
 ---
+import { formatDate } from "../utils/date";
 import { Calendar, MapPin, Trophy, CircleDollarSign } from "@lucide/astro";
 import type { Event } from "../schemas/event";
 
-export interface Props extends Event {
-  className?: string;
-}
+export type Props = Event;
 
-const {
-  title,
-  date,
-  time,
-  location,
-  format,
-  entryFee,
-  description = "",
-  className = "",
-}: Props = Astro.props;
+const { title, date, time, location, format, entryFee, description }: Props = Astro.props;
 ---
 
-<div class:list={["card bg-base-100 shadow-xl", className]}>
+<div class="card bg-base-100 shadow-xl">
   <div class="card-body">
     <h4 class="card-title sm:my-0">{title}</h4>
 
     <div class="space-y-2">
       <div class="flex items-center gap-2">
         <Calendar size={16} />
-        <span class="text-sm"
-          >{new Date(date + "T00:00:00").toLocaleDateString("pt-BR")} às {time}</span
-        >
+        <span class="text-sm">{formatDate(date)} às {time}</span>
       </div>
 
       <div class="flex items-center gap-2">

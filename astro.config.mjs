@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import vercel from "@astrojs/vercel";
 
 export default defineConfig({
+  site: "https://commander2x2.org",
   adapter: vercel({
     imageService: true,
   }),

@@ -1,9 +1,10 @@
 import { z } from "astro/zod";
+import { ClockTime, IsoDate } from "./common";
 
 export const EventSchema = z.object({
   title: z.string(),
-  date: z.string(),
-  time: z.string(),
+  date: IsoDate,
+  time: ClockTime,
   location: z.string(),
   format: z.string(),
   entryFee: z.string(),
@@ -11,7 +12,7 @@ export const EventSchema = z.object({
 });
 
 export const EventsDataSchema = z.object({
-  updatedAt: z.string(),
+  updatedAt: IsoDate,
   events: z.array(EventSchema),
 });
 

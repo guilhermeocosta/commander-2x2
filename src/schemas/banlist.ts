@@ -1,4 +1,5 @@
 import { z } from "astro/zod";
+import { IsoDate, uniqueBy } from "./common";
 
 export const BanStatusSchema = z.enum(["banned", "banned-as-commander"]);
 
@@ -6,14 +7,14 @@ export const BanlistEntrySchema = z.object({
   card: z.string(),
   url: z.url(),
   status: BanStatusSchema,
-  effectiveDate: z.string(),
+  effectiveDate: IsoDate,
 });
 
 export const WatchlistEntrySchema = z.object({
   card: z.string(),
   url: z.url(),
   reason: z.string(),
-  effectiveDate: z.string(),
+  effectiveDate: IsoDate,
 });
 
 export const BanlistSourceSchema = z.object({
@@ -24,10 +25,10 @@ export const BanlistSourceSchema = z.object({
 });
 
 export const BanlistDataSchema = z.object({
-  updatedAt: z.string(),
+  updatedAt: IsoDate,
   sources: z.array(BanlistSourceSchema),
-  entries: z.array(BanlistEntrySchema),
-  watchlist: z.array(WatchlistEntrySchema),
+  entries: z.array(BanlistEntrySchema).superRefine(uniqueBy("card")),
+  watchlist: z.array(WatchlistEntrySchema).superRefine(uniqueBy("card")),
 });
 
 export type BanStatus = z.infer<typeof BanStatusSchema>;

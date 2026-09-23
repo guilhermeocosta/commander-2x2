@@ -31,8 +31,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 | `src/config/`     | Navigation items                                                          |
 | `src/utils/`      | `date.ts` (`formatDate`)                                                  |
 | `src/styles/`     | `global.css`: Tailwind v4 + daisyUI plugin and the custom `custom` theme  |
-| `src/marketing/`  | Promotional components (Discord banner)                                   |
-| `src/assets/`     | Images processed by Astro (rarity icons for the podium)                   |
+| `src/assets/`     | Images processed by Astro (podium rarity icons, Discord banner)           |
 | `public/`         | Static files served as-is (favicon, logo, OG image, `robots.txt`)         |
 
 ## Conventions

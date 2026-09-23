@@ -12,12 +12,23 @@ O objetivo do Commander 2x2 é ser um hub para a nossa comunidade, divulgando re
 
 ### Setup
 
-Para rodar o projeto localmente, basta ter um ambiente com Node.js 18+ e pnpm instalados e rodar os seguintes comandos:
+Para rodar o projeto localmente, use a versão do Node.js definida em `.nvmrc` (22) e o pnpm via corepack, e rode os seguintes comandos:
 
 ```bash
+corepack enable
 pnpm install
 pnpm dev
 ```
+
+### Documentação
+
+A documentação técnica está em inglês:
+
+- [AGENTS.md](AGENTS.md): ponto de entrada para agentes de código (e humanos): comandos, estrutura e convenções
+- [CONTEXT.md](CONTEXT.md): glossário do domínio (regras do formato, decks, banlist, ranking)
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): stack, fluxo de dados, build e deploy
+- [docs/data-updates.md](docs/data-updates.md): como atualizar ranking, decks, eventos e banlist
+- [CONTRIBUTING.md](CONTRIBUTING.md): setup, branches, commits e pull requests
 
 ## Contribuidores
 
@@ -49,10 +60,12 @@ Agradecemos a todos que contribuem para manter o Commander 2x2 funcionando! ✨
 Você pode nos ajudar com uma de nossas listas de issues no [GitHub](https://github.com/guilhermeocosta/commander-2x2/issues).
 
 1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
+2. Crie uma branch para sua mudança (`git checkout -b feat/nova-feature`)
+3. Commit suas mudanças seguindo o Conventional Commits (`git commit -m 'feat: adiciona nova feature'`)
+4. Push para a branch (`git push origin feat/nova-feature`)
 5. Abra um Pull Request
+
+Veja o [CONTRIBUTING.md](CONTRIBUTING.md) para os detalhes.
 
 Para outras formas de contribuir, mande um e-mail para [admin@commander2x2.org](mailto:admin@commander2x2.org).
 

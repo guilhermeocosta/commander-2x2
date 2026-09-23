@@ -32,7 +32,7 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 
 - **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
 - **Domain logic** sits next to its schema: `calculateScore()` and `rankPlayers()` are in `src/schemas/leaderboard.ts`.
-- **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. A daily rebuild (see [Build, CI and deploy](#build-ci-and-deploy)) keeps this current.
+- **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. After an event date passes, the site only reflects it on the next deploy.
 - **No content collections.** Rules are imported directly as a module, and changelog entries are loaded with `import.meta.glob<MDXInstance<{ title; date }>>`. The FAQ is a hardcoded array in `faq.astro`.
 
 ## Page anatomy
@@ -74,5 +74,4 @@ Tailwind v4 is configured in CSS, not in a JS config file. `src/styles/global.cs
 - `pnpm build` runs `astro check && astro build`. Output goes to `dist/`, with Vercel output in `.vercel/`.
 - **CI** (`.github/workflows/ci.yml`, on every push to `main` and every PR): `pnpm install --frozen-lockfile`, then `build`, `lint`, `format:check`, `lint:md`. Node comes from `.nvmrc` and pnpm from `packageManager`.
 - **Deploy:** Vercel's Git integration builds every push to `main` for production and creates a preview deployment for each PR.
-- **Daily rebuild** (`.github/workflows/rebuild.yml`): every day at 06:00 São Paulo time, a cron job POSTs to a Vercel Deploy Hook stored in the `VERCEL_DEPLOY_HOOK_URL` repository secret, so date-dependent pages refresh without a commit. If the secret is missing, the job skips with a warning. It can also be run by hand with `workflow_dispatch`.
 - **Environment:** `PUBLIC_POSTHOG_API_KEY` (see `.env.example`) is only needed in production.

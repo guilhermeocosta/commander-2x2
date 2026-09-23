@@ -2,7 +2,6 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Button from "../components/Button.astro";
 import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
 import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
@@ -36,9 +35,7 @@ const FEATURED_DECKS_COUNT = 6 as const;
             Um novo formato de Commander competitivo em duplas acessível e com uma comunidade
             crescente de jogadores.
           </p>
-          <Button href="/regras" variant="primary" size="lg" className="w-full md:w-auto">
-            Conheça as Regras
-          </Button>
+          <a href="/regras" class="btn btn-primary btn-lg w-full md:w-auto">Conheça as Regras</a>
         </div>
       </div>
     </div>
@@ -100,7 +97,7 @@ const FEATURED_DECKS_COUNT = 6 as const;
       </div>
 
       <div class="text-center mt-8">
-        <Button href="/eventos"> Veja os próximos eventos </Button>
+        <a href="/eventos" class="btn btn-primary">Veja os próximos eventos</a>
       </div>
 
       <BannerDiscord className="mt-8" />

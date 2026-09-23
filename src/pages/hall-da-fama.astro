@@ -6,7 +6,6 @@ import EventCard from "../components/EventCard.astro";
 import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
-import Button from "../components/Button.astro";
 import { eventsData, leaderboardData } from "../data";
 import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
@@ -71,9 +70,9 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
             />
 
             <div class="mt-4 text-center">
-              <Button href="/eventos" className="no-underline">
+              <a href="/eventos" class="btn btn-primary no-underline">
                 Ver Todos os Eventos
-              </Button>
+              </a>
             </div>
           </section>
         )
@@ -93,7 +92,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
               conta, e cada vitória te aproxima do Top 4.
             </p>
             <div class="card-actions justify-center mt-4">
-              <Button href="/eventos" className="no-underline">Participar de um Evento</Button>
+              <a href="/eventos" class="btn btn-primary no-underline">Participar de um Evento</a>
             </div>
           </div>
         </div>

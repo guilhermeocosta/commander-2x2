@@ -1,5 +1,4 @@
 ---
-import Button from "./Button.astro";
 import { Calendar, User } from "@lucide/astro";
 import type { Colors } from "../schemas/deck";
 
@@ -55,16 +54,14 @@ const { player, commanders, url, record = "", date = "", colors = [] }: Props = 
     </div>
 
     <div class="card-actions mt-auto pt-4">
-      <Button
+      <a
         href={url}
-        variant="primary"
-        size="sm"
-        className="w-full no-underline"
         target="_blank"
         rel="noopener noreferrer"
+        class="btn btn-primary btn-sm w-full no-underline"
       >
         Ver Decklist
-      </Button>
+      </a>
     </div>
   </div>
 </div>

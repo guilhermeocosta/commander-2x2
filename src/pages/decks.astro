@@ -2,7 +2,6 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Button from "../components/Button.astro";
 import CardDeck from "../components/CardDeck.astro";
 import { decksData } from "../data";
 ---
@@ -45,7 +44,7 @@ import { decksData } from "../data";
               listado na seção de referência!
             </p>
             <div class="card-actions justify-center mt-4">
-              <Button href="/eventos" className="no-underline"> Ver Próximos Eventos </Button>
+              <a href="/eventos" class="btn btn-primary no-underline">Ver Próximos Eventos</a>
             </div>
           </div>
         </div>

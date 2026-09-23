@@ -59,15 +59,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
             <h2>Próximo Evento</h2>
             <p>Participe do próximo evento para acumular pontos e subir no ranking!</p>
 
-            <EventCard
-              title={nextEvent.title}
-              date={nextEvent.date}
-              time={nextEvent.time}
-              location={nextEvent.location}
-              format={nextEvent.format}
-              entryFee={nextEvent.entryFee}
-              description={nextEvent.description}
-            />
+            <EventCard {...nextEvent} />
 
             <div class="mt-4 text-center">
               <a href="/eventos" class="btn btn-primary no-underline">

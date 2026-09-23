@@ -34,15 +34,7 @@ import { Info } from "@lucide/astro";
           upcomingEvents.length > 0 ? (
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               {upcomingEvents.map((event) => (
-                <EventCard
-                  title={event.title}
-                  date={event.date}
-                  time={event.time}
-                  location={event.location}
-                  format={event.format}
-                  entryFee={event.entryFee}
-                  description={event.description}
-                />
+                <EventCard {...event} />
               ))}
             </div>
           ) : (
@@ -60,15 +52,7 @@ import { Info } from "@lucide/astro";
             <h2>Eventos Anteriores</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               {pastEvents.map((event) => (
-                <EventCard
-                  title={event.title}
-                  date={event.date}
-                  time={event.time}
-                  location={event.location}
-                  format={event.format}
-                  entryFee={event.entryFee}
-                  description={event.description}
-                />
+                <EventCard {...event} />
               ))}
             </div>
           </section>

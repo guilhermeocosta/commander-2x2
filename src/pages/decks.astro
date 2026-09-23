@@ -21,18 +21,7 @@ import { decksData } from "../data";
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {
-          decksData.decks.map((deck) => (
-            <CardDeck
-              player={deck.player}
-              commanders={deck.commanders}
-              url={deck.url}
-              record={deck.record}
-              date={deck.date}
-              colors={deck.colors}
-            />
-          ))
-        }
+        {decksData.decks.map((deck) => <CardDeck {...deck} />)}
       </div>
 
       <section class="mt-16">

@@ -2,23 +2,12 @@
 import { Calendar, MapPin, Trophy, CircleDollarSign } from "@lucide/astro";
 import type { Event } from "../schemas/event";
 
-export interface Props extends Event {
-  className?: string;
-}
+export type Props = Event;
 
-const {
-  title,
-  date,
-  time,
-  location,
-  format,
-  entryFee,
-  description = "",
-  className = "",
-}: Props = Astro.props;
+const { title, date, time, location, format, entryFee, description }: Props = Astro.props;
 ---
 
-<div class:list={["card bg-base-100 shadow-xl", className]}>
+<div class="card bg-base-100 shadow-xl">
   <div class="card-body">
     <h4 class="card-title sm:my-0">{title}</h4>
 

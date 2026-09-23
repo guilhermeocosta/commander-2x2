@@ -4,16 +4,9 @@ import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
 import BannerDiscord from "../components/BannerDiscord.astro";
 
-const items = decksData.decks
-  .filter((deck) => deck.image_url && deck.image_url.length > 0)
-  .map((deck) => ({
-    images: deck.image_url!,
-    url: deck.url,
-    commander: deck.commanders.join(" / "),
-    date: deck.date,
-    player: deck.player,
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const decks = decksData.decks
+  .filter((deck) => deck.image_url?.length)
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 const FEATURED_DECKS_COUNT = 6 as const;
 ---
@@ -47,16 +40,16 @@ const FEATURED_DECKS_COUNT = 6 as const;
       </div>
 
       {
-        items.length > 0 ? (
+        decks.length > 0 ? (
           <div class="overflow-hidden pt-2 w-full">
             <div class="flex gap-2 px-4 animated-carousel">
-              {items.map((item, index) => (
-                <FeaturedDeckCard {...item} eager={index < FEATURED_DECKS_COUNT} />
+              {decks.map((deck, index) => (
+                <FeaturedDeckCard {...deck} eager={index < FEATURED_DECKS_COUNT} />
               ))}
 
               {/* Second copy makes the CSS scroll loop seamless; hidden from AT. */}
-              {items.map((item) => (
-                <FeaturedDeckCard {...item} decorative />
+              {decks.map((deck) => (
+                <FeaturedDeckCard {...deck} decorative />
               ))}
             </div>
           </div>

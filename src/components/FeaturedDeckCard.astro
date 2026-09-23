@@ -2,13 +2,9 @@
 import { formatDate } from "../utils/date";
 import { Image } from "astro:assets";
 import { Calendar, User } from "@lucide/astro";
+import type { Deck } from "../schemas/deck";
 
-export interface Props {
-  url: string;
-  images: string[];
-  commander: string;
-  date: string;
-  player: string;
+export interface Props extends Deck {
   /** Load images eagerly (the first cards above the fold). */
   eager?: boolean;
   /**
@@ -19,7 +15,17 @@ export interface Props {
   decorative?: boolean;
 }
 
-const { url, images, commander, date, player, eager = false, decorative = false } = Astro.props;
+const {
+  url,
+  image_url = [],
+  commanders,
+  date,
+  player,
+  eager = false,
+  decorative = false,
+} = Astro.props;
+
+const commander = commanders.join(" / ");
 
 const imageClass = "h-72 rounded-lg transition-all duration-700 ease-out object-cover";
 const imageStyle = "filter: blur(10px); transform: scale(1.025);";
@@ -39,34 +45,27 @@ const loading = eager ? "eager" : "lazy";
     class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0"
   >
     <div class="relative h-72">
-      <Image
-        class:list={[imageClass, "-z-10"]}
-        style={imageStyle}
-        onload={onload}
-        onerror={onerror}
-        src={images[0]}
-        alt={`Deck de ${commander}`}
-        width={206}
-        height={288}
-        loading={loading}
-      />
       {
-        images[1] && (
-          <Image
-            class:list={[
-              imageClass,
-              "absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20",
-            ]}
-            style={imageStyle}
-            onload={onload}
-            onerror={onerror}
-            src={images[1]}
-            alt={`Deck de ${commander}`}
-            width={206}
-            height={288}
-            loading={loading}
-          />
-        )
+        image_url
+          .slice(0, 2)
+          .map((src, index) => (
+            <Image
+              class:list={[
+                imageClass,
+                index === 0
+                  ? "-z-10"
+                  : "absolute top-0 left-0 translate-y-8 group-hover:translate-y-20 group-focus:translate-y-20",
+              ]}
+              style={imageStyle}
+              onload={onload}
+              onerror={onerror}
+              src={src}
+              alt={`Deck de ${commander}`}
+              width={206}
+              height={288}
+              loading={loading}
+            />
+          ))
       }
     </div>
 

@@ -7,6 +7,7 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  ...eslintPluginAstro.configs["jsx-a11y-recommended"],
   eslintConfigPrettier,
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -44,6 +45,10 @@ export default [
     },
     rules: {
       "no-undef": "off",
+      // Featured-deck cards on the home page are focusable groups: focusing
+      // one (by Tab or by tapping on touch screens) reveals its overlay with
+      // the "Ver deck" link. Allow tabindex on role="group" for that pattern.
+      "astro/jsx-a11y/no-noninteractive-tabindex": ["error", { roles: ["group"] }],
       "@typescript-eslint/no-unused-expressions": "off",
       // Same "warn" policy as .ts/.tsx above (tseslint recommended sets "error").
       "@typescript-eslint/no-explicit-any": "warn",

@@ -71,6 +71,8 @@ const preloadImages = items
               {items.map(({ url, images, commander, date, player }, index) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
+                  role="group"
+                  aria-label={`Deck de ${commander}, por ${player}`}
                   tabindex="0"
                 >
                   <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">
@@ -133,6 +135,8 @@ const preloadImages = items
               {items.map(({ url, images, commander, date, player }) => (
                 <div
                   class="group relative shrink-0 rounded-t-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2"
+                  role="group"
+                  aria-label={`Deck de ${commander}, por ${player}`}
                   tabindex="0"
                 >
                   <div class="relative rounded-lg overflow-hidden translate-y-16 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0">

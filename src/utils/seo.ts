@@ -1,8 +1,10 @@
 export interface SEOProps {
   title?: string;
   description?: string;
-  image?: string;
-  url?: string;
+  /** Absolute image URL. */
+  image: string;
+  /** Absolute canonical URL of the page. */
+  url: string;
   type?: string;
   keywords?: string;
   author?: string;
@@ -13,14 +15,14 @@ export interface SEOProps {
 export function generateSEO({
   title = "Conheça o Commander 2x2",
   description = "Um novo formato competitivo de Commander em duplas acessível e diverso.",
-  image = "/og-image.png",
-  url = "https://commander2x2.org",
+  image,
+  url,
   type = "website",
   keywords = "Magic: the Gathering, Commander, 2x2, formato competitivo, duplas, EDH",
   author = "Guilherme de Oliveira Costa",
   publishedTime,
   modifiedTime,
-}: SEOProps = {}) {
+}: SEOProps) {
   const siteTitle = title.includes("Commander 2x2") ? title : `${title} | Commander 2x2`;
 
   return {

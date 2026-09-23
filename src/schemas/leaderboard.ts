@@ -39,7 +39,6 @@ export function rankPlayers(players: Player[]): RankedPlayer[] {
     .map((player) => ({
       ...player,
       score: calculateScore(player.stats),
-      rank: 0,
     }))
     .sort((a, b) => {
       // Primary: score (descending)

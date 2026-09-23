@@ -9,7 +9,10 @@ import { eventsData, leaderboardData } from "../data";
 import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
 
+// The top 4 qualify for the year-end event and get the podium.
 const rankedPlayers = rankPlayers(leaderboardData.players);
+const podium = rankedPlayers.slice(0, 4);
+const rest = rankedPlayers.slice(4);
 
 const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
@@ -35,14 +38,14 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
       <section class="mb-12">
         <h2>Classificados</h2>
-        <LeaderboardPodium players={rankedPlayers} />
+        <LeaderboardPodium players={podium} />
       </section>
 
       {
-        rankedPlayers.length > 4 && (
+        rest.length > 0 && (
           <section class="mb-12">
             <h2>Ranking Completo</h2>
-            <LeaderboardTable players={rankedPlayers} />
+            <LeaderboardTable players={rest} />
           </section>
         )
       }

@@ -53,7 +53,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 - Array order matters: `/decks` and `/banlist` render their arrays in file order. `decks.json` is newest first, so add new decks at the top; `banlist.json` is oldest first, so add at the end. Events and the ranking are sorted by the pages.
 - Remote images are only allowed from `cards.scryfall.io` (`image.domains` in `astro.config.mjs`). In `pnpm dev`, the `/_image` endpoint returns 500 for them. This is a known dev-only issue; production is fine.
 - PostHog analytics only loads in production builds (`import.meta.env.PROD`).
-- `src/content/faq/` and `src/content/evento/` are **not rendered** anywhere. The FAQ items are hardcoded in `src/pages/faq.astro`.
+- The FAQ items are hardcoded in `src/pages/faq.astro`, not loaded from Markdown.
 - There are no Astro content collections. Rules are imported directly, and the changelog is loaded with `import.meta.glob`.
 
 ## Read next

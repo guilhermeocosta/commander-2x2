@@ -26,7 +26,6 @@
     "@lucide/astro": "^1.41.0",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^7.3.1",
-    "posthog-js": "^1.427.2",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3"
   },

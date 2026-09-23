@@ -7,8 +7,6 @@ import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
 import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
 
-BaseLayout;
-
 const items = decksData.decks
   .filter((deck) => deck.image_url && deck.image_url.length > 0)
   .map((deck) => ({

@@ -23,7 +23,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 
 | Path              | What lives there                                                          |
 | ----------------- | ------------------------------------------------------------------------- |
-| `src/pages/`      | One `.astro` file per route, plus `robots.txt.ts` and `sitemap.xml.ts`    |
+| `src/pages/`      | One `.astro` file per route, plus the `sitemap.xml.ts` endpoint           |
 | `src/components/` | Presentational Astro components (`BaseLayout.astro` wraps every page)     |
 | `src/data/`       | Site data as JSON, plus `index.ts`, which parses and exports it           |
 | `src/schemas/`    | Zod schemas and domain logic for the data (scoring and ranking live here) |
@@ -33,7 +33,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 | `src/styles/`     | `global.css`: Tailwind v4 + daisyUI plugin and the custom `custom` theme  |
 | `src/marketing/`  | Promotional components (Discord banner)                                   |
 | `src/assets/`     | Images processed by Astro (rarity icons for the podium)                   |
-| `public/`         | Static files served as-is (favicon, logo, OG image)                       |
+| `public/`         | Static files served as-is (favicon, logo, OG image, `robots.txt`)         |
 
 ## Conventions
 

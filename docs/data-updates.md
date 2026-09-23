@@ -5,8 +5,11 @@ Most changes to this repo are content updates after a tournament or a banlist an
 General rules for every data file in `src/data/`:
 
 - Dates are `YYYY-MM-DD` strings.
-- Set the top-level `updatedAt` to today's date whenever you change the file. Pages show it as "Última atualização".
-- Array order doesn't matter: pages sort by date or score themselves.
+- Set the top-level `updatedAt` to today's date whenever you change the file. Only `/hall-da-fama` (`leaderboard.json`) and `/banlist` (`banlist.json`) show it, as "Última atualização". The other files' `updatedAt` isn't displayed, but keep it current as a record.
+- **Array order matters for some files.** `/decks` and `/banlist` render their arrays in file order:
+  - `decks.json`: newest first, so add new decks **at the top** of `decks`.
+  - `banlist.json`: oldest first, so add new items **at the end** of `entries` and `watchlist`.
+  - `events.json` and `leaderboard.json` are sorted by the pages (by date and by score), so their order doesn't matter.
 - Run `pnpm format` after editing. Prettier normalizes the JSON.
 - Use `chore:` as the commit/PR type, e.g. `chore: update leaderboard and decks from 2026-09-12 tournament`.
 
@@ -34,7 +37,7 @@ For a first-time player, append an entry:
 
 ### 2. Add standout decks: `src/data/decks.json`
 
-Only decks with **at least two wins** get published. Append one object per deck:
+Only decks with **at least two wins** get published. Add one object per deck **at the top** of the `decks` array (the file is newest first and `/decks` renders it in file order):
 
 ```json
 {
@@ -83,11 +86,11 @@ For a precon tournament, use `"title": "Commander 2x2 - Pre-Cons"` and `"descrip
 
 ## Change the banlist: `src/data/banlist.json`
 
-- **Ban a card:** append to `entries` with `card`, a Scryfall `url`, `status` (`"banned"` or `"banned-as-commander"`) and `effectiveDate`.
-- **Watch a card:** append to `watchlist` with `card`, `url`, `reason` (in pt-BR) and `effectiveDate`.
-- **Promote from the watchlist:** remove the card from `watchlist` and add it to `entries`.
+- **Ban a card:** add to the end of `entries` with `card`, a Scryfall `url`, `status` (`"banned"` or `"banned-as-commander"`) and `effectiveDate`.
+- **Watch a card:** add to the end of `watchlist` with `card`, `url`, `reason` (in pt-BR) and `effectiveDate`.
+- **Promote from the watchlist:** remove the card from `watchlist` and add it to the end of `entries`.
 - **Unban:** remove the entry.
-- Bump `updatedAt`, then **add a changelog entry** (see below). Banlist changes are format changes.
+- Bump `updatedAt` (shown on `/banlist`), then **add a changelog entry** (see below). Banlist changes are format changes.
 
 This file has **no schema** either.
 

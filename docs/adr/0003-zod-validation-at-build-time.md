@@ -15,5 +15,8 @@ Describe each data file with a Zod schema in `src/schemas/` (using `z` from `ast
 
 - Malformed data fails `pnpm build`, and therefore CI and the Vercel deploy, instead of reaching production.
 - There is one source of truth for the data shape and the types.
-- The coverage gap is known: `decks.json` and `leaderboard.json` are validated, but `events.json` and `banlist.json` aren't yet. Their shapes live only in component `Props` interfaces, and `TableBanlist` types `status` as a plain `string`. Adding schemas for them is the natural next step.
 - Validation runs once per page that imports the data. That costs nothing at this scale.
+
+## Update (2026-09-23)
+
+The coverage gap noted when this ADR was recorded is closed. `events.json` and `banlist.json` now have schemas too (`src/schemas/event.ts`, `src/schemas/banlist.ts`), and the ban `status` is an enum. Parsing moved out of page frontmatter into `src/data/index.ts`, which parses each file once and exports the typed data. The decision itself is unchanged.

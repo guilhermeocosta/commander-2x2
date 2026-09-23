@@ -25,7 +25,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 | ----------------- | ------------------------------------------------------------------------- |
 | `src/pages/`      | One `.astro` file per route, plus `robots.txt.ts` and `sitemap.xml.ts`    |
 | `src/components/` | Presentational Astro components (`BaseLayout.astro` wraps every page)     |
-| `src/data/`       | Site data as JSON: `decks`, `events`, `leaderboard`, `banlist`            |
+| `src/data/`       | Site data as JSON, plus `index.ts`, which parses and exports it           |
 | `src/schemas/`    | Zod schemas and domain logic for the data (scoring and ranking live here) |
 | `src/content/`    | Markdown/MDX: `regras/` (rules) and `changelog/` (format change log)      |
 | `src/config/`     | Navigation items                                                          |
@@ -47,7 +47,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 
 ## Gotchas
 
-- `decks.json` and `leaderboard.json` are parsed with Zod at build time, so invalid data fails `pnpm build`. `events.json` and `banlist.json` are **not** validated; check their shape by hand.
+- Every data JSON file is parsed with Zod in `src/data/index.ts` at build time, so invalid data fails `pnpm build`. Pages import parsed data from `src/data` (`import { decksData } from "../data"`), never the raw JSON.
 - Dates are `YYYY-MM-DD` strings. Render them as `new Date(date + "T00:00:00")` so they don't shift a day because of the timezone.
 - Bump the top-level `updatedAt` whenever you edit a data JSON file. Only `/hall-da-fama` and `/banlist` display it.
 - Array order matters: `/decks` and `/banlist` render their arrays in file order. `decks.json` is newest first, so add new decks at the top; `banlist.json` is oldest first, so add at the end. Events and the ranking are sorted by the pages.

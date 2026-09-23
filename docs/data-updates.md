@@ -122,6 +122,6 @@ At the start of a year, reset `src/data/leaderboard.json`: set `year` to the new
 
 ## Verify
 
-1. Run `pnpm build`. Zod validation catches malformed `decks.json` and `leaderboard.json` data. `events.json` and `banlist.json` are not validated.
+1. Run `pnpm build`. Zod validation (`src/data/index.ts`) catches malformed data in any of the JSON files.
 2. Run `pnpm dev` and open the affected page: `/hall-da-fama`, `/decks`, `/eventos`, `/banlist` or `/changelog`. Scryfall images may show as broken in dev because of a known dev-only issue; check them on the Vercel preview instead.
 3. Open a PR, check the Vercel preview, then squash-merge.

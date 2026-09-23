@@ -3,15 +3,13 @@ import BaseLayout from "../components/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
-import rawDecksData from "../data/decks.json";
-import { DecksDataSchema } from "../schemas/deck";
+import { decksData } from "../data";
 import { Calendar, User } from "@lucide/astro";
 import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
 import { Image } from "astro:assets";
 
 BaseLayout;
 
-const decksData = DecksDataSchema.parse(rawDecksData);
 const items = decksData.decks
   .filter((deck) => deck.image_url && deck.image_url.length > 0)
   .map((deck) => ({

@@ -22,16 +22,15 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 
 ```text
  src/data/*.json ──┐
-                   ├─► page frontmatter (src/pages/*.astro) ──► components ──► static HTML
- src/schemas/*.ts ─┘      Schema.parse(json) at build time          (props)       (dist/)
- (Zod + domain logic)
+                   ├─► src/data/index.ts ──► page frontmatter ──► components ──► static HTML
+ src/schemas/*.ts ─┘   Schema.parse(json)    (src/pages/*.astro)    (props)       (dist/)
+ (Zod + domain logic)  once, at build time
 
  src/content/regras/index.md ──── direct import ─────────► /regras
  src/content/changelog/*.mdx ──── import.meta.glob ──────► /changelog
 ```
 
-- **Validated data.** `decks.json` goes through `DecksDataSchema.parse()` (in `index.astro` and `decks.astro`), and `leaderboard.json` through `LeaderboardDataSchema.parse()` (in `hall-da-fama.astro`). A schema violation fails the build, which is how bad data gets caught in CI.
-- **Unvalidated data.** `events.json` and `banlist.json` are imported as plain JSON. Their shapes are only described by component `Props` interfaces (`EventCard.astro`, `TableBanlist.astro`).
+- **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
 - **Domain logic** sits next to its schema: `calculateScore()` and `rankPlayers()` are in `src/schemas/leaderboard.ts`.
 - **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. A daily rebuild (see [Build, CI and deploy](#build-ci-and-deploy)) keeps this current.
 - **No content collections.** Rules are imported directly as a module, and changelog entries are loaded with `import.meta.glob<MDXInstance<{ title; date }>>`. `src/content/faq/` and `src/content/evento/` are leftovers that nothing imports. The FAQ is a hardcoded array in `faq.astro`.

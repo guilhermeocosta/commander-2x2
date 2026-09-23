@@ -7,12 +7,10 @@ import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
 import Button from "../components/Button.astro";
-import rawLeaderboardData from "../data/leaderboard.json";
-import eventsData from "../data/events.json";
-import { LeaderboardDataSchema, rankPlayers } from "../schemas/leaderboard";
+import { eventsData, leaderboardData } from "../data";
+import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
 
-const leaderboardData = LeaderboardDataSchema.parse(rawLeaderboardData);
 const rankedPlayers = rankPlayers(leaderboardData.players);
 
 const nextEvent = splitEvents(eventsData.events).upcoming[0];

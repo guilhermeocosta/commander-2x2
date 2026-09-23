@@ -1,3 +1,23 @@
+import { z } from "astro/zod";
+
+export const EventSchema = z.object({
+  title: z.string(),
+  date: z.string(),
+  time: z.string(),
+  location: z.string(),
+  format: z.string(),
+  entryFee: z.string(),
+  description: z.string().optional(),
+});
+
+export const EventsDataSchema = z.object({
+  updatedAt: z.string(),
+  events: z.array(EventSchema),
+});
+
+export type Event = z.infer<typeof EventSchema>;
+export type EventsData = z.infer<typeof EventsDataSchema>;
+
 const SAO_PAULO_DATE = new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Sao_Paulo",
   year: "numeric",

@@ -2,7 +2,7 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
-import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
+import BannerDiscord from "../components/BannerDiscord.astro";
 
 const items = decksData.decks
   .filter((deck) => deck.image_url && deck.image_url.length > 0)

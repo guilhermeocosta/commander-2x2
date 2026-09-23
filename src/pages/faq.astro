@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import AccordionFAQ from "../components/AccordionFAQ.astro";
-import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
+import BannerDiscord from "../components/BannerDiscord.astro";
 
 const faqItems = [
   {
@@ -54,7 +53,19 @@ const faqItems = [
 
       <p>Respostas para as dúvidas mais comuns sobre o formato Commander 2x2.</p>
 
-      <AccordionFAQ items={faqItems} />
+      <div class="space-y-4">
+        {
+          faqItems.map((item, index) => (
+            <div class="collapse collapse-arrow bg-base-200">
+              <input type="radio" name="faq-accordion" checked={index === 0} />
+              <div class="collapse-title text-xl font-medium">{item.question}</div>
+              <div class="collapse-content">
+                <p>{item.answer}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
 
     <BannerDiscord

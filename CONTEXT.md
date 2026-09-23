@@ -59,7 +59,7 @@ Decks come from `src/data/decks.json` and are validated by `DeckSchema` in [`src
 
 ## Banlist
 
-Banlist data lives in `src/data/banlist.json` and is rendered by `TableBanlist.astro` on `/banlist`.
+Banlist data lives in `src/data/banlist.json` and is rendered by `src/pages/banlist.astro`.
 
 | Term (pt-BR)           | English             | In code                         | Meaning                                                                                                                                                        |
 | ---------------------- | ------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |

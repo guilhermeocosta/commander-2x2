@@ -19,10 +19,6 @@ const items = decksData.decks
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const FEATURED_DECKS_COUNT = 6 as const;
-
-const preloadImages = items
-  .slice(0, FEATURED_DECKS_COUNT)
-  .flatMap((item) => item.images.slice(0, 1));
 ---
 
 <BaseLayout
@@ -30,10 +26,6 @@ const preloadImages = items
   description="Um novo formato de Commander competitivo em duplas acessível e com uma comunidade crescente de jogadores."
 >
   <Header />
-
-  <Fragment slot="head">
-    {preloadImages.map((src) => <link rel="preload" as="image" href={src} />)}
-  </Fragment>
 
   <main>
     <div class="hero bg-base-200">

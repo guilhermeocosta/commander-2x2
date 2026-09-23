@@ -7,6 +7,7 @@ export interface Props {
   rel?: string;
   className?: string;
   disabled?: boolean;
+  tabindex?: number;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   rel,
   className = "",
   disabled = false,
+  tabindex,
 }: Props = Astro.props;
 
 const variantClasses = {
@@ -40,11 +42,11 @@ const classes =
 
 {
   href ? (
-    <a href={href} class={classes} target={target} rel={rel}>
+    <a href={href} class={classes} target={target} rel={rel} tabindex={tabindex}>
       <slot />
     </a>
   ) : (
-    <button class={classes} disabled={disabled}>
+    <button class={classes} disabled={disabled} tabindex={tabindex}>
       <slot />
     </button>
   )

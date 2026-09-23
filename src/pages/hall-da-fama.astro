@@ -7,25 +7,18 @@ import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
 import Button from "../components/Button.astro";
-import rawLeaderboardData from "../data/leaderboard.json";
-import eventsData from "../data/events.json";
-import { LeaderboardDataSchema, rankPlayers } from "../schemas/leaderboard";
+import { eventsData, leaderboardData } from "../data";
+import { rankPlayers } from "../schemas/leaderboard";
+import { splitEvents } from "../schemas/event";
 
-const leaderboardData = LeaderboardDataSchema.parse(rawLeaderboardData);
 const rankedPlayers = rankPlayers(leaderboardData.players);
 
-const sortedEvents = eventsData.events.sort((a, b) => {
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
-});
-
-const today = new Date();
-const nextEvent = sortedEvents.find((event) => new Date(event.date) >= today);
+const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
 
 <BaseLayout
-  title="Hall da Fama - Commander 2x2"
+  title="Hall da Fama"
   description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para o evento especial de fim de ano."
-  url="https://commander2x2.com/hall-da-fama"
   type="website"
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >

@@ -7,8 +7,8 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 | Concern         | Choice                                                                                | Where                                                   |
 | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | Framework       | [Astro](https://astro.build) 7, static output                                         | `astro.config.mjs`                                      |
-| Hosting         | Vercel, through `@astrojs/vercel` (with `imageService: true`)                         | `astro.config.mjs`, `vercel.json`                       |
-| Content         | Markdown + MDX (`@astrojs/mdx`)                                                       | `src/content/`                                          |
+| Hosting         | Vercel, through `@astrojs/vercel` (with `imageService: true`)                         | `astro.config.mjs`                                      |
+| Content         | Markdown                                                                              | `src/content/`                                          |
 | Data            | JSON files validated with Zod (`astro/zod`)                                           | `src/data/`, `src/schemas/`                             |
 | Styling         | Tailwind CSS v4 (through `@tailwindcss/vite`) + daisyUI 5 + `@tailwindcss/typography` | `src/styles/global.css`                                 |
 | Icons           | `@lucide/astro`                                                                       | components                                              |
@@ -16,32 +16,30 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 | Type-checking   | TypeScript strict (`astro/tsconfigs/strict`), `astro check` runs in `pnpm build`      | `tsconfig.json`                                         |
 | Lint and format | ESLint 10 (flat config) + Prettier + markdownlint                                     | `eslint.config.js`, `.prettierrc`, `.markdownlint.json` |
 
-`build.format: "file"` makes Astro emit `/regras.html` instead of `/regras/index.html`, so URLs have no trailing slash.
+`site` is set to `https://commander2x2.org` in `astro.config.mjs`. `BaseLayout`, `robots.txt` and the sitemap resolve absolute URLs against it. Pages build to `<route>/index.html` (Astro's default `directory` format), but links, canonical URLs and the sitemap all use the no-trailing-slash form (`/regras`).
 
 ## Data flow
 
 ```text
  src/data/*.json ──┐
-                   ├─► page frontmatter (src/pages/*.astro) ──► components ──► static HTML
- src/schemas/*.ts ─┘      Schema.parse(json) at build time          (props)       (dist/)
- (Zod + domain logic)
+                   ├─► src/data/index.ts ──► page frontmatter ──► components ──► static HTML
+ src/schemas/*.ts ─┘   Schema.parse(json)    (src/pages/*.astro)    (props)       (dist/)
+ (Zod + domain logic)  once, at build time
 
  src/content/regras/index.md ──── direct import ─────────► /regras
- src/content/changelog/*.mdx ──── import.meta.glob ──────► /changelog
 ```
 
-- **Validated data.** `decks.json` goes through `DecksDataSchema.parse()` (in `index.astro` and `decks.astro`), and `leaderboard.json` through `LeaderboardDataSchema.parse()` (in `hall-da-fama.astro`). A schema violation fails the build, which is how bad data gets caught in CI.
-- **Unvalidated data.** `events.json` and `banlist.json` are imported as plain JSON. Their shapes are only described by component `Props` interfaces (`EventCard.astro`, `TableBanlist.astro`).
+- **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
 - **Domain logic** sits next to its schema: `calculateScore()` and `rankPlayers()` are in `src/schemas/leaderboard.ts`.
-- **Time-dependent output is frozen at build time.** For example, the "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` compare against `new Date()` during the build. After an event date passes, the site only reflects it on the next deploy.
-- **No content collections.** Rules are imported directly as a module, and changelog entries are loaded with `import.meta.glob<MDXInstance<{ title; date }>>`. `src/content/faq/` and `src/content/evento/` are leftovers that nothing imports. The FAQ is a hardcoded array in `faq.astro`.
+- **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. After an event date passes, the site only reflects it on the next deploy.
+- **No content collections.** Rules are imported directly as a module. The FAQ is a hardcoded array in `faq.astro`.
 
 ## Page anatomy
 
 Every page follows the same shape:
 
 ```astro
-<BaseLayout title="…" description="…" url="…">
+<BaseLayout title="…" description="…">
   <Header />
   <main class="container mx-auto px-4 py-16">…</main>
   <Footer />
@@ -50,7 +48,7 @@ Every page follows the same shape:
 
 `BaseLayout.astro` owns everything cross-cutting:
 
-- `<head>` meta, OpenGraph and Twitter tags built by `generateSEO()` (`src/utils/seo.ts`)
+- `<head>` meta, OpenGraph and Twitter tags built by `generateSEO()` (`src/utils/seo.ts`). The canonical URL comes from the page's own path against `site`, and `title` gets a "| Commander 2x2" suffix, so pages pass only the short title
 - JSON-LD structured data
 - the global stylesheet
 - the dismissible `TopBanner` (hidden per session through `sessionStorage`)
@@ -58,7 +56,7 @@ Every page follows the same shape:
 
 The navigation (`Header` / `Navigation`) is driven by `src/config/navigation.ts`.
 
-Two non-HTML routes are generated by endpoints: `src/pages/robots.txt.ts` and `src/pages/sitemap.xml.ts`. The sitemap's page list is maintained by hand in that file.
+Two non-HTML routes are generated by endpoints: `src/pages/robots.txt.ts` and `src/pages/sitemap.xml.ts`. The sitemap lists every `src/pages/*.astro` file automatically (through `import.meta.glob`). A `routeMeta` map in that file only tunes `changefreq`/`priority`, and takes `lastmod` from the backing data file's `updatedAt`.
 
 ## Images
 

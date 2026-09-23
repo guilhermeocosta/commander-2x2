@@ -1,4 +1,5 @@
 import { z } from "astro/zod";
+import { HttpsUrl, IsoDate, uniqueBy } from "./common";
 
 export const PlayerStatsSchema = z.object({
   eventsAttended: z.number().int().min(0),
@@ -10,14 +11,14 @@ export const PlayerStatsSchema = z.object({
 export const PlayerSchema = z.object({
   id: z.string(),
   name: z.string(),
-  avatar: z.url().nullable(),
+  avatar: HttpsUrl.nullable(),
   stats: PlayerStatsSchema,
 });
 
 export const LeaderboardDataSchema = z.object({
-  updatedAt: z.string(),
+  updatedAt: IsoDate,
   year: z.number().int(),
-  players: z.array(PlayerSchema),
+  players: z.array(PlayerSchema).superRefine(uniqueBy("id")),
 });
 
 export type Player = z.infer<typeof PlayerSchema>;

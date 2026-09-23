@@ -5,7 +5,7 @@ Most changes to this repo are content updates after a tournament or a banlist an
 General rules for every data file in `src/data/`:
 
 - Dates are `YYYY-MM-DD` strings.
-- Set the top-level `updatedAt` to today's date whenever you change the file. Only `/hall-da-fama` (`leaderboard.json`) and `/banlist` (`banlist.json`) show it, as "Última atualização". The other files' `updatedAt` isn't displayed, but keep it current as a record.
+- Set the top-level `updatedAt` to today's date whenever you change the file. Only `/hall-da-fama` (`leaderboard.json`) and `/banlist` (`banlist.json`) show it, as "Última atualização". The other files' `updatedAt` isn't displayed, but the sitemap uses every file's `updatedAt` as the page's `lastmod`, so keep it current.
 - **Array order matters for some files.** `/decks` and `/banlist` render their arrays in file order:
   - `decks.json`: newest first, so add new decks **at the top** of `decks`.
   - `banlist.json`: oldest first, so add new items **at the end** of `entries` and `watchlist`.
@@ -82,7 +82,7 @@ Append:
 }
 ```
 
-For a precon tournament, use `"title": "Commander 2x2 - Pre-Cons"` and `"description": "Torneio com decks pré-construídos"`. This file has **no schema**, so double-check field names by hand: a typo won't fail the build, it will just render blank.
+For a precon tournament, use `"title": "Commander 2x2 - Pre-Cons"` and `"description": "Torneio com decks pré-construídos"`. `date` must be `YYYY-MM-DD` and `time` `HH:MM`, or the build fails.
 
 ## Change the banlist: `src/data/banlist.json`
 
@@ -90,31 +90,11 @@ For a precon tournament, use `"title": "Commander 2x2 - Pre-Cons"` and `"descrip
 - **Watch a card:** add to the end of `watchlist` with `card`, `url`, `reason` (in pt-BR) and `effectiveDate`.
 - **Promote from the watchlist:** remove the card from `watchlist` and add it to the end of `entries`.
 - **Unban:** remove the entry.
-- Bump `updatedAt` (shown on `/banlist`), then **add a changelog entry** (see below). Banlist changes are format changes.
-
-This file has **no schema** either.
+- Bump `updatedAt` (shown on `/banlist`).
 
 ## Change the rules
 
-1. Edit `src/content/regras/index.md` (in pt-BR). If the change raises a common question, also update `faqItems` in `src/pages/faq.astro`.
-2. Add a changelog entry.
-
-## Add a changelog entry: `src/content/changelog/`
-
-Create `src/content/changelog/YYYY-MM-DD-short-slug.mdx`:
-
-```mdx
----
-title: "Banlist Update"
-date: "2026-08-10"
----
-
-- Ban: **Card Name**
-- Watchlist: **Other Card**
-- Rationale: one line on why.
-```
-
-The `/changelog` page picks up new files automatically and sorts them by `date`.
+Edit `src/content/regras/index.md` (in pt-BR). If the change raises a common question, also update `faqItems` in `src/pages/faq.astro`.
 
 ## Start a new season
 
@@ -122,6 +102,6 @@ At the start of a year, reset `src/data/leaderboard.json`: set `year` to the new
 
 ## Verify
 
-1. Run `pnpm build`. Zod validation catches malformed `decks.json` and `leaderboard.json` data. `events.json` and `banlist.json` are not validated.
-2. Run `pnpm dev` and open the affected page: `/hall-da-fama`, `/decks`, `/eventos`, `/banlist` or `/changelog`. Scryfall images may show as broken in dev because of a known dev-only issue; check them on the Vercel preview instead.
+1. Run `pnpm build`. Zod validation (`src/data/index.ts`) catches malformed data in any of the JSON files. It also rejects dates that aren't `YYYY-MM-DD`, times that aren't `HH:MM`, records that aren't `wins-losses-draws`, duplicate deck or player `id`s, duplicate banlist cards (or a card both banned and watched), banlist links outside `https://scryfall.com`, any link or image that isn't `https:`, and card images outside `cards.scryfall.io`.
+2. Run `pnpm dev` and open the affected page: `/hall-da-fama`, `/decks`, `/eventos`, or `/banlist`. Scryfall images may show as broken in dev because of a known dev-only issue; check them on the Vercel preview instead.
 3. Open a PR, check the Vercel preview, then squash-merge.

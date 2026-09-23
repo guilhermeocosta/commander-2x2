@@ -29,11 +29,19 @@ const {
   modifiedTime,
 }: Props = Astro.props;
 
+// Astro.site is set in astro.config.mjs; resolve relative paths against it so
+// canonical, og:url and og:image are always absolute and on our own domain.
+const site = Astro.site!;
+// Drop the trailing slash (except on "/") to match the links in nav and sitemap.
+const pathname = Astro.url.pathname.replace(/(.)\/$/, "$1");
+const canonicalUrl = new URL(url ?? pathname, site).href;
+const imageUrl = new URL(image ?? "/og-image.png", site).href;
+
 const seo = generateSEO({
   title,
   description,
-  image,
-  url,
+  image: imageUrl,
+  url: canonicalUrl,
   type,
   keywords,
   author,
@@ -57,7 +65,7 @@ const structuredData = {
     name: "Commander 2x2",
     logo: {
       "@type": "ImageObject",
-      url: "https://commander2x2.com/favicon.svg",
+      url: new URL("/favicon.svg", site).href,
     },
   },
   ...(publishedTime && { datePublished: publishedTime }),

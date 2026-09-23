@@ -4,14 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
 import CardDeck from "../components/CardDeck.astro";
-import rawDecksData from "../data/decks.json";
-import { DecksDataSchema } from "../schemas/deck";
-
-const decksData = DecksDataSchema.parse(rawDecksData);
+import { decksData } from "../data";
 ---
 
 <BaseLayout
-  title="Decks - Commander 2x2"
+  title="Decks"
   description="Decks de referência e listagens vencedoras dos torneios de Commander 2x2"
 >
   <Header />

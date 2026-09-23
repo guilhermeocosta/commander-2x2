@@ -15,6 +15,5 @@
 
 - [ ] `pnpm build && pnpm lint && pnpm format:check && pnpm lint:md` pass locally
 - [ ] Data changed: `updatedAt` bumped in each edited `src/data/*.json`
-- [ ] Rules or banlist changed: changelog entry added in `src/content/changelog/`
 - [ ] UI changed: checked the Vercel preview and attached screenshots
 - [ ] Architecture changed: ADR added in `docs/adr/`

@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import bannerDiscordImage from "./banner-discord.png";
-import Button from "../../components/Button.astro";
 
 interface Props {
   className?: string;
@@ -44,6 +43,7 @@ const {
       {description}
     </p>
 
-    <Button className="mt-6" variant="primary" size="lg">{cta}</Button>
+    <!-- The whole banner is the link, so the CTA is styled text, not a nested <button>. -->
+    <span class="btn btn-primary btn-lg mt-6">{cta}</span>
   </div>
 </a>

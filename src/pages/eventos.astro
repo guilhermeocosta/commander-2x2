@@ -4,23 +4,16 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventCard from "../components/EventCard.astro";
 import Button from "../components/Button.astro";
-import eventsData from "../data/events.json";
+import { eventsData } from "../data";
+import { splitEvents } from "../schemas/event";
 
-// Sort events by date (upcoming first)
-const sortedEvents = eventsData.events.sort((a, b) => {
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
-});
-
-// Separate upcoming and past events
-const today = new Date();
-const upcomingEvents = sortedEvents.filter((event) => new Date(event.date) >= today);
-const pastEvents = sortedEvents.filter((event) => new Date(event.date) < today).reverse();
+const { upcoming: upcomingEvents, past: pastEvents } = splitEvents(eventsData.events);
+import { Info } from "@lucide/astro";
 ---
 
 <BaseLayout
-  title="Eventos - Commander 2x2"
+  title="Eventos"
   description="Calendário de torneios e eventos de Commander 2x2. Participe dos torneios competitivos em duplas e conheça a comunidade."
-  url="https://commander2x2.com/eventos"
   type="website"
   keywords="Commander 2x2, eventos, torneios, competitivo, duplas, Magic: the Gathering, EDH"
 >
@@ -55,19 +48,7 @@ const pastEvents = sortedEvents.filter((event) => new Date(event.date) < today).
             </div>
           ) : (
             <div class="alert alert-info">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="stroke-current shrink-0 w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <Info class="shrink-0 size-6" aria-hidden="true" />
               <span>Nenhum evento agendado no momento. Fique de olho para novidades!</span>
             </div>
           )

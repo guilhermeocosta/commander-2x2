@@ -4,7 +4,13 @@ import Navigation from "./Navigation.astro";
 
 <!-- Mobile drawer structure -->
 <div class="drawer drawer-end lg:hidden">
-  <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
+  <input
+    id="mobile-menu-drawer"
+    type="checkbox"
+    class="drawer-toggle"
+    tabindex="-1"
+    aria-hidden="true"
+  />
   <div class="drawer-content">
     <header class="navbar bg-base-200 shadow-lg relative z-50">
       <div class="navbar-start">
@@ -14,20 +20,18 @@ import Navigation from "./Navigation.astro";
         </a>
       </div>
 
-      <!-- Desktop navigation -->
-      <div class="navbar-center hidden lg:flex">
-        <Navigation listClass="menu menu-horizontal px-1" itemClass="hover:text-primary" />
-      </div>
-
       <!-- Mobile menu button -->
       <div class="navbar-end">
-        <!-- Desktop logo -->
-        <a href="/">
-          <img src="/logo.svg" alt="Commander 2x2" class="hidden lg:flex h-8" />
-        </a>
-
         <!-- Mobile menu toggle -->
-        <label for="mobile-menu-drawer" class="btn btn-ghost btn-circle lg:hidden">
+        <!-- A real <button> (not a <label>) so the menu opens from the keyboard. -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          aria-label="Abrir menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="btn btn-ghost btn-circle lg:hidden"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -41,13 +45,13 @@ import Navigation from "./Navigation.astro";
               stroke-width="2"
               d="M4 6h16M4 12h8m-8 6h16"></path>
           </svg>
-        </label>
+        </button>
       </div>
     </header>
   </div>
   <div class="drawer-side z-50">
-    <label for="mobile-menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-    <aside class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
+    <label for="mobile-menu-drawer" aria-label="Fechar menu" class="drawer-overlay"></label>
+    <aside id="mobile-menu" class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
       <div class="mb-8">
         <img src="/logo.svg" alt="Commander 2x2" class="h-8" />
       </div>
@@ -77,3 +81,43 @@ import Navigation from "./Navigation.astro";
   <!-- Desktop right side (empty for now)-->
   <div class="navbar-end"></div>
 </header>
+
+<script>
+  const drawer = document.getElementById("mobile-menu-drawer") as HTMLInputElement | null;
+  const toggle = document.getElementById("mobile-menu-toggle");
+
+  const sync = () => {
+    const open = drawer?.checked ?? false;
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  };
+
+  // The drawer stays visibility:hidden until its CSS transition starts, and
+  // hidden elements can't take focus. Retry for a few frames instead of
+  // relying on transitionend, which never fires with reduced motion.
+  const focusFirstLink = (attempts = 30) => {
+    const link = document.querySelector<HTMLElement>("#mobile-menu a");
+    link?.focus();
+    if (link && document.activeElement !== link && attempts > 0) {
+      requestAnimationFrame(() => focusFirstLink(attempts - 1));
+    }
+  };
+
+  toggle?.addEventListener("click", () => {
+    if (!drawer) return;
+    drawer.checked = !drawer.checked;
+    sync();
+    if (drawer.checked) focusFirstLink();
+  });
+
+  // The overlay <label> toggles the checkbox directly; keep the toggle in sync.
+  drawer?.addEventListener("change", sync);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer?.checked) {
+      drawer.checked = false;
+      sync();
+      toggle?.focus();
+    }
+  });
+</script>

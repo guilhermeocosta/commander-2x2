@@ -32,15 +32,15 @@ Commander 2x2 is regular Commander (EDH) played two-versus-two, with teams re-dr
 
 ## Events
 
-| Term (pt-BR)        | English         | In code                     | Meaning                                                                                                                        |
-| ------------------- | --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Evento / torneio    | Event           | `events[]` in `events.json` | One tournament: `title`, `date`, `time`, `location`, `format`, `entryFee`, `description`.                                      |
-| Regular             | Regular event   | `title`                     | A tournament with player-built decks ("Regular Commander 2x2").                                                                |
-| Pre-Cons            | Precon event    | `title`                     | A tournament played with preconstructed decks ("Commander 2x2 - Pre-Cons").                                                    |
-| Formato (do evento) | Event structure | `format`                    | How the event runs, e.g. "3 rodadas fixas" (3 fixed rounds). **Not** the game format.                                          |
-| Local               | Venue           | `location`                  | Store and city, e.g. "Medieval Cards - São Paulo".                                                                             |
-| Inscrição           | Entry fee       | `entryFee`                  | A display string, e.g. "R$ 30,00".                                                                                             |
-| Próximos / Passados | Upcoming / Past | computed in the page        | Split by comparing `date` with the **build time**. The site is static, so an event only moves to "past" after the next deploy. |
+| Term (pt-BR)        | English         | In code                     | Meaning                                                                                                                                 |
+| ------------------- | --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Evento / torneio    | Event           | `events[]` in `events.json` | One tournament: `title`, `date`, `time`, `location`, `format`, `entryFee`, `description`.                                               |
+| Regular             | Regular event   | `title`                     | A tournament with player-built decks ("Regular Commander 2x2").                                                                         |
+| Pre-Cons            | Precon event    | `title`                     | A tournament played with preconstructed decks ("Commander 2x2 - Pre-Cons").                                                             |
+| Formato (do evento) | Event structure | `format`                    | How the event runs, e.g. "3 rodadas fixas" (3 fixed rounds). **Not** the game format.                                                   |
+| Local               | Venue           | `location`                  | Store and city, e.g. "Medieval Cards - São Paulo".                                                                                      |
+| Inscrição           | Entry fee       | `entryFee`                  | A display string, e.g. "R$ 30,00".                                                                                                      |
+| Próximos / Passados | Upcoming / Past | `splitEvents()`             | Split by comparing `date` with **today in São Paulo** at build time. The event day counts as upcoming. Updates only on the next deploy. |
 
 ## Decks
 
@@ -91,11 +91,10 @@ Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas
 
 ## Site content
 
-| Term (pt-BR)         | English   | In code                             | Meaning                                                                                          |
-| -------------------- | --------- | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Regras               | Rules     | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.                                                    |
-| Changelog            | Changelog | `src/content/changelog/*.mdx`       | One entry per format change (banlist update, rules clarification). Frontmatter: `title`, `date`. |
-| Perguntas frequentes | FAQ       | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page.                                                |
+| Term (pt-BR)         | English | In code                             | Meaning                                           |
+| -------------------- | ------- | ----------------------------------- | ------------------------------------------------- |
+| Regras               | Rules   | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.     |
+| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page. |
 
 ### Routes
 
@@ -108,6 +107,5 @@ Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas
 | `/eventos`      | Eventos              | `src/pages/eventos.astro`      |
 | `/hall-da-fama` | Hall da Fama         | `src/pages/hall-da-fama.astro` |
 | `/decks`        | Decks                | `src/pages/decks.astro`        |
-| `/changelog`    | (not in the nav)     | `src/pages/changelog.astro`    |
 
 The navigation is defined in [`src/config/navigation.ts`](src/config/navigation.ts).

@@ -16,7 +16,7 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 | Type-checking   | TypeScript strict (`astro/tsconfigs/strict`), `astro check` runs in `pnpm build`      | `tsconfig.json`                                         |
 | Lint and format | ESLint 10 (flat config) + Prettier + markdownlint                                     | `eslint.config.js`, `.prettierrc`, `.markdownlint.json` |
 
-`site` is set to `https://commander2x2.org` in `astro.config.mjs`. `BaseLayout`, `robots.txt` and the sitemap resolve absolute URLs against it. Pages build to `<route>/index.html` (despite `build.format: "file"`), but links, canonical URLs and the sitemap all use the no-trailing-slash form (`/regras`).
+`site` is set to `https://commander2x2.org` in `astro.config.mjs`. `BaseLayout`, `robots.txt` and the sitemap resolve absolute URLs against it. Pages build to `<route>/index.html` (Astro's default `directory` format), but links, canonical URLs and the sitemap all use the no-trailing-slash form (`/regras`).
 
 ## Data flow
 

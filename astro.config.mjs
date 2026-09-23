@@ -10,9 +10,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  build: {
-    format: "file",
-  },
   image: {
     domains: ["cards.scryfall.io"],
   },

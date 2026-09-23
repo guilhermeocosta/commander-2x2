@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import AccordionFAQ from "../components/AccordionFAQ.astro";
 import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
 
@@ -50,8 +48,6 @@ const faqItems = [
 ---
 
 <BaseLayout title="FAQ" description="Perguntas frequentes sobre o formato Commander 2x2">
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <h1>Perguntas Frequentes</h1>
@@ -67,6 +63,4 @@ const faqItems = [
       description="Faça parte da nossa comunidade no Discord e entre na conversa!"
     />
   </main>
-
-  <Footer />
 </BaseLayout>

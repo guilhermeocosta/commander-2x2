@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import CardDeck from "../components/CardDeck.astro";
 import { decksData } from "../data";
 ---
@@ -10,8 +8,6 @@ import { decksData } from "../data";
   title="Decks"
   description="Decks de referência e listagens vencedoras dos torneios de Commander 2x2"
 >
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <h1>Decks de Referência</h1>
@@ -40,6 +36,4 @@ import { decksData } from "../data";
       </section>
     </div>
   </main>
-
-  <Footer />
 </BaseLayout>

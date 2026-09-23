@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
 import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
@@ -24,8 +22,6 @@ const FEATURED_DECKS_COUNT = 6 as const;
   title="Commander 2x2 - Formato competitivo em duplas"
   description="Um novo formato de Commander competitivo em duplas acessível e com uma comunidade crescente de jogadores."
 >
-  <Header />
-
   <main>
     <div class="hero bg-base-200">
       <div class="hero-content text-center px-4 py-32">
@@ -115,6 +111,4 @@ const FEATURED_DECKS_COUNT = 6 as const;
       }
     });
   </script>
-
-  <Footer />
 </BaseLayout>

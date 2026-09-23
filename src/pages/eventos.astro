@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import EventCard from "../components/EventCard.astro";
 import { eventsData } from "../data";
 import { splitEvents } from "../schemas/event";
@@ -15,8 +13,6 @@ import { Info } from "@lucide/astro";
   description="Calendário de torneios e eventos de Commander 2x2. Participe dos torneios competitivos em duplas e conheça a comunidade."
   keywords="Commander 2x2, eventos, torneios, competitivo, duplas, Magic: the Gathering, EDH"
 >
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <h1>Eventos</h1>
@@ -74,6 +70,4 @@ import { Info } from "@lucide/astro";
       </section>
     </div>
   </main>
-
-  <Footer />
 </BaseLayout>

@@ -12,7 +12,7 @@ The community hub for **Commander 2x2**, a competitive two-versus-two Magic: The
 pnpm install         # install deps (pnpm only; Node version from .nvmrc)
 pnpm dev             # dev server at http://localhost:4321
 pnpm build           # astro check (type-check) + astro build; type errors fail the build
-pnpm lint            # eslint
+pnpm lint            # eslint (warnings fail too)
 pnpm format:check    # prettier (use `pnpm format` to fix)
 pnpm lint:md         # markdownlint
 ```

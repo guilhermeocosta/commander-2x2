@@ -4,7 +4,13 @@ import Navigation from "./Navigation.astro";
 
 <!-- Mobile drawer structure -->
 <div class="drawer drawer-end lg:hidden">
-  <input id="mobile-menu-drawer" type="checkbox" class="drawer-toggle" />
+  <input
+    id="mobile-menu-drawer"
+    type="checkbox"
+    class="drawer-toggle"
+    tabindex="-1"
+    aria-hidden="true"
+  />
   <div class="drawer-content">
     <header class="navbar bg-base-200 shadow-lg relative z-50">
       <div class="navbar-start">
@@ -17,9 +23,13 @@ import Navigation from "./Navigation.astro";
       <!-- Mobile menu button -->
       <div class="navbar-end">
         <!-- Mobile menu toggle -->
-        <label
-          for="mobile-menu-drawer"
+        <!-- A real <button> (not a <label>) so the menu opens from the keyboard. -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
           aria-label="Abrir menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
           class="btn btn-ghost btn-circle lg:hidden"
         >
           <svg
@@ -35,13 +45,13 @@ import Navigation from "./Navigation.astro";
               stroke-width="2"
               d="M4 6h16M4 12h8m-8 6h16"></path>
           </svg>
-        </label>
+        </button>
       </div>
     </header>
   </div>
   <div class="drawer-side z-50">
-    <label for="mobile-menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-    <aside class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
+    <label for="mobile-menu-drawer" aria-label="Fechar menu" class="drawer-overlay"></label>
+    <aside id="mobile-menu" class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
       <div class="mb-8">
         <img src="/logo.svg" alt="Commander 2x2" class="h-8" />
       </div>
@@ -71,3 +81,34 @@ import Navigation from "./Navigation.astro";
   <!-- Desktop right side (empty for now)-->
   <div class="navbar-end"></div>
 </header>
+
+<script>
+  const drawer = document.getElementById("mobile-menu-drawer") as HTMLInputElement | null;
+  const toggle = document.getElementById("mobile-menu-toggle");
+
+  const sync = () => toggle?.setAttribute("aria-expanded", String(drawer?.checked ?? false));
+
+  toggle?.addEventListener("click", () => {
+    if (!drawer) return;
+    drawer.checked = !drawer.checked;
+    sync();
+    if (drawer.checked) {
+      // The drawer is still visibility:hidden until its CSS transition runs.
+      const menu = document.getElementById("mobile-menu");
+      menu?.addEventListener("transitionend", () => menu.querySelector<HTMLElement>("a")?.focus(), {
+        once: true,
+      });
+    }
+  });
+
+  // The overlay <label> toggles the checkbox directly; keep aria-expanded in sync.
+  drawer?.addEventListener("change", sync);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer?.checked) {
+      drawer.checked = false;
+      sync();
+      toggle?.focus();
+    }
+  });
+</script>

@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import { IsoDate, ScryfallCardUrl, uniqueBy } from "./common";
+import { HttpsUrl, IsoDate, ScryfallCardUrl, uniqueBy } from "./common";
 
 export const BanStatusSchema = z.enum(["banned", "banned-as-commander"]);
 
@@ -20,7 +20,7 @@ export const WatchlistEntrySchema = z.object({
 export const BanlistSourceSchema = z.object({
   name: z.string(),
   // Either an external URL or an in-page anchor such as "#2x2-banlist".
-  url: z.string(),
+  url: z.union([HttpsUrl, z.string().regex(/^#[\w-]+$/)]),
   note: z.string().optional(),
 });
 

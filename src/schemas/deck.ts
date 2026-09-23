@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import { IsoDate, ScryfallImageUrl, uniqueBy } from "./common";
+import { HttpsUrl, IsoDate, ScryfallImageUrl, uniqueBy } from "./common";
 
 export const ColorsSchema = z.enum(["W", "U", "B", "R", "G", "C"]);
 
@@ -11,7 +11,7 @@ export const DeckSchema = z.object({
   commanders: z.array(z.string()),
   colors: z.array(ColorsSchema),
   platform: z.string(),
-  url: z.url(),
+  url: HttpsUrl,
   // wins-losses-draws, e.g. "2-1-0"
   record: z.string().regex(/^\d+-\d+-\d+$/, "Expected wins-losses-draws, e.g. 2-1-0"),
   notes: z.string(),

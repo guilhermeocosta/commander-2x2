@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import { IsoDate, uniqueBy } from "./common";
+import { HttpsUrl, IsoDate, uniqueBy } from "./common";
 
 export const PlayerStatsSchema = z.object({
   eventsAttended: z.number().int().min(0),
@@ -11,7 +11,7 @@ export const PlayerStatsSchema = z.object({
 export const PlayerSchema = z.object({
   id: z.string(),
   name: z.string(),
-  avatar: z.url().nullable(),
+  avatar: HttpsUrl.nullable(),
   stats: PlayerStatsSchema,
 });
 

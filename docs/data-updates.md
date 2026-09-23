@@ -102,6 +102,6 @@ At the start of a year, reset `src/data/leaderboard.json`: set `year` to the new
 
 ## Verify
 
-1. Run `pnpm build`. Zod validation (`src/data/index.ts`) catches malformed data in any of the JSON files. It also rejects dates that aren't `YYYY-MM-DD`, times that aren't `HH:MM`, records that aren't `wins-losses-draws`, duplicate deck or player `id`s, duplicate banlist cards (or a card both banned and watched), banlist links outside `scryfall.com`, and card images outside `cards.scryfall.io`.
+1. Run `pnpm build`. Zod validation (`src/data/index.ts`) catches malformed data in any of the JSON files. It also rejects dates that aren't `YYYY-MM-DD`, times that aren't `HH:MM`, records that aren't `wins-losses-draws`, duplicate deck or player `id`s, duplicate banlist cards (or a card both banned and watched), banlist links outside `https://scryfall.com`, any link or image that isn't `https:`, and card images outside `cards.scryfall.io`.
 2. Run `pnpm dev` and open the affected page: `/hall-da-fama`, `/decks`, `/eventos`, or `/banlist`. Scryfall images may show as broken in dev because of a known dev-only issue; check them on the Vercel preview instead.
 3. Open a PR, check the Vercel preview, then squash-merge.

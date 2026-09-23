@@ -6,17 +6,32 @@ export const IsoDate = z.iso.date();
 /** A 24h clock time as `HH:MM`. */
 export const ClockTime = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Expected HH:MM");
 
-/** Card image URL. Must be on the only remote host allowed by `image.domains`. */
-export const ScryfallImageUrl = z
-  .url()
-  .refine((url) => new URL(url).hostname === "cards.scryfall.io", {
-    message: "Image must be hosted on cards.scryfall.io (see image.domains in astro.config.mjs)",
+/**
+ * An `https:` URL. `z.url()` alone accepts any scheme, including
+ * `javascript:`, and these values are rendered as `href`/`src`.
+ */
+export const HttpsUrl = z.url({ protocol: /^https$/, error: "Expected an https:// URL" });
+
+/** An `https:` URL on exactly `host`. */
+function httpsUrlOn(host: string, message: string) {
+  return z.url({
+    protocol: /^https$/,
+    hostname: new RegExp(`^${host.replaceAll(".", "\\.")}$`),
+    error: message,
   });
+}
+
+/** Card image URL. Must be on the only remote host allowed by `image.domains`. */
+export const ScryfallImageUrl = httpsUrlOn(
+  "cards.scryfall.io",
+  "Image must be an https://cards.scryfall.io URL (see image.domains in astro.config.mjs)"
+);
 
 /** Card page link. Banlist entries point at the card on Scryfall. */
-export const ScryfallCardUrl = z.url().refine((url) => new URL(url).hostname === "scryfall.com", {
-  message: "Card URL must be a scryfall.com link",
-});
+export const ScryfallCardUrl = httpsUrlOn(
+  "scryfall.com",
+  "Card URL must be an https://scryfall.com link"
+);
 
 /** superRefine check that fails when two items share the same `key` value. */
 export function uniqueBy<T, K extends keyof T>(key: K) {

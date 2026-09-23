@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { Calendar, User } from "@lucide/astro";
-import Button from "./Button.astro";
 
 export interface Props {
   url: string;
@@ -87,16 +86,15 @@ const loading = eager ? "eager" : "lazy";
           </li>
         </ul>
 
-        <Button
+        <a
           href={url}
           target="_blank"
-          size="sm"
-          className="w-full"
           rel="noopener noreferrer"
           tabindex={decorative ? -1 : undefined}
+          class="btn btn-primary btn-sm w-full"
         >
           Ver deck
-        </Button>
+        </a>
       </div>
     </div>
   </div>

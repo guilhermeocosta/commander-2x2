@@ -10,16 +10,12 @@ import Button from "../components/Button.astro";
 import rawLeaderboardData from "../data/leaderboard.json";
 import eventsData from "../data/events.json";
 import { LeaderboardDataSchema, rankPlayers } from "../schemas/leaderboard";
+import { splitEvents } from "../schemas/event";
 
 const leaderboardData = LeaderboardDataSchema.parse(rawLeaderboardData);
 const rankedPlayers = rankPlayers(leaderboardData.players);
 
-const sortedEvents = eventsData.events.sort((a, b) => {
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
-});
-
-const today = new Date();
-const nextEvent = sortedEvents.find((event) => new Date(event.date) >= today);
+const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
 
 <BaseLayout

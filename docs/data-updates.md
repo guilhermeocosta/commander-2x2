@@ -64,7 +64,7 @@ Only decks with **at least two wins** get published. Add one object per deck **a
 
 ### 3. Mark the event as done: `src/data/events.json`
 
-You don't need to change anything: an event moves from "Próximos" to "Passados" automatically on the next deploy after its date. Only edit the file if the details changed, e.g. the entry fee.
+You don't need to change anything: an event moves from "Próximos" to "Passados" automatically with the daily rebuild on the day after its date. Only edit the file if the details changed, e.g. the entry fee.
 
 ## Schedule an event: `src/data/events.json`
 

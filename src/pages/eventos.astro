@@ -5,16 +5,9 @@ import Footer from "../components/Footer.astro";
 import EventCard from "../components/EventCard.astro";
 import Button from "../components/Button.astro";
 import eventsData from "../data/events.json";
+import { splitEvents } from "../schemas/event";
 
-// Sort events by date (upcoming first)
-const sortedEvents = eventsData.events.sort((a, b) => {
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
-});
-
-// Separate upcoming and past events
-const today = new Date();
-const upcomingEvents = sortedEvents.filter((event) => new Date(event.date) >= today);
-const pastEvents = sortedEvents.filter((event) => new Date(event.date) < today).reverse();
+const { upcoming: upcomingEvents, past: pastEvents } = splitEvents(eventsData.events);
 ---
 
 <BaseLayout

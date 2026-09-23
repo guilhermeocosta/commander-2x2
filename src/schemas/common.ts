@@ -13,6 +13,11 @@ export const ScryfallImageUrl = z
     message: "Image must be hosted on cards.scryfall.io (see image.domains in astro.config.mjs)",
   });
 
+/** Card page link. Banlist entries point at the card on Scryfall. */
+export const ScryfallCardUrl = z.url().refine((url) => new URL(url).hostname === "scryfall.com", {
+  message: "Card URL must be a scryfall.com link",
+});
+
 /** superRefine check that fails when two items share the same `key` value. */
 export function uniqueBy<T, K extends keyof T>(key: K) {
   return (items: T[], ctx: z.RefinementCtx<T[]>) => {

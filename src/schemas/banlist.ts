@@ -1,18 +1,18 @@
 import { z } from "astro/zod";
-import { IsoDate, uniqueBy } from "./common";
+import { IsoDate, ScryfallCardUrl, uniqueBy } from "./common";
 
 export const BanStatusSchema = z.enum(["banned", "banned-as-commander"]);
 
 export const BanlistEntrySchema = z.object({
   card: z.string(),
-  url: z.url(),
+  url: ScryfallCardUrl,
   status: BanStatusSchema,
   effectiveDate: IsoDate,
 });
 
 export const WatchlistEntrySchema = z.object({
   card: z.string(),
-  url: z.url(),
+  url: ScryfallCardUrl,
   reason: z.string(),
   effectiveDate: IsoDate,
 });

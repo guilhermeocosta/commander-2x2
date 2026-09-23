@@ -29,7 +29,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 | `src/schemas/`    | Zod schemas and domain logic for the data (scoring and ranking live here) |
 | `src/content/`    | Markdown: `regras/` (rules)                                               |
 | `src/config/`     | Navigation items                                                          |
-| `src/utils/`      | `seo.ts` (meta/OpenGraph generation), `date.ts` (`formatDate`)            |
+| `src/utils/`      | `date.ts` (`formatDate`)                                                  |
 | `src/styles/`     | `global.css`: Tailwind v4 + daisyUI plugin and the custom `custom` theme  |
 | `src/marketing/`  | Promotional components (Discord banner)                                   |
 | `src/assets/`     | Images processed by Astro (rarity icons for the podium)                   |

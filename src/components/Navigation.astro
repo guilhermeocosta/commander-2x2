@@ -1,22 +1,21 @@
 ---
-import { navigationItems, type NavigationItem } from "../config/navigation";
+import { navigationItems } from "../config/navigation";
 
 interface Props {
-  items?: NavigationItem[];
   showIcons?: boolean;
   itemClass?: string;
   listClass?: string;
 }
 
-const { items = navigationItems, showIcons = false, itemClass = "", listClass = "" } = Astro.props;
+const { showIcons = false, itemClass = "", listClass = "" } = Astro.props;
 ---
 
 <ul class={listClass}>
   {
-    items.map((item) => (
+    navigationItems.map((item) => (
       <li>
         <a href={item.href} class={itemClass}>
-          {showIcons && item.icon && <item.icon class="size-4 mr-2" aria-hidden="true" />}
+          {showIcons && <item.icon class="size-4 mr-2" aria-hidden="true" />}
           {item.label}
         </a>
       </li>

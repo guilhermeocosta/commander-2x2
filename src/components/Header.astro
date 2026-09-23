@@ -2,8 +2,7 @@
 import Navigation from "./Navigation.astro";
 ---
 
-<!-- Mobile drawer structure -->
-<div class="drawer drawer-end lg:hidden">
+<div class="drawer drawer-end">
   <input
     id="mobile-menu-drawer"
     type="checkbox"
@@ -14,13 +13,16 @@ import Navigation from "./Navigation.astro";
   <div class="drawer-content">
     <header class="navbar bg-base-200 shadow-lg relative z-50">
       <div class="navbar-start">
-        <!-- Mobile logo -->
-        <a href="/">
-          <img src="/logo.svg" alt="Commander 2x2" class="h-6" />
+        <a href="/" class="lg:mx-4">
+          <img src="/logo.svg" alt="Commander 2x2" class="h-6 lg:h-8" />
         </a>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Desktop navigation -->
+      <div class="navbar-center hidden lg:flex">
+        <Navigation listClass="menu menu-horizontal px-1" itemClass="hover:text-primary" />
+      </div>
+
       <div class="navbar-end">
         <!-- Mobile menu toggle -->
         <!-- A real <button> (not a <label>) so the menu opens from the keyboard. -->
@@ -49,7 +51,7 @@ import Navigation from "./Navigation.astro";
       </div>
     </header>
   </div>
-  <div class="drawer-side z-50">
+  <div class="drawer-side z-50 lg:hidden">
     <label for="mobile-menu-drawer" aria-label="Fechar menu" class="drawer-overlay"></label>
     <aside id="mobile-menu" class="menu min-h-full w-80 bg-base-200 p-4 shadow-2xl">
       <div class="mb-8">
@@ -63,24 +65,6 @@ import Navigation from "./Navigation.astro";
     </aside>
   </div>
 </div>
-
-<!-- Desktop-only header (hidden on mobile) -->
-<header class="navbar bg-base-200 shadow-lg relative z-50 hidden lg:flex">
-  <div class="navbar-start">
-    <!-- Desktop logo -->
-    <a href="/" class="mx-4">
-      <img src="/logo.svg" alt="Commander 2x2" class="h-8" />
-    </a>
-  </div>
-
-  <!-- Desktop navigation -->
-  <div class="navbar-center">
-    <Navigation listClass="menu menu-horizontal px-1" itemClass="hover:text-primary" />
-  </div>
-
-  <!-- Desktop right side (empty for now)-->
-  <div class="navbar-end"></div>
-</header>
 
 <script>
   const drawer = document.getElementById("mobile-menu-drawer") as HTMLInputElement | null;

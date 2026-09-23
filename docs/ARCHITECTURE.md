@@ -48,7 +48,7 @@ Every page follows the same shape:
 
 `BaseLayout.astro` owns everything cross-cutting:
 
-- `<head>` meta, OpenGraph and Twitter tags built by `generateSEO()` (`src/utils/seo.ts`). The canonical URL comes from the page's own path against `site`, and `title` gets a "| Commander 2x2" suffix, so pages pass only the short title
+- `<head>` meta, OpenGraph and Twitter tags. Pages pass only `title`, `description` and optionally `keywords`. The canonical URL comes from the page's own path against `site`, and `title` gets a "| Commander 2x2" suffix, so pages pass only the short title
 - JSON-LD structured data
 - the global stylesheet
 - the dismissible `TopBanner` (hidden per session through `sessionStorage`)

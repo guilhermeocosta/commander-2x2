@@ -12,12 +12,21 @@ Commander 2x2 is meant to be a hub for our community, sharing rules, events, and
 
 ### Setup
 
-To run the project locally, you need an environment with Node.js 18+ and pnpm installed, then run the following commands:
+To run the project locally, use the Node.js version pinned in `.nvmrc` (22) and pnpm via corepack, then run the following commands:
 
 ```bash
+corepack enable
 pnpm install
 pnpm dev
 ```
+
+### Documentation
+
+- [AGENTS.md](AGENTS.md): entry point for coding agents (and humans): commands, layout and conventions
+- [CONTEXT.md](CONTEXT.md): domain glossary (format rules, decks, banlist, ranking)
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): stack, data flow, build and deploy
+- [docs/data-updates.md](docs/data-updates.md): how to update the ranking, decks, events and banlist
+- [CONTRIBUTING.md](CONTRIBUTING.md): setup, branches, commits and pull requests
 
 ## Contributors
 
@@ -49,10 +58,12 @@ Thanks to everyone who contributes to keep Commander 2x2 up and running! ✨
 You can help us with one of our issue listed on [GitHub](https://github.com/guilhermeocosta/commander-2x2/issues).
 
 1. Fork the repository
-2. Create a branch for your feature (`git checkout -b feature/new-feature`)
-3. Commit your changes (`git commit -m 'Add new feature'`)
-4. Push to the branch (`git push origin feature/new-feature`)
+2. Create a branch for your change (`git checkout -b feat/new-feature`)
+3. Commit your changes using Conventional Commits (`git commit -m 'feat: add new feature'`)
+4. Push to the branch (`git push origin feat/new-feature`)
 5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the details.
 
 For other ways to contribute, send an email to [admin@commander2x2.org](mailto:admin@commander2x2.org).
 

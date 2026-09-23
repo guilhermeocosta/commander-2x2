@@ -10,9 +10,12 @@ import { eventsData, leaderboardData } from "../data";
 import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
 
+// The top 4 qualify for the year-end final and get the podium.
 const rankedPlayers = rankPlayers(leaderboardData.players);
+const podium = rankedPlayers.slice(0, 4);
+const rest = rankedPlayers.slice(4);
 // An unresolved tie for the 4th spot means the last qualifier isn't decided yet.
-const tiedAtCutoff = rankedPlayers.length > 4 && rankedPlayers[3].rank === rankedPlayers[4].rank;
+const tiedAtCutoff = rest.length > 0 && podium[3].rank === rest[0].rank;
 
 const hallFaqItems = [
   {
@@ -58,7 +61,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
       <section class="mb-12">
         <h2>Classificados</h2>
-        <LeaderboardPodium players={rankedPlayers} />
+        <LeaderboardPodium players={podium} />
         {
           tiedAtCutoff && (
             <div role="alert" class="alert alert-warning not-prose mt-6">
@@ -69,10 +72,10 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
       </section>
 
       {
-        rankedPlayers.length > 4 && (
+        rest.length > 0 && (
           <section class="mb-12">
             <h2>Ranking Completo</h2>
-            <LeaderboardTable players={rankedPlayers} />
+            <LeaderboardTable players={rest} />
           </section>
         )
       }

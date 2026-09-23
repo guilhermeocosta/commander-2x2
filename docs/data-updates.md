@@ -5,7 +5,7 @@ Most changes to this repo are content updates after a tournament or a banlist an
 General rules for every data file in `src/data/`:
 
 - Dates are `YYYY-MM-DD` strings.
-- Set the top-level `updatedAt` to today's date whenever you change the file. Only `/hall-da-fama` (`leaderboard.json`) and `/banlist` (`banlist.json`) show it, as "Última atualização". The other files' `updatedAt` isn't displayed, but keep it current as a record.
+- Set the top-level `updatedAt` to today's date whenever you change the file. Only `/hall-da-fama` (`leaderboard.json`) and `/banlist` (`banlist.json`) show it, as "Última atualização". The other files' `updatedAt` isn't displayed, but the sitemap uses every file's `updatedAt` as the page's `lastmod`, so keep it current.
 - **Array order matters for some files.** `/decks` and `/banlist` render their arrays in file order:
   - `decks.json`: newest first, so add new decks **at the top** of `decks`.
   - `banlist.json`: oldest first, so add new items **at the end** of `entries` and `watchlist`.

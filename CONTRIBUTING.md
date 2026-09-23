@@ -70,7 +70,7 @@ The convention is documented but not enforced by tooling, so reviewers check it.
 ## Code style
 
 - Prettier decides formatting. Run `pnpm format`; don't hand-format.
-- ESLint must report no errors. `@typescript-eslint/no-explicit-any` is a warning by policy, but avoid `any` in new code.
+- ESLint must report no errors **and no warnings** (`--max-warnings 0`). `@typescript-eslint/no-explicit-any` is a warning, so it fails the lint too; avoid `any`.
 - User-facing copy is written in **pt-BR**. Identifiers and comments are in English.
 - Prefer daisyUI and Tailwind classes over custom CSS, and `@lucide/astro` for icons.
 - Validate new data shapes with a Zod schema in `src/schemas/` (see [ADR 0003](docs/adr/0003-zod-validation-at-build-time.md)).

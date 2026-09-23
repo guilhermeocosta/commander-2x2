@@ -49,7 +49,7 @@ CI (`.github/workflows/ci.yml`) runs `build`, `lint`, `format:check` and `lint:m
 
 - Every data JSON file is parsed with Zod in `src/data/index.ts` at build time, so invalid data fails `pnpm build`. Pages import parsed data from `src/data` (`import { decksData } from "../data"`), never the raw JSON.
 - Dates are `YYYY-MM-DD` strings. Render them as `new Date(date + "T00:00:00")` so they don't shift a day because of the timezone.
-- Bump the top-level `updatedAt` whenever you edit a data JSON file. Only `/hall-da-fama` and `/banlist` display it.
+- Bump the top-level `updatedAt` whenever you edit a data JSON file. Only `/hall-da-fama` and `/banlist` display it; the sitemap also uses it as `lastmod`.
 - Array order matters: `/decks` and `/banlist` render their arrays in file order. `decks.json` is newest first, so add new decks at the top; `banlist.json` is oldest first, so add at the end. Events and the ranking are sorted by the pages.
 - Remote images are only allowed from `cards.scryfall.io` (`image.domains` in `astro.config.mjs`). In `pnpm dev`, the `/_image` endpoint returns 500 for them. This is a known dev-only issue; production is fine.
 - PostHog analytics only loads in production builds (`import.meta.env.PROD`).

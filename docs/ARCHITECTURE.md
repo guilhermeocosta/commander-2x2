@@ -39,7 +39,7 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
 Every page follows the same shape:
 
 ```astro
-<BaseLayout title="…" description="…" url="…">
+<BaseLayout title="…" description="…">
   <Header />
   <main class="container mx-auto px-4 py-16">…</main>
   <Footer />
@@ -48,7 +48,7 @@ Every page follows the same shape:
 
 `BaseLayout.astro` owns everything cross-cutting:
 
-- `<head>` meta, OpenGraph and Twitter tags built by `generateSEO()` (`src/utils/seo.ts`)
+- `<head>` meta, OpenGraph and Twitter tags built by `generateSEO()` (`src/utils/seo.ts`). The canonical URL comes from the page's own path against `site`, and `title` gets a "| Commander 2x2" suffix, so pages pass only the short title
 - JSON-LD structured data
 - the global stylesheet
 - the dismissible `TopBanner` (hidden per session through `sessionStorage`)

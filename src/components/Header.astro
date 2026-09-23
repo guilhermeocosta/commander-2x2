@@ -86,22 +86,31 @@ import Navigation from "./Navigation.astro";
   const drawer = document.getElementById("mobile-menu-drawer") as HTMLInputElement | null;
   const toggle = document.getElementById("mobile-menu-toggle");
 
-  const sync = () => toggle?.setAttribute("aria-expanded", String(drawer?.checked ?? false));
+  const sync = () => {
+    const open = drawer?.checked ?? false;
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  };
+
+  // The drawer stays visibility:hidden until its CSS transition starts, and
+  // hidden elements can't take focus. Retry for a few frames instead of
+  // relying on transitionend, which never fires with reduced motion.
+  const focusFirstLink = (attempts = 30) => {
+    const link = document.querySelector<HTMLElement>("#mobile-menu a");
+    link?.focus();
+    if (link && document.activeElement !== link && attempts > 0) {
+      requestAnimationFrame(() => focusFirstLink(attempts - 1));
+    }
+  };
 
   toggle?.addEventListener("click", () => {
     if (!drawer) return;
     drawer.checked = !drawer.checked;
     sync();
-    if (drawer.checked) {
-      // The drawer is still visibility:hidden until its CSS transition runs.
-      const menu = document.getElementById("mobile-menu");
-      menu?.addEventListener("transitionend", () => menu.querySelector<HTMLElement>("a")?.focus(), {
-        once: true,
-      });
-    }
+    if (drawer.checked) focusFirstLink();
   });
 
-  // The overlay <label> toggles the checkbox directly; keep aria-expanded in sync.
+  // The overlay <label> toggles the checkbox directly; keep the toggle in sync.
   drawer?.addEventListener("change", sync);
 
   document.addEventListener("keydown", (event) => {

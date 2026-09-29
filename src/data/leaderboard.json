@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16",
+  "updatedAt": "2026-09-28",
   "year": 2026,
   "players": [
     {
@@ -18,10 +18,10 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 8,
-        "wins": 20,
+        "eventsAttended": 9,
+        "wins": 21,
         "draws": 0,
-        "losses": 4
+        "losses": 6
       }
     },
     {
@@ -40,10 +40,10 @@
       "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 14,
+        "eventsAttended": 7,
+        "wins": 15,
         "draws": 0,
-        "losses": 4
+        "losses": 6
       }
     },
     {
@@ -62,8 +62,8 @@
       "name": "Raphael Souza",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 7,
+        "eventsAttended": 5,
+        "wins": 10,
         "draws": 0,
         "losses": 5
       }
@@ -73,10 +73,10 @@
       "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 7,
+        "eventsAttended": 7,
+        "wins": 9,
         "draws": 0,
-        "losses": 11
+        "losses": 12
       }
     },
     {
@@ -95,17 +95,6 @@
       "name": "Leandro Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 9,
-        "draws": 0,
-        "losses": 9
-      }
-    },
-    {
-      "id": "vito-muniz",
-      "name": "Vito Muniz",
-      "avatar": null,
-      "stats": {
         "eventsAttended": 7,
         "wins": 11,
         "draws": 0,
@@ -113,14 +102,25 @@
       }
     },
     {
+      "id": "vito-muniz",
+      "name": "Vito Muniz",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 8,
+        "wins": 13,
+        "draws": 0,
+        "losses": 11
+      }
+    },
+    {
       "id": "felipe-amalfi",
       "name": "Felipe Amalfi",
       "avatar": null,
       "stats": {
-        "eventsAttended": 7,
+        "eventsAttended": 8,
         "wins": 8,
         "draws": 0,
-        "losses": 13
+        "losses": 16
       }
     },
     {
@@ -128,10 +128,10 @@
       "name": "Paulo Barbarini",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 5,
+        "eventsAttended": 6,
+        "wins": 6,
         "draws": 0,
-        "losses": 10
+        "losses": 12
       }
     },
     {
@@ -183,10 +183,10 @@
       "name": "Diego Ramos",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 3,
+        "eventsAttended": 5,
+        "wins": 4,
         "draws": 0,
-        "losses": 9
+        "losses": 11
       }
     },
     {
@@ -194,8 +194,8 @@
       "name": "José Coutinho",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 8,
+        "eventsAttended": 6,
+        "wins": 11,
         "draws": 0,
         "losses": 7
       }
@@ -216,10 +216,10 @@
       "name": "Pedro Rossetto",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
+        "eventsAttended": 2,
+        "wins": 4,
         "draws": 0,
-        "losses": 1
+        "losses": 2
       }
     },
     {
@@ -227,10 +227,10 @@
       "name": "Heitor Vilasboas de Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 7,
+        "eventsAttended": 5,
+        "wins": 9,
         "draws": 0,
-        "losses": 5
+        "losses": 6
       }
     },
     {
@@ -282,10 +282,10 @@
       "name": "Davi Conde Petrauskas",
       "avatar": null,
       "stats": {
-        "eventsAttended": 1,
+        "eventsAttended": 2,
         "wins": 2,
         "draws": 0,
-        "losses": 1
+        "losses": 4
       }
     },
     {
@@ -313,6 +313,39 @@
     {
       "id": "gabriel-cruvinel",
       "name": "Gabriel Cruvinel",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "pedro-paoliello",
+      "name": "Pedro Paoliello",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1
+      }
+    },
+    {
+      "id": "joao-yamada",
+      "name": "João Yamada",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "danilo-paoliello",
+      "name": "Danilo Paoliello",
       "avatar": null,
       "stats": {
         "eventsAttended": 1,

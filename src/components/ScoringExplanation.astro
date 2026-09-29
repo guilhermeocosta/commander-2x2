@@ -1,5 +1,19 @@
 ---
 import { Calendar, Trophy, Equal, Info } from "@lucide/astro";
+import { POINTS } from "../schemas/leaderboard";
+
+// Full class names so Tailwind can find them.
+const rules = [
+  {
+    icon: Calendar,
+    points: POINTS.attendance,
+    label: "Participação",
+    bg: "bg-primary/10",
+    text: "text-primary",
+  },
+  { icon: Trophy, points: POINTS.win, label: "Vitória", bg: "bg-success/10", text: "text-success" },
+  { icon: Equal, points: POINTS.draw, label: "Empate", bg: "bg-info/10", text: "text-info" },
+];
 ---
 
 <div class="not-prose">
@@ -17,35 +31,19 @@ import { Calendar, Trophy, Equal, Info } from "@lucide/astro";
       </p>
 
       <div class="grid grid-cols-3 gap-4">
-        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
-          <div class="bg-primary/10 p-3 rounded-full">
-            <Calendar size={24} class="text-primary" />
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-2xl font-bold text-primary">+1</div>
-            <div class="text-sm text-base-content/70">Participação</div>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
-          <div class="bg-success/10 p-3 rounded-full">
-            <Trophy size={24} class="text-success" />
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-2xl font-bold text-success">+3</div>
-            <div class="text-sm text-base-content/70">Vitória</div>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
-          <div class="bg-info/10 p-3 rounded-full">
-            <Equal size={24} class="text-info" />
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-2xl font-bold text-info">+1</div>
-            <div class="text-sm text-base-content/70">Empate</div>
-          </div>
-        </div>
+        {
+          rules.map((rule) => (
+            <div class="flex flex-col sm:flex-row items-center gap-3 p-4 bg-base-100 rounded-lg">
+              <div class:list={[rule.bg, "p-3 rounded-full"]}>
+                <rule.icon size={24} class={rule.text} />
+              </div>
+              <div class="text-center md:text-left">
+                <div class:list={["text-2xl font-bold", rule.text]}>+{rule.points}</div>
+                <div class="text-sm text-base-content/70">{rule.label}</div>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>

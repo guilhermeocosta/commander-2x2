@@ -1,19 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import bannerDiscordImage from "./banner-discord.png";
+import bannerDiscordImage from "../assets/banner-discord.png";
 
 interface Props {
   className?: string;
   title?: string;
   description?: string;
-  cta?: string;
 }
 
 const {
   className,
   title = "Participe do nosso Discord!",
   description = "Jogue online, participe de eventos e discuta estratégias com outros jogadores.",
-  cta = "Entrar no Discord",
 } = Astro.props as Props;
 ---
 
@@ -44,6 +42,6 @@ const {
     </p>
 
     <!-- The whole banner is the link, so the CTA is styled text, not a nested <button>. -->
-    <span class="btn btn-primary btn-lg mt-6">{cta}</span>
+    <span class="btn btn-primary btn-lg mt-6">Entrar no Discord</span>
   </div>
 </a>

@@ -10,48 +10,15 @@ export default [
   ...eslintPluginAstro.configs["jsx-a11y-recommended"],
   eslintConfigPrettier,
   {
-    files: ["**/*.ts", "**/*.tsx"],
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-      },
-      globals: {
-        Response: "readonly",
-        Request: "readonly",
-        fetch: "readonly",
-        URLSearchParams: "readonly",
-        URL: "readonly",
-        console: "readonly",
-        document: "readonly",
-        window: "readonly",
-        HTMLInputElement: "readonly",
-        Element: "readonly",
-      },
-    },
-    rules: {
-      "@typescript-eslint/no-unused-vars": "error",
-      // Kept as a warning to match the pre-flat-config-migration policy;
-      // tseslint's recommended set raises this to "error".
-      "@typescript-eslint/no-explicit-any": "warn",
-    },
-  },
-  {
     files: ["**/*.astro"],
-    languageOptions: {
-      globals: {
-        posthog: "readonly",
-      },
-    },
     rules: {
+      // astro check already reports undefined names, and ESLint doesn't know
+      // Astro's ambient types (e.g. ImageMetadata).
       "no-undef": "off",
       // Featured-deck cards on the home page are focusable groups: focusing
       // one (by Tab or by tapping on touch screens) reveals its overlay with
       // the "Ver deck" link. Allow tabindex on role="group" for that pattern.
       "astro/jsx-a11y/no-noninteractive-tabindex": ["error", { roles: ["group"] }],
-      "@typescript-eslint/no-unused-expressions": "off",
-      // Same "warn" policy as .ts/.tsx above (tseslint recommended sets "error").
-      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
   {

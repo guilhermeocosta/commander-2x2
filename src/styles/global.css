@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 
-/* Custom DaisyUI theme - migrated from tailwind.config.cjs */
+/* Custom daisyUI theme */
 @plugin "daisyui/theme" {
   name: "custom";
   default: true;
@@ -35,31 +35,16 @@
   --font-sans: system-ui, sans-serif;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-}
-
 /* Custom typography overrides using Tailwind's typography plugin */
 @layer components {
   /* Override prose colors to match DaisyUI theme */
   .prose {
     --tw-prose-headings: var(--color-base-content);
     --tw-prose-body: var(--color-base-content);
-    --tw-prose-bold: var(--color-base-content);
+    --tw-prose-bold: var(--color-primary);
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-bullets: var(--color-primary);
+    --tw-prose-counters: var(--color-primary);
   }
 
   .prose h1,
@@ -68,12 +53,7 @@
     color: var(--color-primary);
   }
 
-  .prose strong {
-    color: var(--color-primary);
-  }
-
   .prose a {
-    color: var(--color-primary);
     text-decoration: none;
   }
 
@@ -91,10 +71,6 @@
 
   .prose ul {
     color: color-mix(in srgb, var(--color-base-content) 90%, transparent);
-  }
-
-  .prose li::marker {
-    color: var(--color-primary);
   }
 
   .prose code {

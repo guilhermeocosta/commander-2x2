@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://commander2x2.org/sitemap.xml

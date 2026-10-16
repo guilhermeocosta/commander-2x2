@@ -30,7 +30,7 @@ const hallFaqItems = [
   {
     question: "Como funciona o desempate no ranking?",
     answer:
-      "Quem tem mais pontos fica na frente. Se empatar, fica na frente quem foi a mais eventos. Se ainda empatar, vale o aproveitamento (vitórias divididas por partidas jogadas). Se mesmo assim empatar, decide-se nos dados. Enquanto os dados não forem jogados, os jogadores empatados aparecem na mesma posição.",
+      "Quem tem mais pontos fica na frente. Se empatar, fica na frente quem foi a mais eventos. Se ainda empatar, vale o aproveitamento (vitórias divididas por partidas jogadas).",
   },
 ];
 
@@ -69,8 +69,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
         {
           tiedAtCutoff && (
             <div role="alert" class="alert alert-warning not-prose mt-6">
-              A 4ª vaga está empatada em pontos, eventos e aproveitamento. O desempate será nos
-              dados.
+              A 4ª vaga está empatada em pontos, eventos e aproveitamento.
             </div>
           )
         }

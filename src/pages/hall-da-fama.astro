@@ -12,13 +12,15 @@ import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
 
 const rankedPlayers = rankPlayers(leaderboardData.players);
+// An unresolved tie for the 4th spot means the last qualifier isn't decided yet.
+const tiedAtCutoff = rankedPlayers.length > 4 && rankedPlayers[3].rank === rankedPlayers[4].rank;
 
 const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
 
 <BaseLayout
   title="Hall da Fama"
-  description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para o evento especial de fim de ano."
+  description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para a final do Hall da Fama."
   type="website"
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >
@@ -35,14 +37,22 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
         </p>
 
         <p class="text-lg text-base-content/80">
-          Os melhores jogadores da temporada competem por uma vaga no evento especial de fim de ano.
-          Os <strong>Top 4</strong> se classificam para formar duplas no torneio final!
+          O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no fim do ano,
+          e o campeão é quem vence a final. Veja as regras no <a href="/faq">FAQ</a>.
         </p>
       </div>
 
       <section class="mb-12">
         <h2>Classificados</h2>
         <LeaderboardPodium players={rankedPlayers} />
+        {
+          tiedAtCutoff && (
+            <div role="alert" class="alert alert-warning not-prose mt-6">
+              A 4ª vaga está empatada em pontos, eventos e aproveitamento. O desempate será nos
+              dados.
+            </div>
+          )
+        }
       </section>
 
       {

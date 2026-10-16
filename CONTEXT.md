@@ -93,10 +93,10 @@ Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas
 
 ## Site content
 
-| Term (pt-BR)         | English | In code                             | Meaning                                           |
-| -------------------- | ------- | ----------------------------------- | ------------------------------------------------- |
-| Regras               | Rules   | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.     |
-| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page. |
+| Term (pt-BR)         | English | In code                                                                               | Meaning                                                                                         |
+| -------------------- | ------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Regras               | Rules   | `src/content/regras/index.md`                                                         | The full format rules, rendered on `/regras`.                                                   |
+| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro`, `hallFaqItems` in `src/pages/hall-da-fama.astro` | Question and answer pairs, hardcoded in the page. Hall da Fama questions live on the Hall page. |
 
 ### Routes
 

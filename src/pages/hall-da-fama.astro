@@ -7,6 +7,7 @@ import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
 import Button from "../components/Button.astro";
+import AccordionFAQ from "../components/AccordionFAQ.astro";
 import { eventsData, leaderboardData } from "../data";
 import { rankPlayers } from "../schemas/leaderboard";
 import { splitEvents } from "../schemas/event";
@@ -14,6 +15,24 @@ import { splitEvents } from "../schemas/event";
 const rankedPlayers = rankPlayers(leaderboardData.players);
 // An unresolved tie for the 4th spot means the last qualifier isn't decided yet.
 const tiedAtCutoff = rankedPlayers.length > 4 && rankedPlayers[3].rank === rankedPlayers[4].rank;
+
+const hallFaqItems = [
+  {
+    question: "Como funciona a pontuação do Hall da Fama?",
+    answer:
+      "Cada evento soma pontos no ranking anual: +1 por participar, +3 por vitória, +1 por empate e 0 por derrota. Vitórias, empates e derrotas contam por rodada, não por evento: um dia com 2 vitórias e 1 derrota vale 1 + 6 = 7 pontos.",
+  },
+  {
+    question: "Quais eventos contam para o Hall da Fama?",
+    answer:
+      "Todos os eventos de Commander 2x2 da temporada contam, inclusive os de Pre-Cons. Evento é evento: um Pre-Cons vale o mesmo que um Regular.",
+  },
+  {
+    question: "Como funciona o desempate no ranking?",
+    answer:
+      "Quem tem mais pontos fica na frente. Se empatar, fica na frente quem foi a mais eventos. Se ainda empatar, vale o aproveitamento (vitórias divididas por partidas jogadas). Se mesmo assim empatar, decide-se nos dados. Enquanto os dados não forem jogados, os jogadores empatados aparecem na mesma posição.",
+  },
+];
 
 const nextEvent = splitEvents(eventsData.events).upcoming[0];
 ---
@@ -38,7 +57,9 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
         <p class="text-lg text-base-content/80">
           O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no fim do ano,
-          e o campeão é quem vence a final. Veja as regras no <a href="/faq">FAQ</a>.
+          e o campeão é quem vence a final. Veja as <a href="#perguntas-frequentes"
+            >perguntas frequentes</a
+          >.
         </p>
       </div>
 
@@ -92,6 +113,11 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
       <section>
         <h2>Sistema de Pontuação</h2>
         <ScoringExplanation />
+      </section>
+
+      <section id="perguntas-frequentes" class="mt-12">
+        <h2>Perguntas Frequentes</h2>
+        <AccordionFAQ items={hallFaqItems} />
       </section>
 
       <section class="mt-12">

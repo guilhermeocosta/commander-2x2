@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 
 export default defineConfig({
-  site: "https://commander2x2.org",
+  site: "https://www.commander2x2.org",
   adapter: vercel({
     imageService: true,
   }),

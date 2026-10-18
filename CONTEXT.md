@@ -77,24 +77,26 @@ Banlist data lives in `src/data/banlist.json` and is rendered by `TableBanlist.a
 
 Ranking data lives in `src/data/leaderboard.json`. The logic is in [`src/schemas/leaderboard.ts`](src/schemas/leaderboard.ts).
 
-| Term (pt-BR)               | English           | In code                            | Meaning                                                                                         |
-| -------------------------- | ----------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Hall da Fama               | Hall of Fame      | `/hall-da-fama`, `LeaderboardData` | The annual ranking.                                                                             |
-| Temporada                  | Season            | `year`                             | A calendar year. The ranking starts over each season.                                           |
-| Jogador                    | Player            | `Player` (`id`, `name`, `avatar`)  | `id` is kebab-case (`guilherme-costa`). `avatar` is a URL or `null`.                            |
-| Participação               | Attendance        | `stats.eventsAttended`             | **+1 point** per event attended.                                                                |
-| Vitória / Empate / Derrota | Win / Draw / Loss | `stats.wins` / `draws` / `losses`  | Counted **per round**, not per event. **+3** per win, **+1** per draw, 0 per loss.              |
-| Pontuação                  | Score             | `calculateScore()`                 | `eventsAttended × 1 + wins × 3 + draws × 1`.                                                    |
-| Desempate                  | Tie-breakers      | `rankPlayers()`                    | Sorted by score, then events attended, then wins (all descending).                              |
-| Classificados / Top 4      | Qualified players | first 4 of `rankPlayers()`         | The top 4 qualify for the year-end special event, where they form teams for a final tournament. |
-| Pódio                      | Podium            | `LeaderboardPodium.astro`          | Ranks 1–4, shown with Magic rarity icons: Mythic, Rare, Uncommon, Common.                       |
+| Term (pt-BR)               | English           | In code                            | Meaning                                                                                                                                                                                                |
+| -------------------------- | ----------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Hall da Fama               | Hall of Fame      | `/hall-da-fama`, `LeaderboardData` | The annual ranking.                                                                                                                                                                                    |
+| Temporada                  | Season            | `year`                             | A calendar year. The ranking starts over each season.                                                                                                                                                  |
+| Jogador                    | Player            | `Player` (`id`, `name`, `avatar`)  | `id` is kebab-case (`guilherme-costa`). `avatar` is a URL or `null`.                                                                                                                                   |
+| Participação               | Attendance        | `stats.eventsAttended`             | **+1 point** per event attended.                                                                                                                                                                       |
+| Vitória / Empate / Derrota | Win / Draw / Loss | `stats.wins` / `draws` / `losses`  | Counted **per round**, not per event. **+3** per win, **+1** per draw, 0 per loss.                                                                                                                     |
+| Pontuação                  | Score             | `calculateScore()`                 | `eventsAttended × 1 + wins × 3 + draws × 1`.                                                                                                                                                           |
+| Desempate                  | Tie-breakers      | `rankPlayers()`, `tiebreakRoll`    | Score, then events attended, then win rate (wins ÷ matches), then a dice roll stored in `tiebreakRoll` (all descending). Players still tied share the same rank; file order never decides.             |
+| Classificados / Top 4      | Qualified players | first 4 of `rankPlayers()`         | The ranking only decides who qualifies: the top 4 play the final at the last event of the year. A qualifier who is absent is replaced by the next player present in the ranking.                       |
+| Final                      | Final             | event in `events.json`             | Right after the 3 rounds of the last event. 3 matches covering every team pairing; the two players with most wins are 1st and 2nd (ties in wins go by ranking). Prize: store credit split 30/30/15/15. |
+| Campeão                    | Champion          | —                                  | The two players with most wins in the final (1st and 2nd), not the ranking leader.                                                                                                                     |
+| Pódio                      | Podium            | `LeaderboardPodium.astro`          | Ranks 1–4, shown with Magic rarity icons: Mythic, Rare, Uncommon, Common.                                                                                                                              |
 
 ## Site content
 
-| Term (pt-BR)         | English | In code                             | Meaning                                           |
-| -------------------- | ------- | ----------------------------------- | ------------------------------------------------- |
-| Regras               | Rules   | `src/content/regras/index.md`       | The full format rules, rendered on `/regras`.     |
-| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro` | Question and answer pairs, hardcoded in the page. |
+| Term (pt-BR)         | English | In code                                                                               | Meaning                                                                                         |
+| -------------------- | ------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Regras               | Rules   | `src/content/regras/index.md`                                                         | The full format rules, rendered on `/regras`.                                                   |
+| Perguntas frequentes | FAQ     | `faqItems` in `src/pages/faq.astro`, `hallFaqItems` in `src/pages/hall-da-fama.astro` | Question and answer pairs, hardcoded in the page. Hall da Fama questions live on the Hall page. |
 
 ### Routes
 

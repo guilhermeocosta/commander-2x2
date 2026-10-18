@@ -8,7 +8,8 @@ export interface Props {
 
 const { players, startFromRank = 5 }: Props = Astro.props;
 
-const remainingPlayers = players.filter((p) => p.rank >= startFromRank);
+// Slice by position, not by rank: players tied across the cutoff share a rank number.
+const remainingPlayers = players.slice(startFromRank - 1);
 ---
 
 {

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-10-18",
   "year": 2026,
   "players": [
     {
@@ -7,8 +7,8 @@
       "name": "Arthur Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 4,
-        "wins": 10,
+        "eventsAttended": 5,
+        "wins": 13,
         "draws": 0,
         "losses": 2
       }
@@ -18,8 +18,8 @@
       "name": "Guilherme Costa",
       "avatar": null,
       "stats": {
-        "eventsAttended": 9,
-        "wins": 21,
+        "eventsAttended": 10,
+        "wins": 24,
         "draws": 0,
         "losses": 6
       }
@@ -29,10 +29,10 @@
       "name": "Felipe Piske",
       "avatar": null,
       "stats": {
-        "eventsAttended": 3,
-        "wins": 6,
+        "eventsAttended": 4,
+        "wins": 8,
         "draws": 0,
-        "losses": 3
+        "losses": 4
       }
     },
     {
@@ -40,10 +40,10 @@
       "name": "Claudio Bonfim",
       "avatar": null,
       "stats": {
-        "eventsAttended": 7,
-        "wins": 15,
+        "eventsAttended": 8,
+        "wins": 17,
         "draws": 0,
-        "losses": 6
+        "losses": 7
       }
     },
     {
@@ -73,10 +73,10 @@
       "name": "Ezequiel Tizio",
       "avatar": null,
       "stats": {
-        "eventsAttended": 7,
-        "wins": 9,
+        "eventsAttended": 8,
+        "wins": 11,
         "draws": 0,
-        "losses": 12
+        "losses": 13
       }
     },
     {
@@ -95,10 +95,10 @@
       "name": "Leandro Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 7,
-        "wins": 11,
+        "eventsAttended": 8,
+        "wins": 12,
         "draws": 0,
-        "losses": 10
+        "losses": 12
       }
     },
     {
@@ -117,10 +117,10 @@
       "name": "Felipe Amalfi",
       "avatar": null,
       "stats": {
-        "eventsAttended": 8,
-        "wins": 8,
+        "eventsAttended": 9,
+        "wins": 10,
         "draws": 0,
-        "losses": 16
+        "losses": 17
       }
     },
     {
@@ -128,10 +128,10 @@
       "name": "Paulo Barbarini",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 6,
+        "eventsAttended": 7,
+        "wins": 8,
         "draws": 0,
-        "losses": 12
+        "losses": 13
       }
     },
     {
@@ -183,10 +183,10 @@
       "name": "Diego Ramos",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 4,
+        "eventsAttended": 6,
+        "wins": 6,
         "draws": 0,
-        "losses": 11
+        "losses": 12
       }
     },
     {
@@ -194,10 +194,10 @@
       "name": "José Coutinho",
       "avatar": null,
       "stats": {
-        "eventsAttended": 6,
-        "wins": 11,
+        "eventsAttended": 7,
+        "wins": 12,
         "draws": 0,
-        "losses": 7
+        "losses": 9
       }
     },
     {
@@ -227,10 +227,10 @@
       "name": "Heitor Vilasboas de Castro",
       "avatar": null,
       "stats": {
-        "eventsAttended": 5,
-        "wins": 9,
+        "eventsAttended": 6,
+        "wins": 10,
         "draws": 0,
-        "losses": 6
+        "losses": 8
       }
     },
     {
@@ -282,10 +282,10 @@
       "name": "Davi Conde Petrauskas",
       "avatar": null,
       "stats": {
-        "eventsAttended": 2,
-        "wins": 2,
+        "eventsAttended": 3,
+        "wins": 3,
         "draws": 0,
-        "losses": 4
+        "losses": 6
       }
     },
     {
@@ -351,6 +351,50 @@
         "eventsAttended": 1,
         "wins": 1,
         "draws": 0,
+        "losses": 2
+      }
+    },
+    {
+      "id": "derick-lucas",
+      "name": "Derick Lucas",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 2
+      }
+    },
+    {
+      "id": "lucas-celestino",
+      "name": "Lucas Celestino",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 2
+      }
+    },
+    {
+      "id": "catarine-alencar",
+      "name": "Catarine Alencar",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 2
+      }
+    },
+    {
+      "id": "raphael-martinez",
+      "name": "Raphael Martinez",
+      "avatar": null,
+      "stats": {
+        "eventsAttended": 1,
+        "wins": 0,
+        "draws": 1,
         "losses": 2
       }
     }

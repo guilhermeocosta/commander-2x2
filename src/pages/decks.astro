@@ -1,8 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Button from "../components/Button.astro";
 import CardDeck from "../components/CardDeck.astro";
 import { decksData } from "../data";
 ---
@@ -11,8 +8,6 @@ import { decksData } from "../data";
   title="Decks"
   description="Decks de referência e listagens vencedoras dos torneios de Commander 2x2"
 >
-  <Header />
-
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <h1>Decks de Referência</h1>
@@ -22,18 +17,7 @@ import { decksData } from "../data";
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {
-          decksData.decks.map((deck) => (
-            <CardDeck
-              player={deck.player}
-              commanders={deck.commanders}
-              url={deck.url}
-              record={deck.record}
-              date={deck.date}
-              colors={deck.colors}
-            />
-          ))
-        }
+        {decksData.decks.map((deck) => <CardDeck {...deck} />)}
       </div>
 
       <section class="mt-16">
@@ -45,13 +29,11 @@ import { decksData } from "../data";
               listado na seção de referência!
             </p>
             <div class="card-actions justify-center mt-4">
-              <Button href="/eventos" className="no-underline"> Ver Próximos Eventos </Button>
+              <a href="/eventos" class="btn btn-primary no-underline">Ver Próximos Eventos</a>
             </div>
           </div>
         </div>
       </section>
     </div>
   </main>
-
-  <Footer />
 </BaseLayout>

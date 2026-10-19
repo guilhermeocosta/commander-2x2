@@ -1,40 +1,20 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Button from "../components/Button.astro";
 import FeaturedDeckCard from "../components/FeaturedDeckCard.astro";
 import { decksData } from "../data";
-import BannerDiscord from "../marketing/BannerDiscord/BannerDiscord.astro";
+import BannerDiscord from "../components/BannerDiscord.astro";
 
-const items = decksData.decks
-  .filter((deck) => deck.image_url && deck.image_url.length > 0)
-  .map((deck) => ({
-    images: deck.image_url!,
-    url: deck.url,
-    commander: deck.commanders.join(" / "),
-    date: deck.date,
-    player: deck.player,
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const decks = decksData.decks
+  .filter((deck) => deck.image_url?.length)
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 const FEATURED_DECKS_COUNT = 6 as const;
-
-const preloadImages = items
-  .slice(0, FEATURED_DECKS_COUNT)
-  .flatMap((item) => item.images.slice(0, 1));
 ---
 
 <BaseLayout
   title="Commander 2x2 - Formato competitivo em duplas"
   description="Um novo formato de Commander competitivo em duplas acessível e com uma comunidade crescente de jogadores."
 >
-  <Header />
-
-  <Fragment slot="head">
-    {preloadImages.map((src) => <link rel="preload" as="image" href={src} />)}
-  </Fragment>
-
   <main>
     <div class="hero bg-base-200">
       <div class="hero-content text-center px-4 py-32">
@@ -44,9 +24,7 @@ const preloadImages = items
             Um novo formato de Commander competitivo em duplas acessível e com uma comunidade
             crescente de jogadores.
           </p>
-          <Button href="/regras" variant="primary" size="lg" className="w-full md:w-auto">
-            Conheça as Regras
-          </Button>
+          <a href="/regras" class="btn btn-primary btn-lg w-full md:w-auto">Conheça as Regras</a>
         </div>
       </div>
     </div>
@@ -62,16 +40,16 @@ const preloadImages = items
       </div>
 
       {
-        items.length > 0 ? (
+        decks.length > 0 ? (
           <div class="overflow-hidden pt-2 w-full">
             <div class="flex gap-2 px-4 animated-carousel">
-              {items.map((item, index) => (
-                <FeaturedDeckCard {...item} eager={index < FEATURED_DECKS_COUNT} />
+              {decks.map((deck, index) => (
+                <FeaturedDeckCard {...deck} eager={index < FEATURED_DECKS_COUNT} />
               ))}
 
               {/* Second copy makes the CSS scroll loop seamless; hidden from AT. */}
-              {items.map((item) => (
-                <FeaturedDeckCard {...item} decorative />
+              {decks.map((deck) => (
+                <FeaturedDeckCard {...deck} decorative />
               ))}
             </div>
           </div>
@@ -108,7 +86,7 @@ const preloadImages = items
       </div>
 
       <div class="text-center mt-8">
-        <Button href="/eventos"> Veja os próximos eventos </Button>
+        <a href="/eventos" class="btn btn-primary">Veja os próximos eventos</a>
       </div>
 
       <BannerDiscord className="mt-8" />
@@ -126,6 +104,4 @@ const preloadImages = items
       }
     });
   </script>
-
-  <Footer />
 </BaseLayout>

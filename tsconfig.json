@@ -1,9 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "astro"
-  }
+  "extends": "astro/tsconfigs/strict"
 }

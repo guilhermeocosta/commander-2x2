@@ -4,7 +4,7 @@ import { Ban, Calendar, CircleQuestionMark, FileText, Layers, Sparkles } from "@
 export interface NavigationItem {
   href: string;
   label: string;
-  icon?: AstroComponent;
+  icon: AstroComponent;
 }
 
 export const navigationItems: NavigationItem[] = [

@@ -9,7 +9,8 @@ import AccordionFAQ from "../components/AccordionFAQ.astro";
 import PrizePool from "../components/PrizePool.astro";
 import { Info } from "@lucide/astro";
 import { currentSeason, eventsData, leaderboardData } from "../data";
-import { calculatePot, countEntries, rankPlayers } from "../schemas/leaderboard";
+import { calculatePot, countEntries, POT_SHARES, rankPlayers } from "../schemas/leaderboard";
+import { formatCurrency } from "../utils/currency";
 import { findSeasonFinal, splitEvents } from "../schemas/event";
 
 const seasonFinal = findSeasonFinal(eventsData.events, currentSeason);
@@ -58,26 +59,27 @@ const hallFaqItems = [
     answer:
       "Só joga a final quem estiver no Top 4 e presente ao fim das rodadas do dia. A vaga de quem faltar passa para o próximo jogador presente no ranking.",
   },
-  {
-    question: "Como funciona o pote?",
-    answer:
-      "A loja separa R$ 5 de cada inscrição nos eventos do semestre para o pote. O valor acumulado aparece nesta página e é pago em crédito na loja no dia da final.",
-  },
-  {
-    question: "Como o pote é dividido?",
-    answer:
-      "30% para cada um dos dois campeões, 15% para o 3º lugar, 15% para o 4º lugar e 10% para os brindes da meta e o sorteio.",
-  },
-  {
-    question: "O que é a meta de pontos?",
-    answer:
-      "Quem fizer 35 pontos no semestre ganha um brinde garantido, pago pelos 10% do pote. Isso equivale, por exemplo, a 5 eventos com 2 vitórias em cada um.",
-  },
-  {
-    question: "Como funciona o sorteio?",
-    answer:
-      "No dia da final, quem não bateu a meta e não está no Top 4 concorre a um sorteio com 1 bilhete por ponto feito no semestre. O prêmio é o que sobrar dos 10% depois dos brindes da meta. Só leva quem estiver presente; se o sorteado não estiver, sorteia-se de novo.",
-  },
+  // Pot, goal and raffle questions only apply to seasons that have those rules (from 2027).
+  ...(currentSeason.potPerEntry !== undefined && currentSeason.goalPoints !== undefined
+    ? [
+        {
+          question: "Como funciona o pote?",
+          answer: `A loja separa ${formatCurrency(currentSeason.potPerEntry)} de cada inscrição nos eventos do semestre para o pote. O valor acumulado aparece nesta página e é pago em crédito na loja no dia da final.`,
+        },
+        {
+          question: "Como o pote é dividido?",
+          answer: `${POT_SHARES.champion}% para cada um dos dois campeões, ${POT_SHARES.third}% para o 3º lugar, ${POT_SHARES.fourth}% para o 4º lugar e ${POT_SHARES.prizes}% para os brindes da meta e o sorteio.`,
+        },
+        {
+          question: "O que é a meta de pontos?",
+          answer: `Quem fizer ${currentSeason.goalPoints} pontos no semestre ganha um brinde garantido, pago pelos ${POT_SHARES.prizes}% do pote.`,
+        },
+        {
+          question: "Como funciona o sorteio?",
+          answer: `No dia da final, quem não bateu a meta e não está no Top 4 concorre a um sorteio com 1 bilhete por ponto feito no semestre. O prêmio é o que sobrar dos ${POT_SHARES.prizes}% depois dos brindes da meta. Só leva quem estiver presente; se o sorteado não estiver, sorteia-se de novo.`,
+        },
+      ]
+    : []),
   {
     question: "Onde vejo os campeões das temporadas passadas?",
     answer:
@@ -112,7 +114,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
         <p class="badge badge-lg badge-primary badge-outline not-prose">
           {
             seasonFinal
-              ? `Final: ${formatDate(seasonFinal.date)} às ${seasonFinal.time}`
+              ? `Final: ${formatDate(seasonFinal.date)}, depois das 3 rodadas`
               : "Final: data a definir"
           }
         </p>

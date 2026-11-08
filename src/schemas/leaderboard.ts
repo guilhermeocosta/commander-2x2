@@ -64,6 +64,20 @@ export function getCurrentSeason(data: LeaderboardData): Season {
 /** Points per event attended, per round won and per round drawn. */
 export const POINTS = { attendance: 1, win: 3, draw: 1 } as const;
 
+/** How the prize pool (pote) is split, in percent. Adds up to 100. */
+export const POT_SHARES = { champion: 30, third: 15, fourth: 15, prizes: 10 } as const;
+
+/** Entries in a season: every event attended is one paid entry. */
+export function countEntries(players: readonly Player[]): number {
+  return players.reduce((total, player) => total + player.stats.eventsAttended, 0);
+}
+
+/** The prize pool in reais, or `undefined` for a season without one. */
+export function calculatePot(season: Season): number | undefined {
+  if (season.potPerEntry === undefined) return undefined;
+  return countEntries(season.players) * season.potPerEntry;
+}
+
 export function calculateScore(stats: PlayerStats): number {
   return (
     stats.eventsAttended * POINTS.attendance + stats.wins * POINTS.win + stats.draws * POINTS.draw

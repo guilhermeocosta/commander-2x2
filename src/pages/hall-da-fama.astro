@@ -6,11 +6,16 @@ import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
 import AccordionFAQ from "../components/AccordionFAQ.astro";
+import PrizePool from "../components/PrizePool.astro";
+import { Info } from "@lucide/astro";
 import { currentSeason, eventsData, leaderboardData } from "../data";
-import { rankPlayers } from "../schemas/leaderboard";
-import { splitEvents } from "../schemas/event";
+import { calculatePot, countEntries, rankPlayers } from "../schemas/leaderboard";
+import { findSeasonFinal, splitEvents } from "../schemas/event";
 
-// The top 4 qualify for the year-end final and get the podium.
+const seasonFinal = findSeasonFinal(eventsData.events, currentSeason);
+const pot = calculatePot(currentSeason);
+
+// The top 4 qualify for the season final and get the podium.
 const rankedPlayers = rankPlayers(currentSeason.players);
 const podium = rankedPlayers.slice(0, 4);
 const rest = rankedPlayers.slice(4);
@@ -40,7 +45,7 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
 <BaseLayout
   title="Hall da Fama"
-  description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para a final do Hall da Fama."
+  description="Ranking semestral dos jogadores de Commander 2x2. Acompanhe a pontuação, o pote e quem está classificado para a final do Hall da Fama."
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >
   <main class="container mx-auto px-4 py-16">
@@ -48,28 +53,47 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
       <div class="text-center mb-8">
         <h1 style="margin-bottom: 0;">Hall da Fama {currentSeason.name}</h1>
         <p class="text-sm text-base-content/60">
-          Última atualização em {formatDate(leaderboardData.updatedAt)}
+          Temporada de {formatDate(currentSeason.startDate)} a {formatDate(currentSeason.endDate)}
+          {" · "}Última atualização em {formatDate(leaderboardData.updatedAt)}
         </p>
 
         <p class="text-lg text-base-content/80">
-          O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no fim do ano,
-          e o campeão é quem vence a final. Veja as <a href="#perguntas-frequentes"
-            >perguntas frequentes</a
+          O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no último evento
+          da temporada, e os campeões são os dois que mais vencem na final. Veja as <a
+            href="#perguntas-frequentes">perguntas frequentes</a
           >.
+        </p>
+
+        <p class="badge badge-lg badge-primary badge-outline not-prose">
+          {
+            seasonFinal
+              ? `Final: ${formatDate(seasonFinal.date)} às ${seasonFinal.time}`
+              : "Final: data a definir"
+          }
         </p>
       </div>
 
-      <section class="mb-12">
-        <h2>Classificados</h2>
-        <LeaderboardPodium players={podium} />
-        {
-          tiedAtCutoff && (
-            <div role="alert" class="alert alert-warning not-prose mt-6">
-              A 4ª vaga está empatada em pontos, eventos e aproveitamento.
-            </div>
-          )
-        }
-      </section>
+      {
+        podium.length > 0 ? (
+          <section class="mb-12">
+            <h2>Classificados</h2>
+            <LeaderboardPodium players={podium} />
+            {tiedAtCutoff && (
+              <div role="alert" class="alert alert-warning not-prose mt-6">
+                A 4ª vaga está empatada em pontos, eventos e aproveitamento.
+              </div>
+            )}
+          </section>
+        ) : (
+          <div role="status" class="alert alert-info not-prose mb-12">
+            <Info class="shrink-0 size-6" aria-hidden="true" />
+            <span>
+              O ranking começa do zero a cada temporada. Os pontos aparecem aqui depois do primeiro
+              evento.
+            </span>
+          </div>
+        )
+      }
 
       {
         rest.length > 0 && (
@@ -99,8 +123,21 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
       <section>
         <h2>Sistema de Pontuação</h2>
-        <ScoringExplanation />
+        <ScoringExplanation goalPoints={currentSeason.goalPoints} />
       </section>
+
+      {
+        pot !== undefined && currentSeason.potPerEntry !== undefined && (
+          <section class="mt-12">
+            <h2>Pote e Premiação</h2>
+            <PrizePool
+              pot={pot}
+              entries={countEntries(currentSeason.players)}
+              potPerEntry={currentSeason.potPerEntry}
+            />
+          </section>
+        )
+      }
 
       <section id="perguntas-frequentes" class="mt-12">
         <h2>Perguntas Frequentes</h2>

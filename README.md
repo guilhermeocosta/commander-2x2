@@ -25,7 +25,7 @@ pnpm dev
 A documentação técnica está em inglês:
 
 - [AGENTS.md](AGENTS.md): ponto de entrada para agentes de código (e humanos): comandos, estrutura e convenções
-- [CONTEXT.md](CONTEXT.md): glossário do domínio (regras do formato, decks, banlist, ranking)
+- [CONTEXT.md](CONTEXT.md): glossário do domínio (regras do formato, decks, banlist, ranking, temporadas, pote)
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): stack, fluxo de dados, build e deploy
 - [docs/data-updates.md](docs/data-updates.md): como atualizar ranking, decks, eventos e banlist
 - [CONTRIBUTING.md](CONTRIBUTING.md): setup, branches, commits e pull requests

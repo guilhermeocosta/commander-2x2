@@ -4,7 +4,7 @@ Guidance for coding agents (and humans) working in this repository. Keep this fi
 
 ## What this is
 
-The community hub for **Commander 2x2**, a competitive two-versus-two Magic: The Gathering Commander format played in São Paulo. The site publishes the rules, the banlist, the event calendar, standout decklists, and the annual ranking (Hall da Fama). It is a static Astro site deployed on Vercel. There is no backend: all data lives in JSON and Markdown files in this repo. The UI is in Brazilian Portuguese (pt-BR).
+The community hub for **Commander 2x2**, a competitive two-versus-two Magic: The Gathering Commander format played in São Paulo. The site publishes the rules, the banlist, the event calendar, standout decklists, the semester ranking (Hall da Fama) and its champions. It is a static Astro site deployed on Vercel. There is no backend: all data lives in JSON and Markdown files in this repo. The UI is in Brazilian Portuguese (pt-BR).
 
 ## Commands
 

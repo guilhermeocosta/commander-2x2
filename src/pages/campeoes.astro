@@ -1,0 +1,102 @@
+---
+import { Crown, Gift, Info } from "@lucide/astro";
+import BaseLayout from "../components/BaseLayout.astro";
+import { championsData } from "../data";
+import { formatDate } from "../utils/date";
+
+// Newest season first.
+const editions = championsData.editions
+  .toSorted((a, b) => b.finalDate.localeCompare(a.finalDate))
+  .map((edition) => ({
+    ...edition,
+    finalists: edition.finalists.toSorted((a, b) => a.place - b.place),
+  }));
+---
+
+<BaseLayout
+  title="Campeões"
+  description="Hall permanente do Commander 2x2: os campeões, o Top 4, os comandantes da final e quem bateu a meta em cada temporada do Hall da Fama."
+  keywords="Commander 2x2, campeões, hall da fama, final, histórico, Magic: the Gathering"
+>
+  <main class="container mx-auto px-4 py-16">
+    <div class="prose prose-base lg:prose-lg mx-auto">
+      <div class="text-center mb-8">
+        <h1>Campeões</h1>
+        <p class="text-lg text-base-content/80">
+          O Hall permanente guarda o resultado de cada temporada do <a href="/hall-da-fama"
+            >Hall da Fama</a
+          >: os dois campeões, o Top 4 da final com os comandantes usados e quem bateu a meta de
+          pontos.
+        </p>
+      </div>
+
+      {
+        editions.length === 0 ? (
+          <div role="status" class="alert alert-info not-prose">
+            <Info class="shrink-0 size-6" aria-hidden="true" />
+            <span>
+              Nenhuma temporada encerrada ainda. A primeira edição, o Hall da Fama 2026, entra aqui
+              depois da final.
+            </span>
+          </div>
+        ) : (
+          editions.map((edition) => (
+            <section class="mb-12">
+              <h2>Hall da Fama {edition.name}</h2>
+              <p class="text-sm text-base-content/60">Final em {formatDate(edition.finalDate)}</p>
+
+              <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                {edition.finalists
+                  .filter((finalist) => finalist.place <= 2)
+                  .map((champion) => (
+                    <div class="card bg-gradient-to-br from-orange-200 to-orange-100 border-2 border-orange-500 shadow-xl">
+                      <div class="card-body p-4">
+                        <div class="flex items-center gap-2 text-orange-700">
+                          <Crown size={20} aria-hidden="true" />
+                          <span class="text-sm font-semibold">Campeão · {champion.place}º</span>
+                        </div>
+                        <h3 class="card-title text-base-content">{champion.name}</h3>
+                        <p class="text-sm text-base-content/70">
+                          {champion.commanders.join(" + ")}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+              <div class="not-prose overflow-x-auto">
+                <table class="table table-zebra w-full">
+                  <thead>
+                    <tr class="bg-base-200">
+                      <th class="text-center w-16">#</th>
+                      <th>Finalista</th>
+                      <th>Comandante na final</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {edition.finalists.map((finalist) => (
+                      <tr>
+                        <td class="text-center font-medium">{finalist.place}º</td>
+                        <td class="font-medium">{finalist.name}</td>
+                        <td>{finalist.commanders.join(" + ")}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {edition.goalReached.length > 0 && (
+                <p class="flex items-center gap-2">
+                  <Gift size={18} class="text-warning shrink-0" aria-hidden="true" />
+                  <span>
+                    <strong>Bateram a meta:</strong> {edition.goalReached.join(", ")}
+                  </span>
+                </p>
+              )}
+            </section>
+          ))
+        )
+      }
+    </div>
+  </main>
+</BaseLayout>

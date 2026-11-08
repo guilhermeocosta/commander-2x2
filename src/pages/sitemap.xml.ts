@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { banlistData, decksData, eventsData, leaderboardData } from "../data";
+import { banlistData, championsData, decksData, eventsData, leaderboardData } from "../data";
 
 // Every .astro page becomes a sitemap entry automatically. Pages backed by a
 // data file also get its `updatedAt` as `lastmod`.
@@ -7,6 +7,7 @@ const lastmod: Record<string, string> = {
   "/banlist": banlistData.updatedAt,
   "/eventos": eventsData.updatedAt,
   "/hall-da-fama": leaderboardData.updatedAt,
+  "/campeoes": championsData.updatedAt,
   "/decks": decksData.updatedAt,
 };
 

@@ -1,402 +1,419 @@
 {
-  "updatedAt": "2026-10-18",
-  "year": 2026,
-  "players": [
+  "updatedAt": "2026-11-08",
+  "currentSeason": "2026",
+  "seasons": [
     {
-      "id": "arthur",
-      "name": "Arthur Castro",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 5,
-        "wins": 13,
-        "draws": 0,
-        "losses": 2
-      }
+      "id": "2027-1",
+      "name": "2027 · 1º semestre",
+      "startDate": "2027-01-01",
+      "endDate": "2027-06-30",
+      "goalPoints": 35,
+      "potPerEntry": 5,
+      "players": []
     },
     {
-      "id": "guilherme-costa",
-      "name": "Guilherme Costa",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 10,
-        "wins": 24,
-        "draws": 0,
-        "losses": 6
-      }
-    },
-    {
-      "id": "felipe-piske",
-      "name": "Felipe Piske",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 4,
-        "wins": 8,
-        "draws": 0,
-        "losses": 4
-      }
-    },
-    {
-      "id": "claudio-bonfim",
-      "name": "Claudio Bonfim",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 8,
-        "wins": 17,
-        "draws": 0,
-        "losses": 7
-      }
-    },
-    {
-      "id": "eduardo",
-      "name": "Eduardo",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
-        "draws": 0,
-        "losses": 1
-      }
-    },
-    {
-      "id": "raphael-souza",
-      "name": "Raphael Souza",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 5,
-        "wins": 10,
-        "draws": 0,
-        "losses": 5
-      }
-    },
-    {
-      "id": "ezequiel-tizio",
-      "name": "Ezequiel Tizio",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 8,
-        "wins": 11,
-        "draws": 0,
-        "losses": 13
-      }
-    },
-    {
-      "id": "marcelo-matheus",
-      "name": "Marcelo Matheus",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 3,
-        "wins": 4,
-        "draws": 0,
-        "losses": 5
-      }
-    },
-    {
-      "id": "leandro-castro",
-      "name": "Leandro Castro",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 8,
-        "wins": 12,
-        "draws": 0,
-        "losses": 12
-      }
-    },
-    {
-      "id": "vito-muniz",
-      "name": "Vito Muniz",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 8,
-        "wins": 13,
-        "draws": 0,
-        "losses": 11
-      }
-    },
-    {
-      "id": "felipe-amalfi",
-      "name": "Felipe Amalfi",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 9,
-        "wins": 10,
-        "draws": 0,
-        "losses": 17
-      }
-    },
-    {
-      "id": "paulo-barbarini",
-      "name": "Paulo Barbarini",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 7,
-        "wins": 8,
-        "draws": 0,
-        "losses": 13
-      }
-    },
-    {
-      "id": "nicholas-m",
-      "name": "Nicholas M.",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "ylrin-henrique",
-      "name": "Ylrin Henrique",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 4,
-        "wins": 5,
-        "draws": 0,
-        "losses": 7
-      }
-    },
-    {
-      "id": "kaio-gurtovoi",
-      "name": "Kaio Gurtovoi",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 2,
-        "wins": 1,
-        "draws": 0,
-        "losses": 5
-      }
-    },
-    {
-      "id": "yan-ottoboni",
-      "name": "Yan Ottoboni",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 4,
-        "wins": 4,
-        "draws": 0,
-        "losses": 8
-      }
-    },
-    {
-      "id": "diego-ramos",
-      "name": "Diego Ramos",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 6,
-        "wins": 6,
-        "draws": 0,
-        "losses": 12
-      }
-    },
-    {
-      "id": "jose-coutinho",
-      "name": "José Coutinho",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 7,
-        "wins": 12,
-        "draws": 0,
-        "losses": 9
-      }
-    },
-    {
-      "id": "bruno-giachetti",
-      "name": "Bruno Giachetti",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 3
-      }
-    },
-    {
-      "id": "pedro-rossetto",
-      "name": "Pedro Rossetto",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 2,
-        "wins": 4,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "heitor-castro",
-      "name": "Heitor Vilasboas de Castro",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 6,
-        "wins": 10,
-        "draws": 0,
-        "losses": 8
-      }
-    },
-    {
-      "id": "pedro-nicola",
-      "name": "Pedro Nilo Zonderico Nicola",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
-        "draws": 0,
-        "losses": 1
-      }
-    },
-    {
-      "id": "jules-assis",
-      "name": "Jules Assis",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "jojo",
-      "name": "Jojo",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 3
-      }
-    },
-    {
-      "id": "ramon-cuevas",
-      "name": "Ramon Cuevas",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 3
-      }
-    },
-    {
-      "id": "davi-petrauskas",
-      "name": "Davi Conde Petrauskas",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 3,
-        "wins": 3,
-        "draws": 0,
-        "losses": 6
-      }
-    },
-    {
-      "id": "pedro-paranhos",
-      "name": "Pedro Henrique Paranhos da Silva",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "gustavo-tolentino",
-      "name": "Gustavo Tolentino",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 2,
-        "wins": 3,
-        "draws": 0,
-        "losses": 3
-      }
-    },
-    {
-      "id": "gabriel-cruvinel",
-      "name": "Gabriel Cruvinel",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "pedro-paoliello",
-      "name": "Pedro Paoliello",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 2,
-        "draws": 0,
-        "losses": 1
-      }
-    },
-    {
-      "id": "joao-yamada",
-      "name": "João Yamada",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "danilo-paoliello",
-      "name": "Danilo Paoliello",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 2
-      }
-    },
-    {
-      "id": "derick-lucas",
-      "name": "Derick Lucas",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 2
-      }
-    },
-    {
-      "id": "lucas-celestino",
-      "name": "Lucas Celestino",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 2
-      }
-    },
-    {
-      "id": "catarine-alencar",
-      "name": "Catarine Alencar",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 2
-      }
-    },
-    {
-      "id": "raphael-martinez",
-      "name": "Raphael Martinez",
-      "avatar": null,
-      "stats": {
-        "eventsAttended": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 2
-      }
+      "id": "2026",
+      "name": "2026",
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "players": [
+        {
+          "id": "arthur",
+          "name": "Arthur Castro",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 5,
+            "wins": 13,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "guilherme-costa",
+          "name": "Guilherme Costa",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 10,
+            "wins": 24,
+            "draws": 0,
+            "losses": 6
+          }
+        },
+        {
+          "id": "felipe-piske",
+          "name": "Felipe Piske",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 4,
+            "wins": 8,
+            "draws": 0,
+            "losses": 4
+          }
+        },
+        {
+          "id": "claudio-bonfim",
+          "name": "Claudio Bonfim",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 8,
+            "wins": 17,
+            "draws": 0,
+            "losses": 7
+          }
+        },
+        {
+          "id": "eduardo",
+          "name": "Eduardo",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 2,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        {
+          "id": "raphael-souza",
+          "name": "Raphael Souza",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 5,
+            "wins": 10,
+            "draws": 0,
+            "losses": 5
+          }
+        },
+        {
+          "id": "ezequiel-tizio",
+          "name": "Ezequiel Tizio",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 8,
+            "wins": 11,
+            "draws": 0,
+            "losses": 13
+          }
+        },
+        {
+          "id": "marcelo-matheus",
+          "name": "Marcelo Matheus",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 3,
+            "wins": 4,
+            "draws": 0,
+            "losses": 5
+          }
+        },
+        {
+          "id": "leandro-castro",
+          "name": "Leandro Castro",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 8,
+            "wins": 12,
+            "draws": 0,
+            "losses": 12
+          }
+        },
+        {
+          "id": "vito-muniz",
+          "name": "Vito Muniz",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 8,
+            "wins": 13,
+            "draws": 0,
+            "losses": 11
+          }
+        },
+        {
+          "id": "felipe-amalfi",
+          "name": "Felipe Amalfi",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 9,
+            "wins": 10,
+            "draws": 0,
+            "losses": 17
+          }
+        },
+        {
+          "id": "paulo-barbarini",
+          "name": "Paulo Barbarini",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 7,
+            "wins": 8,
+            "draws": 0,
+            "losses": 13
+          }
+        },
+        {
+          "id": "nicholas-m",
+          "name": "Nicholas M.",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "ylrin-henrique",
+          "name": "Ylrin Henrique",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 4,
+            "wins": 5,
+            "draws": 0,
+            "losses": 7
+          }
+        },
+        {
+          "id": "kaio-gurtovoi",
+          "name": "Kaio Gurtovoi",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 2,
+            "wins": 1,
+            "draws": 0,
+            "losses": 5
+          }
+        },
+        {
+          "id": "yan-ottoboni",
+          "name": "Yan Ottoboni",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 4,
+            "wins": 4,
+            "draws": 0,
+            "losses": 8
+          }
+        },
+        {
+          "id": "diego-ramos",
+          "name": "Diego Ramos",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 6,
+            "wins": 6,
+            "draws": 0,
+            "losses": 12
+          }
+        },
+        {
+          "id": "jose-coutinho",
+          "name": "José Coutinho",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 7,
+            "wins": 12,
+            "draws": 0,
+            "losses": 9
+          }
+        },
+        {
+          "id": "bruno-giachetti",
+          "name": "Bruno Giachetti",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 0,
+            "losses": 3
+          }
+        },
+        {
+          "id": "pedro-rossetto",
+          "name": "Pedro Rossetto",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 2,
+            "wins": 4,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "heitor-castro",
+          "name": "Heitor Vilasboas de Castro",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 6,
+            "wins": 10,
+            "draws": 0,
+            "losses": 8
+          }
+        },
+        {
+          "id": "pedro-nicola",
+          "name": "Pedro Nilo Zonderico Nicola",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 2,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        {
+          "id": "jules-assis",
+          "name": "Jules Assis",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "jojo",
+          "name": "Jojo",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 0,
+            "losses": 3
+          }
+        },
+        {
+          "id": "ramon-cuevas",
+          "name": "Ramon Cuevas",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 0,
+            "losses": 3
+          }
+        },
+        {
+          "id": "davi-petrauskas",
+          "name": "Davi Conde Petrauskas",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 3,
+            "wins": 3,
+            "draws": 0,
+            "losses": 6
+          }
+        },
+        {
+          "id": "pedro-paranhos",
+          "name": "Pedro Henrique Paranhos da Silva",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "gustavo-tolentino",
+          "name": "Gustavo Tolentino",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 2,
+            "wins": 3,
+            "draws": 0,
+            "losses": 3
+          }
+        },
+        {
+          "id": "gabriel-cruvinel",
+          "name": "Gabriel Cruvinel",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "pedro-paoliello",
+          "name": "Pedro Paoliello",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 2,
+            "draws": 0,
+            "losses": 1
+          }
+        },
+        {
+          "id": "joao-yamada",
+          "name": "João Yamada",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "danilo-paoliello",
+          "name": "Danilo Paoliello",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        {
+          "id": "derick-lucas",
+          "name": "Derick Lucas",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 1,
+            "losses": 2
+          }
+        },
+        {
+          "id": "lucas-celestino",
+          "name": "Lucas Celestino",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 1,
+            "losses": 2
+          }
+        },
+        {
+          "id": "catarine-alencar",
+          "name": "Catarine Alencar",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 1,
+            "losses": 2
+          }
+        },
+        {
+          "id": "raphael-martinez",
+          "name": "Raphael Martinez",
+          "avatar": null,
+          "stats": {
+            "eventsAttended": 1,
+            "wins": 0,
+            "draws": 1,
+            "losses": 2
+          }
+        }
+      ]
     }
   ]
 }

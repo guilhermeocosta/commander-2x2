@@ -8,9 +8,10 @@ import rawLeaderboard from "./leaderboard.json";
 import { BanlistDataSchema } from "../schemas/banlist";
 import { DecksDataSchema } from "../schemas/deck";
 import { EventsDataSchema } from "../schemas/event";
-import { LeaderboardDataSchema } from "../schemas/leaderboard";
+import { getCurrentSeason, LeaderboardDataSchema } from "../schemas/leaderboard";
 
 export const banlistData = BanlistDataSchema.parse(rawBanlist);
 export const decksData = DecksDataSchema.parse(rawDecks);
 export const eventsData = EventsDataSchema.parse(rawEvents);
 export const leaderboardData = LeaderboardDataSchema.parse(rawLeaderboard);
+export const currentSeason = getCurrentSeason(leaderboardData);

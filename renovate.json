@@ -1,6 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)",
+    ":timezone(America/Sao_Paulo)",
+    "schedule:weekly",
+    "group:allNonMajor",
+    ":maintainLockFilesMonthly"
+  ],
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "description": "Majors that need manual work: TypeScript 7 is blocked until @astrojs/check supports it; Node and pnpm majors also touch .nvmrc, engines, the Vercel runtime and the lockfile format. Approve them from the Dependency Dashboard when ready.",
+      "matchPackageNames": ["typescript", "node", "pnpm"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
   ]
 }

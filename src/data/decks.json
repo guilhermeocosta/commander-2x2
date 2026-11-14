@@ -1,6 +1,97 @@
 {
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-11-12",
   "decks": [
+    {
+      "id": "evt-2026-10-17-gui-gui-ingris",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Guilherme Costa",
+      "commanders": ["Ingris Stingerquill"],
+      "colors": ["B", "R"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334332/gui_ingriss",
+      "record": "3-0-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/6/4/6471b135-33a8-4005-9a07-ebb74e0bf145.jpg"
+      ]
+    },
+    {
+      "id": "evt-2026-10-17-claudio-claudio-namor",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Cláudio Bonfim",
+      "commanders": ["Namor the Sub-Mariner"],
+      "colors": ["U"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334649/claudio_namor",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/7/a/7aaefcf9-fbe1-4767-92a5-09825761d116.jpg"
+      ]
+    },
+    {
+      "id": "evt-2026-10-17-ezequiel-ezequiel-gandalf",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Ezequiel Tizio",
+      "commanders": ["Gandalf, Goblins' Bane // Flameshape"],
+      "colors": ["R"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334618/ezequiel_gandalf",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/e/f/efc66a6b-8ac7-4cb7-82f1-710fb0e86f82.jpg"
+      ]
+    },
+    {
+      "id": "evt-2026-10-17-diego-diego-eshki",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Diego Ramos",
+      "commanders": ["Eshki Dragonclaw"],
+      "colors": ["G", "U", "R"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334238/diego_eshki",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/0/d/0d369c44-78ee-4f3c-bf2b-cddba7fe26d4.jpg"
+      ]
+    },
+    {
+      "id": "evt-2026-10-17-felipe-amalfi-felipe-queza",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Felipe Amalfi",
+      "commanders": ["Queza, Augur of Agonies"],
+      "colors": ["W", "U", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334525/felipe_queza",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/7/e/7edb7a26-82be-4efd-9a5c-a3816e1ee2d6.jpg"
+      ]
+    },
+    {
+      "id": "evt-2026-10-17-piske-piske-dihada",
+      "event": "2026-10-17 — medieval",
+      "date": "2026-10-17",
+      "player": "Felipe Piske",
+      "commanders": ["Dihada, Binder of Wills"],
+      "colors": ["R", "W", "B"],
+      "platform": "archidekt",
+      "url": "https://archidekt.com/decks/28334464/piske_dihada",
+      "record": "2-1-0",
+      "notes": "",
+      "image_url": [
+        "https://cards.scryfall.io/normal/front/d/d/ddeb54d6-a600-42b9-98df-20f8d58caed8.jpg"
+      ]
+    },
+
     {
       "id": "evt-2026-08-15-claudio-claudio-ral",
       "event": "2026-08-15 — medieval",

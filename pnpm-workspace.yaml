@@ -1,3 +1,13 @@
 onlyBuiltDependencies:
   - esbuild
   - sharp
+
+# Security overrides for vulnerable transitive deps whose parents still pin
+# an affected range. Drop each one once upstream ships a fixed range.
+overrides:
+  "rollup@<4.59.0": "4.67.5"
+  "postcss-selector-parser@<6.1.5": "6.1.5"
+  "glob@>=9.0.0 <14.0.2": "14.0.3"
+  "minimatch@>=7.0.0 <11.0.1": "11.0.4"
+  "katex@<0.18.2": "0.18.11"
+  "path-to-regexp@>=6.0.0 <6.3.0": "6.3.0"

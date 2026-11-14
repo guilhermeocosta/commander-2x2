@@ -12,7 +12,7 @@ Commander 2x2 is meant to be a hub for our community, sharing rules, events, and
 
 ### Setup
 
-To run the project locally, use the Node.js version pinned in `.nvmrc` (22) and pnpm via corepack, then run the following commands:
+To run the project locally, use the Node.js version pinned in `.nvmrc` (26) and pnpm via corepack, then run the following commands:
 
 ```bash
 corepack enable

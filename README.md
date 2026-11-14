@@ -12,7 +12,7 @@ O objetivo do Commander 2x2 é ser um hub para a nossa comunidade, divulgando re
 
 ### Setup
 
-Para rodar o projeto localmente, use a versão do Node.js definida em `.nvmrc` (22) e o pnpm via corepack, e rode os seguintes comandos:
+Para rodar o projeto localmente, use a versão do Node.js definida em `.nvmrc` (26) e o pnpm via corepack, e rode os seguintes comandos:
 
 ```bash
 corepack enable

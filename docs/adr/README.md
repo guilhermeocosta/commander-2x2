@@ -33,8 +33,9 @@ What gets easier, what gets harder, and what we accept as a trade-off.
 
 ## Index
 
-| ADR                                          | Title                        | Status   |
-| -------------------------------------------- | ---------------------------- | -------- |
-| [0001](0001-static-astro-site-on-vercel.md)  | Static Astro site on Vercel  | Accepted |
-| [0002](0002-json-files-as-data-store.md)     | JSON files as the data store | Accepted |
-| [0003](0003-zod-validation-at-build-time.md) | Zod validation at build time | Accepted |
+| ADR                                                   | Title                                 | Status   |
+| ----------------------------------------------------- | ------------------------------------- | -------- |
+| [0001](0001-static-astro-site-on-vercel.md)           | Static Astro site on Vercel           | Accepted |
+| [0002](0002-json-files-as-data-store.md)              | JSON files as the data store          | Accepted |
+| [0003](0003-zod-validation-at-build-time.md)          | Zod validation at build time          | Accepted |
+| [0004](0004-semester-seasons-for-the-hall-da-fama.md) | Semester seasons for the Hall da Fama | Accepted |

@@ -23,7 +23,7 @@ pnpm dev
 ### Documentation
 
 - [AGENTS.md](AGENTS.md): entry point for coding agents (and humans): commands, layout and conventions
-- [CONTEXT.md](CONTEXT.md): domain glossary (format rules, decks, banlist, ranking)
+- [CONTEXT.md](CONTEXT.md): domain glossary (format rules, decks, banlist, ranking, seasons, prize pool)
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): stack, data flow, build and deploy
 - [docs/data-updates.md](docs/data-updates.md): how to update the ranking, decks, events and banlist
 - [CONTRIBUTING.md](CONTRIBUTING.md): setup, branches, commits and pull requests

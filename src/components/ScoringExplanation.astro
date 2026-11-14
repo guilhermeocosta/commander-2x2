@@ -1,6 +1,13 @@
 ---
-import { Calendar, Trophy, Equal, Info } from "@lucide/astro";
+import { Calendar, Trophy, Equal, Info, Gift, Ticket } from "@lucide/astro";
 import { POINTS } from "../schemas/leaderboard";
+
+export interface Props {
+  // The season's points goal (meta). Absent for seasons without one.
+  goalPoints?: number;
+}
+
+const { goalPoints }: Props = Astro.props;
 
 // Full class names so Tailwind can find them.
 const rules = [
@@ -26,8 +33,8 @@ const rules = [
 
       <p class="text-base-content/80 mb-4">
         A cada evento que você participa, inclusive os de Pre-Cons, você acumula pontos para o
-        ranking anual. O ranking classifica os 4 melhores jogadores para a final do fim do ano, e o
-        campeão é quem vence a final.
+        ranking da temporada. O ranking classifica os 4 melhores jogadores para a final, no último
+        evento da temporada, e os campeões são os dois que mais vencem na final.
       </p>
 
       <div class="grid grid-cols-3 gap-4">
@@ -45,6 +52,37 @@ const rules = [
           ))
         }
       </div>
+
+      {
+        goalPoints && (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="flex items-start gap-3 p-4 bg-base-100 rounded-lg">
+              <div class="bg-warning/10 p-3 rounded-full">
+                <Gift size={24} class="text-warning" />
+              </div>
+              <div>
+                <div class="font-bold">Meta: {goalPoints} pontos</div>
+                <p class="text-sm text-base-content/70">
+                  Quem fizer {goalPoints} pontos no semestre ganha um brinde garantido.{" "}
+                  <span class="badge badge-outline badge-sm">brinde a definir</span>
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-base-100 rounded-lg">
+              <div class="bg-secondary/10 p-3 rounded-full">
+                <Ticket size={24} class="text-secondary" />
+              </div>
+              <div>
+                <div class="font-bold">Sorteio: 1 ponto = 1 bilhete</div>
+                <p class="text-sm text-base-content/70">
+                  No dia da final, quem não bateu a meta nem está no Top 4 concorre a um sorteio. Só
+                  leva quem estiver presente.
+                </p>
+              </div>
+            </div>
+          </div>
+        )
+      }
 
       <p class="text-sm text-base-content/70 mt-4">
         Desempate: mais eventos e, depois, aproveitamento (vitórias ÷ partidas). Mais detalhes nas{

@@ -1,0 +1,70 @@
+---
+import { PiggyBank } from "@lucide/astro";
+import { POT_SHARES } from "../schemas/leaderboard";
+import { formatCurrency } from "../utils/currency";
+
+export interface Props {
+  pot: number;
+  entries: number;
+  potPerEntry: number;
+}
+
+const { pot, entries, potPerEntry }: Props = Astro.props;
+
+const split = [
+  { label: "Campeão (1º)", share: POT_SHARES.champion },
+  { label: "Campeão (2º)", share: POT_SHARES.champion },
+  { label: "3º lugar", share: POT_SHARES.third },
+  { label: "4º lugar", share: POT_SHARES.fourth },
+  { label: "Brindes da meta e sorteio", share: POT_SHARES.prizes },
+];
+---
+
+<div class="not-prose">
+  <div class="card bg-base-200 shadow-xl">
+    <div class="card-body">
+      <h3 class="card-title text-primary gap-2">
+        <PiggyBank size={24} />
+        Pote do semestre
+      </h3>
+
+      <p class="text-base-content/80">
+        A loja separa {formatCurrency(potPerEntry)} de cada inscrição para o pote, que é pago em crédito
+        na loja no dia da final.
+      </p>
+
+      <div class="stats bg-base-100 shadow my-4">
+        <div class="stat place-items-center">
+          <div class="stat-title">Acumulado até agora</div>
+          <div class="stat-value text-primary">{formatCurrency(pot)}</div>
+          <div class="stat-desc">
+            {`${entries} ${entries === 1 ? "inscrição" : "inscrições"} no semestre`}
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="table bg-base-100 rounded-lg">
+          <thead>
+            <tr>
+              <th>Quem</th>
+              <th class="text-center">Parte do pote</th>
+              <th class="text-right">Valor hoje</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              split.map((row) => (
+                <tr>
+                  <td>{row.label}</td>
+                  <td class="text-center">{row.share}%</td>
+                  <td class="text-right font-medium">{formatCurrency((pot * row.share) / 100)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

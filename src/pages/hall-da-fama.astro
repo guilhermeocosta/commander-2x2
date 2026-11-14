@@ -6,12 +6,18 @@ import LeaderboardPodium from "../components/LeaderboardPodium.astro";
 import LeaderboardTable from "../components/LeaderboardTable.astro";
 import ScoringExplanation from "../components/ScoringExplanation.astro";
 import AccordionFAQ from "../components/AccordionFAQ.astro";
-import { eventsData, leaderboardData } from "../data";
-import { rankPlayers } from "../schemas/leaderboard";
-import { splitEvents } from "../schemas/event";
+import PrizePool from "../components/PrizePool.astro";
+import { Info } from "@lucide/astro";
+import { currentSeason, eventsData, leaderboardData } from "../data";
+import { calculatePot, countEntries, POT_SHARES, rankPlayers } from "../schemas/leaderboard";
+import { formatCurrency } from "../utils/currency";
+import { findSeasonFinal, splitEvents } from "../schemas/event";
 
-// The top 4 qualify for the year-end final and get the podium.
-const rankedPlayers = rankPlayers(leaderboardData.players);
+const seasonFinal = findSeasonFinal(eventsData.events, currentSeason);
+const pot = calculatePot(currentSeason);
+
+// The top 4 qualify for the season final and get the podium.
+const rankedPlayers = rankPlayers(currentSeason.players);
 const podium = rankedPlayers.slice(0, 4);
 const rest = rankedPlayers.slice(4);
 // An unresolved tie for the 4th spot means the last qualifier isn't decided yet.
@@ -21,7 +27,7 @@ const hallFaqItems = [
   {
     question: "Como funciona a pontuação do Hall da Fama?",
     answer:
-      "Cada evento soma pontos no ranking anual: +1 por participar, +3 por vitória, +1 por empate e 0 por derrota. Vitórias, empates e derrotas contam por rodada, não por evento: um dia com 2 vitórias e 1 derrota vale 1 + 6 = 7 pontos.",
+      "Cada evento soma pontos no ranking da temporada: +1 por participar, +3 por vitória, +1 por empate e 0 por derrota. Vitórias, empates e derrotas contam por rodada, não por evento: um dia com 2 vitórias e 1 derrota vale 1 + 6 = 7 pontos.",
   },
   {
     question: "Quais eventos contam para o Hall da Fama?",
@@ -29,9 +35,55 @@ const hallFaqItems = [
       "Todos os eventos de Commander 2x2 da temporada contam, inclusive os de Pre-Cons. Evento é evento: um Pre-Cons vale o mesmo que um Regular.",
   },
   {
+    question: "Como funcionam as temporadas?",
+    answer:
+      "A partir de 2027, cada semestre é uma temporada independente: o 1º semestre vai de janeiro a junho e o 2º de julho a dezembro, com 6 eventos cada. O ranking começa do zero em cada semestre, e cada um tem sua própria final, seus campeões, seu pote e sua meta. Não existe título anual.",
+  },
+  {
     question: "Como funciona o desempate no ranking?",
     answer:
       "Quem tem mais pontos fica na frente. Se empatar, fica na frente quem foi a mais eventos. Se ainda empatar, vale o aproveitamento (vitórias divididas por partidas jogadas).",
+  },
+  {
+    question: "Quando e como é a final?",
+    answer:
+      "A final acontece no último evento do semestre (em junho e em dezembro), logo depois das 3 rodadas, que pontuam normalmente. Os 4 primeiros do ranking jogam 3 partidas que cobrem todas as combinações de duplas, então cada finalista joga uma vez ao lado de cada um dos outros.",
+  },
+  {
+    question: "Quem é o campeão?",
+    answer:
+      "Os campeões são os dois finalistas com mais vitórias na final (1º e 2º lugar), não quem termina em 1º no ranking: o ranking só define quem se classifica. Empates em vitórias na final são decididos pela posição no ranking.",
+  },
+  {
+    question: "E se um classificado faltar à final?",
+    answer:
+      "Só joga a final quem estiver no Top 4 e presente ao fim das rodadas do dia. A vaga de quem faltar passa para o próximo jogador presente no ranking.",
+  },
+  // Pot, goal and raffle questions only apply to seasons that have those rules (from 2027).
+  ...(currentSeason.potPerEntry !== undefined && currentSeason.goalPoints !== undefined
+    ? [
+        {
+          question: "Como funciona o pote?",
+          answer: `A loja separa ${formatCurrency(currentSeason.potPerEntry)} de cada inscrição nos eventos do semestre para o pote. O valor acumulado aparece nesta página e é pago em crédito na loja no dia da final.`,
+        },
+        {
+          question: "Como o pote é dividido?",
+          answer: `${POT_SHARES.champion}% para cada um dos dois campeões, ${POT_SHARES.third}% para o 3º lugar, ${POT_SHARES.fourth}% para o 4º lugar e ${POT_SHARES.prizes}% para os brindes da meta e o sorteio.`,
+        },
+        {
+          question: "O que é a meta de pontos?",
+          answer: `Quem fizer ${currentSeason.goalPoints} pontos no semestre ganha um brinde garantido, pago pelos ${POT_SHARES.prizes}% do pote.`,
+        },
+        {
+          question: "Como funciona o sorteio?",
+          answer: `No dia da final, quem não bateu a meta e não está no Top 4 concorre a um sorteio com 1 bilhete por ponto feito no semestre. O prêmio é o que sobrar dos ${POT_SHARES.prizes}% depois dos brindes da meta. Só leva quem estiver presente; se o sorteado não estiver, sorteia-se de novo.`,
+        },
+      ]
+    : []),
+  {
+    question: "Onde vejo os campeões das temporadas passadas?",
+    answer:
+      "Na página Campeões, que guarda os campeões, o Top 4, quem bateu a meta e os comandantes usados na final de cada temporada.",
   },
 ];
 
@@ -40,36 +92,55 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
 <BaseLayout
   title="Hall da Fama"
-  description="Ranking anual dos melhores jogadores de Commander 2x2. Acompanhe a pontuação e veja quem está classificado para a final do Hall da Fama."
+  description="Ranking semestral dos jogadores de Commander 2x2. Acompanhe a pontuação, o pote e quem está classificado para a final do Hall da Fama."
   keywords="Commander 2x2, ranking, hall da fama, leaderboard, pontuação, torneio, Magic: the Gathering"
 >
   <main class="container mx-auto px-4 py-16">
     <div class="prose prose-base lg:prose-lg mx-auto">
       <div class="text-center mb-8">
-        <h1 style="margin-bottom: 0;">Hall da Fama {leaderboardData.year}</h1>
+        <h1 style="margin-bottom: 0;">Hall da Fama {currentSeason.name}</h1>
         <p class="text-sm text-base-content/60">
-          Última atualização em {formatDate(leaderboardData.updatedAt)}
+          Temporada de {formatDate(currentSeason.startDate)} a {formatDate(currentSeason.endDate)}
+          {" · "}Última atualização em {formatDate(leaderboardData.updatedAt)}
         </p>
 
         <p class="text-lg text-base-content/80">
-          O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no fim do ano,
-          e o campeão é quem vence a final. Veja as <a href="#perguntas-frequentes"
-            >perguntas frequentes</a
+          O ranking define quem se classifica: os <strong>Top 4</strong> jogam a final no último evento
+          da temporada, e os campeões são os dois que mais vencem na final. Veja as <a
+            href="#perguntas-frequentes">perguntas frequentes</a
           >.
+        </p>
+
+        <p class="badge badge-lg badge-primary badge-outline not-prose">
+          {
+            seasonFinal
+              ? `Final: ${formatDate(seasonFinal.date)}, depois das 3 rodadas`
+              : "Final: data a definir"
+          }
         </p>
       </div>
 
-      <section class="mb-12">
-        <h2>Classificados</h2>
-        <LeaderboardPodium players={podium} />
-        {
-          tiedAtCutoff && (
-            <div role="alert" class="alert alert-warning not-prose mt-6">
-              A 4ª vaga está empatada em pontos, eventos e aproveitamento.
-            </div>
-          )
-        }
-      </section>
+      {
+        podium.length > 0 ? (
+          <section class="mb-12">
+            <h2>Classificados</h2>
+            <LeaderboardPodium players={podium} />
+            {tiedAtCutoff && (
+              <div role="alert" class="alert alert-warning not-prose mt-6">
+                A 4ª vaga está empatada em pontos, eventos e aproveitamento.
+              </div>
+            )}
+          </section>
+        ) : (
+          <div role="status" class="alert alert-info not-prose mb-12">
+            <Info class="shrink-0 size-6" aria-hidden="true" />
+            <span>
+              O ranking começa do zero a cada temporada. Os pontos aparecem aqui depois do primeiro
+              evento.
+            </span>
+          </div>
+        )
+      }
 
       {
         rest.length > 0 && (
@@ -99,8 +170,21 @@ const nextEvent = splitEvents(eventsData.events).upcoming[0];
 
       <section>
         <h2>Sistema de Pontuação</h2>
-        <ScoringExplanation />
+        <ScoringExplanation goalPoints={currentSeason.goalPoints} />
       </section>
+
+      {
+        pot !== undefined && currentSeason.potPerEntry !== undefined && (
+          <section class="mt-12">
+            <h2>Pote e Premiação</h2>
+            <PrizePool
+              pot={pot}
+              entries={countEntries(currentSeason.players)}
+              potPerEntry={currentSeason.potPerEntry}
+            />
+          </section>
+        )
+      }
 
       <section id="perguntas-frequentes" class="mt-12">
         <h2>Perguntas Frequentes</h2>

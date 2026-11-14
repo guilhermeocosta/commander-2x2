@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-11-08",
   "events": [
     {
       "title": "Regular Commander 2x2 + Final do Hall da Fama 2026",
@@ -8,7 +8,8 @@
       "location": "Medieval Cards - São Paulo",
       "format": "3 rodadas fixas + final do Hall",
       "entryFee": "R$ 30,00",
-      "description": "Torneio regular que ainda pontua para o Hall da Fama 2026. Depois das 3 rodadas, o Top 4 do ranking presente joga a final: 3 partidas, uma com cada combinação de duplas. Os dois com mais vitórias são os campeões."
+      "description": "Torneio regular que ainda pontua para o Hall da Fama 2026. Depois das 3 rodadas, o Top 4 do ranking presente joga a final: 3 partidas, uma com cada combinação de duplas. Os dois com mais vitórias são os campeões.",
+      "hallFinal": true
     },
     {
       "title": "Regular Commander 2x2",

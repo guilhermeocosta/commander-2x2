@@ -9,6 +9,8 @@ export const EventSchema = z.object({
   format: z.string(),
   entryFee: z.string(),
   description: z.string().optional(),
+  // True for the last event of a Hall da Fama season, where the Top 4 play the final.
+  hallFinal: z.boolean().optional(),
 });
 
 export const EventsDataSchema = z.object({
@@ -45,4 +47,14 @@ export function splitEvents<T extends { date: string }>(
     upcoming: sorted.filter((event) => event.date >= today),
     past: sorted.filter((event) => event.date < today).reverse(),
   };
+}
+
+/** The event that closes a season with the Hall da Fama final, if it's been scheduled. */
+export function findSeasonFinal<T extends { date: string; hallFinal?: boolean }>(
+  events: readonly T[],
+  season: { startDate: string; endDate: string }
+): T | undefined {
+  return events.find(
+    (event) => event.hallFinal && event.date >= season.startDate && event.date <= season.endDate
+  );
 }

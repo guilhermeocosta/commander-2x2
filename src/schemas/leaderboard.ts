@@ -18,18 +18,65 @@ export const PlayerSchema = z.object({
   tiebreakRoll: z.number().int().min(1).optional(),
 });
 
-export const LeaderboardDataSchema = z.object({
-  updatedAt: IsoDate,
-  year: z.number().int(),
-  players: z.array(PlayerSchema).superRefine(uniqueBy("id")),
-});
+// A season (temporada) has its own ranking, which starts from zero. 2026 was one annual
+// season; from 2027 on, each semester is a season of its own with its own final.
+export const SeasonSchema = z
+  .object({
+    // Unique: "2026" for the annual season, "2027-1" for a semester.
+    id: z.string().regex(/^\d{4}(-[12])?$/, "Expected YYYY or YYYY-1 / YYYY-2"),
+    // Display name, e.g. "2027 · 1º semestre".
+    name: z.string(),
+    startDate: IsoDate,
+    endDate: IsoDate,
+    // Points that earn the guaranteed prize (meta). Absent for seasons without one (2026).
+    goalPoints: z.number().int().positive().optional(),
+    // Reais set aside from each entry fee for the prize pool (pote). Absent when there's no pool.
+    potPerEntry: z.number().int().positive().optional(),
+    players: z.array(PlayerSchema).superRefine(uniqueBy("id")),
+  })
+  .refine((season) => season.startDate <= season.endDate, {
+    message: "startDate must be on or before endDate",
+    path: ["endDate"],
+  });
+
+export const LeaderboardDataSchema = z
+  .object({
+    updatedAt: IsoDate,
+    // The season shown on /hall-da-fama.
+    currentSeason: z.string(),
+    seasons: z.array(SeasonSchema).superRefine(uniqueBy("id")),
+  })
+  .refine((data) => data.seasons.some((season) => season.id === data.currentSeason), {
+    message: "currentSeason must be the id of one of the seasons",
+    path: ["currentSeason"],
+  });
 
 export type Player = z.infer<typeof PlayerSchema>;
 export type PlayerStats = z.infer<typeof PlayerStatsSchema>;
+export type Season = z.infer<typeof SeasonSchema>;
 export type LeaderboardData = z.infer<typeof LeaderboardDataSchema>;
+
+/** The season the Hall da Fama page shows. The schema guarantees it exists. */
+export function getCurrentSeason(data: LeaderboardData): Season {
+  return data.seasons.find((season) => season.id === data.currentSeason)!;
+}
 
 /** Points per event attended, per round won and per round drawn. */
 export const POINTS = { attendance: 1, win: 3, draw: 1 } as const;
+
+/** How the prize pool (pote) is split, in percent. Adds up to 100. */
+export const POT_SHARES = { champion: 30, third: 15, fourth: 15, prizes: 10 } as const;
+
+/** Entries in a season: every event attended is one paid entry. */
+export function countEntries(players: readonly Player[]): number {
+  return players.reduce((total, player) => total + player.stats.eventsAttended, 0);
+}
+
+/** The prize pool in reais, or `undefined` for a season without one. */
+export function calculatePot(season: Season): number | undefined {
+  if (season.potPerEntry === undefined) return undefined;
+  return countEntries(season.players) * season.potPerEntry;
+}
 
 export function calculateScore(stats: PlayerStats): number {
   return (

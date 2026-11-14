@@ -29,8 +29,8 @@ Commander 2x2 is a small static site. Every page is rendered to HTML at build ti
  src/content/regras/index.md ──── direct import ─────────► /regras
 ```
 
-- **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
-- **Domain logic** sits next to its schema: `calculateScore()` and `rankPlayers()` are in `src/schemas/leaderboard.ts`.
+- **Validated data.** `src/data/index.ts` parses every JSON file with its schema (`DecksDataSchema`, `EventsDataSchema`, `LeaderboardDataSchema`, `ChampionsDataSchema`, `BanlistDataSchema`) and exports the typed result. Pages import from there. A schema violation fails the build, which is how bad data gets caught in CI. Component props reuse the `z.infer` types instead of redeclaring the shapes.
+- **Domain logic** sits next to its schema: `calculateScore()`, `rankPlayers()` and `calculatePot()` are in `src/schemas/leaderboard.ts`, and `findSeasonFinal()` is in `src/schemas/event.ts`.
 - **Time-dependent output is frozen at build time.** The "upcoming vs past" split on `/eventos` and the "next event" on `/hall-da-fama` come from `splitEvents()` (`src/schemas/event.ts`). It compares each event's `YYYY-MM-DD` date with today's date in São Paulo during the build, and the event day itself still counts as upcoming. After an event date passes, the site only reflects it on the next deploy.
 - **No content collections.** Rules are imported directly as a module. The FAQ is a hardcoded array in `faq.astro`.
 
